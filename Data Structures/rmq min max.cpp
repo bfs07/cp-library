@@ -1,31 +1,46 @@
-#include <bits/stdc++.h>
-
-#define int long long
-using namespace std;
-
-string arr;
-
 struct node {
-	int menor, maior;
+	
+	int menor, maior, lazy;
 	node() {}
-	node(int menor, int maior) : menor(menor), maior(maior) {}
+	node(int menor, int maior, int lazy) : menor(menor), maior(maior), lazy(lazy) {}
+
 	node operator^(const node &x) const {
-		return node(min(menor, x.menor), max(maior, x.maior));
+		return node(min(menor, x.menor), max(maior, x.maior), 0);
 	}
+
 };
 
-node tree[312345];
+int arr[1000003];
+node tree[4123456];
+
+void propagate(int l, int r, int pos) {
+
+	if(tree[pos].lazy != 0) {
+		tree[pos].menor += tree[pos].lazy; 
+		tree[pos].maior += tree[pos].lazy; 
+		if(l != r) {
+			tree[2*pos+1].lazy += tree[pos].lazy;
+			tree[2*pos+2].lazy += tree[pos].lazy;
+		}
+		tree[pos].lazy = 0;
+	}
+
+}
+
 node build(int l, int r, int pos) {
 	if(l == r)
-		return tree[i] = node(arr[l], arr[l]);
+		return tree[pos] = node(arr[l], arr[l], 0);
 
 	int mid = (l+r) >> 1;
 	return tree[pos] = build(l, mid, 2*pos+1)^build(mid + 1, r, 2*pos+2);
 }
 
 node query(int l, int r, int i, int j, int pos) {
+	
+	propagate(l, r, pos);
+
 	if(l > r || l > j || r < i) {
-		return node(INF, -INF);
+		return node(INF, -INF, 0);
 	}
 
 	if(i <= l && r <= j) {
@@ -36,42 +51,26 @@ node query(int l, int r, int i, int j, int pos) {
 	return query(l, mid, i, j, 2*pos+1)^query(mid+1, r, i, j, 2*pos+2);
 }
 
-node update(int l, int r, int ind, int v, int pos) {
+// range sum update
+node update(int l, int r, int i, int j, int v, int pos) {
+
+	propagate(l, r, pos);
+
 	if(l > r || l > j || r < i) {
 		return tree[pos];
 	}
 
-	if(l == r && l == ind) {
-		return node(v, v);
+	if(i <= l && r <= j) {
+		tree[pos].menor += v;
+		tree[pos].maior += v;
+		if(l != r) {
+			tree[2*pos+1].lazy += v;
+			tree[2*pos+2].lazy += v;
+		}
+		return node(tree[pos].menor, tree[pos].maior, 0);
 	}
 
 	int mid = (l+r)>>1;
-	return tree[pos] = update(l, mid, ind, v, 2*pos+1)^update(mid+1, r, ind, v, 2*pos+2);
+	return tree[pos] = update(l, mid, i, j, v, 2*pos+1)^update(mid+1, r, i, j, v, 2*pos+2);
 
-}
-
-signed main() {
-
-	string x;
-
-	int n;
-	cin >> n;
-	cin >> arr;
-
-	
-	for(int i = 1; i < x.size(); i++) {
-		if(x[i] < x[0]) {
-			cout << "No" << endl;
-			return 0;
-		} else if(x[i] == x[0]) {
-			node l = query(0, n-1, 1, i-1, 0);
-			node r = query(0, n-1, i+1, n-1, 0);
-			if(query(0, n-1, ))
-		} else {
-			greateR = true;
-		}
-	}
-
-	
-	cout << "Yes" << endl;
 }
