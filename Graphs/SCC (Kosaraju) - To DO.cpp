@@ -1,17 +1,17 @@
-bool vis[312345];
+int comp[312345];
 vector<int> adj[312345];
 // grafo reverso de adj
 vector<int> trans[312345];
 vector<int> scc[312345];
 int V;
 
-void dfsTrans(int u, int id, bool vis[]) {
-  vis[u] = true;
+void dfsTrans(int u, int id, int comp[]) {
+  comp[u] = id;
   scc[id].push_back(u);
  
   for (int v: trans[u])
-    if (!vis[v])
-      dfsTrans(v, id, vis);
+    if (!comp[v])
+      dfsTrans(v, id, comp);
 }
  
 void getTranspose() {
@@ -20,12 +20,12 @@ void getTranspose() {
       trans[v].push_back(u);
 }
 
-void dfsFillOrder(int u, bool vis[], stack<int> &Stack) {
-  vis[u] = true;
+void dfsFillOrder(int u, int comp[], stack<int> &Stack) {
+  comp[u] = true;
  
   for(int v: adj[u])
-    if(!vis[v])
-      dfsFillOrder(v, vis, Stack);
+    if(!comp[v])
+      dfsFillOrder(v, comp, Stack);
  
   Stack.push(u);
 }
@@ -37,21 +37,21 @@ void computeSCC() {
   stack<int> Stack; 
   // Fill vertices in stack according to their finishing times
   for(int i = 0; i < V; i++)
-    if(vis[i] == false)
-      dfsFillOrder(i, vis, Stack);
+    if(comp[i] == false)
+      dfsFillOrder(i, comp, Stack);
  
   // Create a reversed graph
   getTranspose();
  
-  memset(vis, 0, sizeof(vis));
+  memset(comp, 0, sizeof(comp));
  
   // Now process all vertices in order defined by Stack
-  int id = 0;
+  int id = 1;
   while(Stack.empty() == false) {
     int v = Stack.top();
     Stack.pop();
  
-    if(vis[v] == false)
-      dfsTrans(v, id++, vis);
+    if(comp[v] == false)
+      dfsTrans(v, id++, comp);
   }
 }

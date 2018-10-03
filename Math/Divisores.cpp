@@ -1,5 +1,5 @@
 // OBS: ATÉ ∛N    DIVISORES DE N
-vector<int> printDivisors(int n) {
+vector<int> divisors(int n) {
 	int sq = sqrt(n);
 	vector<int> ans;
   for (int i=1; i<=sq+1; i++) {

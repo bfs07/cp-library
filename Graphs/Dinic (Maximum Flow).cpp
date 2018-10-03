@@ -1,82 +1,100 @@
-const int MAXVERT = 3010;
-const int MAXEDGES = 200000;
+struct Dinic {
 
-int adj[MAXVERT], to[MAXEDGES], ant[MAXEDGES], wt[MAXEDGES], z, n;
-// wt = weight
-int copy_adj[MAXVERT], fila[MAXVERT], level[MAXVERT];
-int wtReal[MAXEDGES], V;
-int aux[MAXEDGES];	
-
-void clear() {
-	memset(adj, -1, sizeof(adj));
-	z = 0;
-}
-
-// coloca a i-ésima aresta criada num vetor
-// a i-ésima aresta é colocada na posição 2*i dois vetores to,ant,wt
-void add(int u, int v, int k) {
-	to[z] = v;
-	ant[z] = adj[u];
-	wt[z] = k;
-	adj[u] = z++;
-	swap(u, v);
-	to[z] = v;
-	ant[z] = adj[u];
-	wt[z] = 0;
-	adj[u] = z++;
-}
-
-void addToSource(int l, int k) {
-	add(0, l, k);
-}
-
-void addToSink(int r, int k) {
-	add(r, V-1, k);
-}
-
-int bfs(int source, int sink) {
-	memset(level, -1, sizeof(level));
-	level[source] = 0;
-	int front = 0, size = 0, v;
-	fila[size++] = source;
-	while(front < size) {
-		v = fila[front++];
-		for(int i = adj[v]; i != -1; i = ant[i]) {
-			if(wt[i] && level[to[i]] == -1) {
-				level[to[i]] = level[v] + 1;
-				fila[size++] = to[i];
-			}
-		}
-	}
-	return level[sink] != -1;
-}
-
-int dfs(int v, int sink, int flow) {
-	if(v == sink) return flow;
-	int f;
-	for(int &i = copy_adj[v]; i != -1; i = ant[i]) {
-		if(wt[i] && level[to[i]] == level[v] + 1 && (f = dfs(to[i], sink, min(flow, wt[i])))) {
-			wt[i] -= f;
-			wt[i ^ 1] += f;
-			return f;
-		}
-	}
-	return 0;
-}
-
-int maxflow() {
-	int ret = 0, flow;
-	int source = 0, sink = V-1;
-	while(bfs(source, sink)) {
-		memcpy(copy_adj, adj, sizeof(adj));
-		while((flow = dfs(source, sink, 1 << 30))) {
-			ret += flow;
-		}
-	}
-
-	// apos a execução do algoritmo wt estara modificado
-	return ret;
-}
+  struct FlowEdge{
+    int v, rev, c, cap;
+    FlowEdge() {}
+    FlowEdge(int v, int c, int cap, int rev) : v(v), c(c), cap(cap), rev(rev) {}
+  };
+  
+  vector< vector<FlowEdge> >  adj;
+  vector<int> level, used;
+  int src, snk;
+  int sz;
+  int max_flow;
+  Dinic(){}
+  Dinic(int n){
+    src = 0;
+    snk = n+1;
+    adj.resize(n+2, vector< FlowEdge >());
+    level.resize(n+2);
+    used.resize(n+2);
+    sz = n+2;
+    max_flow = 0;
+  }
+  
+  void add_edge(int u, int v, int c){
+    int id1 = adj[u].size();
+    int id2 = adj[v].size();
+    adj[u].pb(FlowEdge(v, c, c, id2));
+    adj[v].pb(FlowEdge(u, 0, 0, id1));
+  }
+  
+  void add_to_src(int v, int c){
+    adj[src].pb(FlowEdge(v, c, c, -1));
+  }
+  
+  void add_to_snk(int u, int c){
+    adj[u].pb(FlowEdge(snk, c, c, -1));
+  }
+  
+  bool bfs(){
+    for(int i=0; i<sz; i++){
+      level[i] = -1;
+    }
+    
+    level[src] = 0;
+    queue<int> q; q.push(src);
+    
+    while(!q.empty()){
+      int cur = q.front();
+      q.pop();
+      for(FlowEdge e : adj[cur]){
+        if(level[e.v] == -1 && e.c > 0){
+          level[e.v] = level[cur]+1;
+          q.push(e.v);
+        }
+      }
+    }
+    
+    return (level[snk] == -1 ? false : true);
+  }
+  
+  int send_flow(int u, int flow){
+    if(u == snk) return flow;
+    
+    for(int &i = used[u]; i<adj[u].size(); i++){
+      FlowEdge &e = adj[u][i];
+      
+      if(level[u]+1 != level[e.v] || e.c <= 0) continue;
+      
+      int new_flow = min(flow, e.c);
+      int adjusted_flow = send_flow(e.v, new_flow);
+      
+      if(adjusted_flow > 0){
+        e.c -= adjusted_flow;
+        if(e.rev != -1) adj[e.v][e.rev].c += adjusted_flow;
+        return adjusted_flow;
+      }
+    }
+    
+    return 0;
+  }
+  
+  void calculate(){
+    if(src == snk){max_flow = -1; return;} //not sure if needed
+    
+    max_flow = 0;
+    
+    while(bfs()){
+      for(int i=0; i<sz; i++) 
+        used[i] = 0;
+      while(int inc = send_flow(src, INF)) 
+        max_flow += inc;
+    }
+    
+  }
+  
+};
 
 void print() {
 

@@ -1,12 +1,14 @@
 bitset<(int)1e5+3> primesInSeg;
+vector<int> segPrimes;
+
 bitset<(int)1e6+3> isPrime;
 int spf[(int)1e6+3];
 vector<int> primes;
-vector<int> segPrimes;
 
 void sieve(int n = (int)1e6) {
 
 	isPrime.set();
+  iota(spf, spf+n, 0);
 	for(int i = 2; i*i <= n; i++) {
 		if(!isPrime[i])
 			continue;
@@ -17,15 +19,6 @@ void sieve(int n = (int)1e6) {
 		}
 		primes.pb(i);
 	}
-}
-
-vector<int> getFactorization(int x) {
-  vector<int> ret;
-  while (x != 1) {
-    ret.push_back(spf[x]);
-    x = x / spf[x];
-  }
-  return ret;
 }
 
 void segSieve(int l, int r) {

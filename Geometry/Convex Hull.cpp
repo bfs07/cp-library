@@ -1,5 +1,4 @@
 // Asymptotic complexity: O(n log n).
-typedef double double;
 struct Point {
 	double x, y;
 	bool operator <(const Point &p) const {
@@ -8,10 +7,12 @@ struct Point {
 		   abaixo, e antihorário pelo cross abaixo */
 	}
 };
+
 double cross(const Point &O, const Point &A, const Point &B) {
 	return (A.x - O.x) * (B.y - O.y) - (A.y - O.y) * (B.x - O.x);
+}
 
-}vector<Point> convex_hull(vector<Point> P) {
+vector<Point> convex_hull(vector<Point> P) {
 	int n = P.size(), k = 0;
 	vector<Point> H(2 * n);
 	// Sort points lexicographically
