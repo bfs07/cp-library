@@ -1,20 +1,20 @@
-struct Point {
+struct pto {
   double x, y;
-  bool operator <(const Point &p) const {
+  bool operator <(const pto &p) const {
     return x < p.x || (x == p.x && y < p.y);
     /* a impressao será em prioridade por mais a esquerda, mais 
        abaixo, e antihorário pelo cross abaixo */
   }
 };
-double cross(const Point &O, const Point &A, const Point &B) {
+double cross(const pto &O, const pto &A, const pto &B) {
   return (A.x - O.x) * (B.y - O.y) - (A.y - O.y) * (B.x - O.x);
 }
 
-vector<Point> lower, upper;
+vector<pto> lower, upper;
 
-vector<Point> convex_hull(vector<Point> &P) {
+vector<pto> convex_hull(vector<pto> &P) {
   int n = P.size(), k = 0;
-  vector<Point> H(2 * n);
+  vector<pto> H(2 * n);
   // Sort points lexicographically
   sort(P.begin(), P.end());
   // Build lower hull

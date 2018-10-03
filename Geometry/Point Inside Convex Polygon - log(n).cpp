@@ -11,23 +11,23 @@ using namespace std;
 #define ss second
 #define int long long
 
-struct Point {
+struct pto {
   double x, y;
-  bool operator <(const Point &p) const {
+  bool operator <(const pto &p) const {
     return x < p.x || (x == p.x && y < p.y);
     /* a impressao será em prioridade por mais a esquerda, mais 
        abaixo, e antihorário pelo cross abaixo */
   }
 };
-double cross(const Point &O, const Point &A, const Point &B) {
+double cross(const pto &O, const pto &A, const pto &B) {
   return (A.x - O.x) * (B.y - O.y) - (A.y - O.y) * (B.x - O.x);
 }
 
-vector<Point> lower, upper;
+vector<pto> lower, upper;
 
-vector<Point> convex_hull(vector<Point> &P) {
+vector<pto> convex_hull(vector<pto> &P) {
   int n = P.size(), k = 0;
-  vector<Point> H(2 * n);
+  vector<pto> H(2 * n);
   // Sort points lexicographically
   sort(P.begin(), P.end());
   // Build lower hull
@@ -65,13 +65,13 @@ vector<Point> convex_hull(vector<Point> &P) {
   return H;
 }
 
-bool insidePolygon(Point p, vector<Point> &arr) {
+bool insidePolygon(pto p, vector<pto> &arr) {
 
   if(pair<double,double>(p.x, p.y) == pair<double,double>(lower[0].x, lower[0].y))
     return true;
 
-  Point lo = {p.x, -(double)INF};
-  Point hi = {p.x, (double)INF};
+  pto lo = {p.x, -(double)INF};
+  pto hi = {p.x, (double)INF};
   auto itl = lower_bound(lower.begin(), lower.end(), lo);
   auto itu = lower_bound(upper.begin(), upper.end(), lo);
 
@@ -111,15 +111,15 @@ signed main () {
 
   cin >> n >> m >> k;
 
-  vector<Point> arr(n);
+  vector<pto> arr(n);
 
-  for(Point &x: arr) {
+  for(pto &x: arr) {
     cin >> x.x >> x.y;
   }
 
   convex_hull(arr);
 
-  Point p;
+  pto p;
 
   int c = 0;
   while(m--) {
