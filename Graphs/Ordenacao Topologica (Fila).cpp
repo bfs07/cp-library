@@ -1,17 +1,15 @@
-// ESSE CODIGO PREVE CICLOS(ERROS)
-// The function to do Topological Sort.
-void topologicalSort() {
-  vector<int> in_degree(V, 0);
+void topologicalSort(int n) {
+  vector<int> in_degree(n, 0);
 
-  for (int u=0; u<V; u++){
+  for (int u=0; u<n; u++){
     vector<int>::iterator itr;
     for (itr = adj[u].begin(); itr != adj[u].end(); itr++)
       in_degree[*itr]++;
   } 
 
   queue<int> q;
-  for (int i = 0; i < V; i++)
-    if (in_degree[i] == 0)
+  for (int i = 0; i < n; i++)
+    if (in_degree[i] == 0) 
       q.push(i);
  
   int cnt = 0;
@@ -26,7 +24,7 @@ void topologicalSort() {
     cnt++;
   }
  
-  if (cnt != V) {
+  if (cnt != n) {
     cout << "There exists a cycle in the graph\n";
     return;
   } 
