@@ -30,8 +30,8 @@ bool Union(int p, int q) {
 
 int kruskal(int n, int m) {
 
-	iota(root.begin(), root.begin() + n, 0);
-	fill(sz.begin(), sz.begin()+n, 1);
+	iota(root.begin(), root.begin() + n + 1, 0);
+	fill(sz.begin(), sz.begin()+n  + 1, 1);
 
 	int c = 0;
 	for(int i = 0; i < (int)edges.size(); i++) {
