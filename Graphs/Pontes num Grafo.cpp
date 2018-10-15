@@ -2,10 +2,10 @@
 // OBS: PRESTAR ATENCAO EM SELF-LOOPS, É MELHOR NÃO ADICIONA-LOS
 // SO FUNCIONA EM GRAFO NÃO DIRECIONADO
 float t=1;
-vector<int> T(INF,0); //Tempo necessário para chegar naquele vértice na dfs 
-vector<int> adj[INF]; 
-vector<int> Low(INF); // Tempo “mínimo” para chegar naquele vértice na dfs
-vector<int> ciclo(INF, false);
+vector<int> T((int)2e6,0); //Tempo necessário para chegar naquele vértice na dfs 
+vector<int> adj[(int)2e6]; 
+vector<int> Low((int)2e6); // Tempo “mínimo” para chegar naquele vértice na dfs
+vector<int> ciclo((int)2e6, false);
 void dfs(int u, int p){
 	Low[u] = T[u] = t;
 	t++;
