@@ -6,6 +6,7 @@ vector<int> T((int)2e6,0); //Tempo necessário para chegar naquele vértice na d
 vector<int> adj[(int)2e6]; 
 vector<int> Low((int)2e6); // Tempo “mínimo” para chegar naquele vértice na dfs
 vector<int> ciclo((int)2e6, false);
+vector<ii> bridges;
 void dfs(int u, int p){
 	Low[u] = T[u] = t;
 	t++;
@@ -20,7 +21,7 @@ void dfs(int u, int p){
 		  dfs(v,u);
 		  Low[u]=min(Low[u], Low[v]);
 		  if(Low[v]>T[u]) {
-		    cout << u << v << endl;
+		    bridges.pb(ii(min(u,v), (max(u,v))));
 			// ponte de u para v
 		  }
 		}
