@@ -31,3 +31,30 @@ void dfs(int u, int p){
 		//checa se o vértice u faz    //parte de um ciclo
 	}
 }
+
+void clear() {
+
+	for(int i = 0; i <= n; i++) {
+		T[i] = 0, Low[i] = 0, adj[i].clear(), ciclo[i] = false;
+	}
+	bridges.clear();
+
+}
+
+signed main () {
+	
+	for(int i = 0; i < n; i++) 
+		if(T[i] == 0)
+			dfs(i, -1);
+
+	sort(bridges.begin(), bridges.end());
+
+	cout << (int)bridges.size() << endl;
+	for(int i = 0; i < bridges.size(); i++) {
+		cout << bridges[i].ff << " - " << bridges[i].ss << endl;
+	}
+	cout << endl;
+
+	clear();
+
+}
