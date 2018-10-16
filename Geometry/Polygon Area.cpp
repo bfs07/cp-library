@@ -1,5 +1,5 @@
 
-double polygonArea(vector<pto> arr, int n) {
+double polygonArea(vector<pto> &arr, int n) {
 	int area = 0;
 	// N = quantidade de pontos no polígono e armazenados em p;
 	// OBS: VALE PARA CONVEXO E NÃO CONVEXO
