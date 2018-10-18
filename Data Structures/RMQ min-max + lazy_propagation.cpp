@@ -61,12 +61,8 @@ node update(int l, int r, int i, int j, int v, int pos) {
 	}
 
 	if(i <= l && r <= j) {
-		tree[pos].menor += v;
-		tree[pos].maior += v;
-		if(l != r) {
-			tree[2*pos+1].lazy += v;
-			tree[2*pos+2].lazy += v;
-		}
+    tree[pos].lazy += v;
+    propagate(l, r, pos);
 		return node(tree[pos].menor, tree[pos].maior, 0);
 	}
 
