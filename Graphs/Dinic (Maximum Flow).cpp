@@ -8,7 +8,7 @@ struct Dinic {
   
   vector< vector<FlowEdge> >  adj;
   vector<int> level, used;
-  int src, snk;
+  int src, snk, V;
   int sz;
   int max_flow;
   Dinic(){}
@@ -19,6 +19,7 @@ struct Dinic {
     level.resize(n+2);
     used.resize(n+2);
     sz = n+2;
+    V = n+2;
     max_flow = 0;
   }
   
@@ -86,28 +87,86 @@ struct Dinic {
     max_flow = 0;
     
     while(bfs()){
-      for(int i=0; i<sz; i++) 
-        used[i] = 0;
-      while(int inc = send_flow(src, INF)) 
-        max_flow += inc;
+      for(int i=0; i<sz; i++) used[i] = 0;
+      while(int inc = send_flow(src, INF)) max_flow += inc;
     }
     
   }
   
+  vector< ii > mincut(){
+    bool vis[sz];
+    for(int i=0; i<sz; i++) vis[i] = false;
+    queue<int> q;
+    q.push(src);
+    vis[src] = true;
+    while(!q.empty()){
+      int cur = q.front();
+      q.pop();
+      for(FlowEdge e : adj[cur]){
+        if(e.c > 0 && !vis[e.v]){
+          q.push(e.v);
+          vis[e.v] = true;
+        }
+      }
+    }
+    vector< ii > cut;
+    for(int i=1; i<=sz-2; i++){
+      if(!vis[i]) continue;
+      for(FlowEdge e : adj[i]){
+        if(1 <= e.v && e.v <= sz-2 && !vis[e.v] && e.cap > 0 && e.c == 0) cut.pb(ii(i, e.v));
+      }
+    }
+    return cut;
+  }
+  
+  vector< ii > min_edge_cover(){
+    bool covered[sz];
+    for(int i=0; i<sz; i++) covered[i] = false;
+    vector< ii > edge_cover;
+    for(int i=1; i<sz-1; i++){
+      for(FlowEdge e : adj[i]){
+        if(e.cap == 0 || e.v > sz-2) continue;
+        if(e.c == 0){
+          edge_cover.pb(ii(i, e.v));
+          covered[i] = true;
+          covered[e.v] = true;
+          break;
+        }
+      }
+    }
+    for(int i=1; i<sz-1; i++){
+      for(FlowEdge e : adj[i]){
+        if(e.cap == 0 || e.v > sz-2) continue;
+        if(e.c == 0) continue;
+        if(!covered[i] || !covered[e.v]){
+          edge_cover.pb(ii(i, e.v));
+          covered[i] = true;
+          covered[e.v] = true;
+        }
+      }
+    }
+    return edge_cover;
+  }
+
+  vector<vector<int>> allFlow() {
+    vector<int> row(V, 0);
+    vector<vector<int>> ret(V, row);
+
+    for(int i = 0; i < V; i++) {
+      for(FlowEdge x: adj[i]) {
+        // flow from vertex i to x.v
+        ret[i][x.v] = x.cap - x.c;
+      }   
+    }
+
+    // for(int i = 0; i < V; i++) {
+    //   for(int j  = 0; j < V; j++) {
+    //     cout << ret[i][j] << ' ';
+    //   }
+    //   cout << endl;
+    // }
+
+    return ret;
+  }
+  
 };
-
-void print() {
-
-	int mat[V+1][V+1];
-	memset(mat, 0, sizeof(mat));
-	for(int i = 0; i < z; i+= 2) {
-		mat[to[i+1]][to[i]] = wt[i+1];
-	}
-
-	for(int i = 0; i < V; i++) {
-		for(int j = 0; j < V; j++) {
-			cout << mat[i][j] << ' ';
-		}
-		cout << endl;
-	}
-}
