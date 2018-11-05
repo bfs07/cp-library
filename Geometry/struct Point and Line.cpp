@@ -18,9 +18,6 @@ struct Point {
         return Point(a.x - b.x, a.y - b.y);
     }
   	
-    bool operator-(const Point &a) const {
-  		return (x-a.x,y-a.y);
-  	}
   	bool operator !=(const Point& a) const {
         return (x != a.x || y != a.y);
     }
