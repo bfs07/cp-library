@@ -71,7 +71,7 @@ int fordFulkerson(int s, int t) {
 void print(int n) {
   for(int i = 1; i <= m; i++) {
     for(int j = m+1; j <= m*2; j++) {
-	    cout << “flow from i(left) to j(right) is “ << graph[i][j] - rGraph[i][j] << endl;
+	    cout << "flow from i(left) to j(right) is " << graph[i][j] - rGraph[i][j] << endl;
     }
   }
 }

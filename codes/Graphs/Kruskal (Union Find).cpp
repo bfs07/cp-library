@@ -7,31 +7,38 @@ struct edge {
 vector<edge> edges((int)2e6);
 vector<int> root((int)2e6), sz((int)2e6);
 
+void init(int n) {
+
+  iota(root.begin(), root.begin() + n + 1, 0);
+  fill(sz.begin(), sz.begin()+ n + 1, 1);
+
+}
+
 int Find(int x) {
-	if(root[x] == x)
-		return x;
-	return root[x] = Find(root[x]);
+  if(root[x] == x)
+    return x;
+  return root[x] = Find(root[x]);
 }
 
 bool Union(int p, int q) {
-	p = Find(p), q = Find(q);
-	if(p == q)
-		return false;	
-	
-	if(sz[p] > sz[q]) {
-		root[q] = p;
-		sz[p] += sz[q];
-	} else {
-		root[p] = q;
-		sz[q] += sz[p];
-	}
-	return true;	
+  p = Find(p), q = Find(q);
+  if(p == q)
+    return false; 
+  
+  if(sz[p] > sz[q]) {
+    root[q] = p;
+    sz[p] += sz[q];
+  } else {
+    root[p] = q;
+    sz[q] += sz[p];
+  }
+  return true;  
 }
+
 
 int kruskal(int n, int m) {
 
-	iota(root.begin(), root.begin() + n + 1, 0);
-	fill(sz.begin(), sz.begin()+n  + 1, 1);
+  init(n);
 
 	int c = 0;
 	for(int i = 0; i < (int)edges.size(); i++) {

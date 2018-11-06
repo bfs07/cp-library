@@ -4,14 +4,49 @@
 \usepackage{multicol}
 \usepackage[margin=0.5in, bmargin=0.4in, tmargin=0.8in]{geometry}
 \usepackage{titlesec}
+\usepackage{graphicx}
 \usepackage{etoolbox}
 \usepackage{fancyhdr}
 \usepackage[titles]{tocloft}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks,
+  citecolor=black,
+  filecolor=black,
+  linkcolor=black,
+  urlcolor=black
+}
  
 \pagestyle{fancy}
 \fancyhf{}
 \rhead{Page \thepage}
 \lhead{Federal University of Bahia - Universidade Federal da Bahia}
+
+\lstset{
+language=R,   % R code
+literate=
+{≡}{{Congruo}}1
+{Ã}{{\~A}}1
+{Á}{{\'A}}1
+{Â}{{\^A}}1
+{á}{{\'a}}1
+{à}{{\`a}}1
+{ã}{{\~a}}1
+{â}{{\^a}}1
+{é}{{\'e}}1
+{É}{{\'E}}1
+{ê}{{\^e}}1
+{í}{{\'i}}1
+{ó}{{\'o}}1
+{ô}{{\^o}}1
+{õ}{{\~o}}1
+{ú}{{\'u}}1
+{ü}{{\"u}}1
+{ç}{{\c{c}}}1
+}
 
 \input{lst}
 
@@ -84,61 +119,489 @@
 
 \tableofcontents
 \newpage
+\newpage
 
 \section{Template}{
-  \includecode{extras/template.cpp}
+  \includecode{template.cpp}
 }
 
-\section{Matemática}{
-  \subsection{Geometria}{
-    \includecode{geometry/geo.cpp}
+\section{Funcoes Interessantes}{
+
+  \subsection{GCD}{
+    \includecode{"Funcoes Interessantes"/GCD.cpp}
   }
-  \subsection{Exponenciação}{
-    \includecode{math/exp.cpp}
+
+  \subsection{HIPOTENUSA}{
+    \includecode{"Funcoes Interessantes"/Hipotenusa.cpp}
   }
-  \subsection{Divisores}{
-    \includecode{math/divisores.cpp}
+
+  \subsection{SCANF DE UMA STRING}{
+    \includecode{"Funcoes Interessantes"/"Scanf de uma string".cpp}
   }
-  \subsection{Permutações}{
-    \includecode{math/math.cpp}
+
+  \subsection{PRINTF PARA UMA STRING}{
+    \includecode{"Funcoes Interessantes"/"Printf de uma string".cpp}
+  }
+
+  \subsection{CLIMITS}{
+    \includecode{"Funcoes Interessantes"/CLIMITS.cpp}
+  }
+
+  \subsection{ROTATE (LEFT)}{
+    \includecode{"Funcoes Interessantes"/"Rotate (Left)".cpp}
+  }
+
+  \subsection{ROTATE (RIGHT)}{
+    \includecode{"Funcoes Interessantes"/"Rotate (Right)".cpp}
+  }
+
+  \subsection{WIDTH}{
+    \includecode{"Funcoes Interessantes"/"Width".cpp}
+  }
+
+  \subsection{INT TO STRING (C++11)}{
+    \includecode{"Funcoes Interessantes"/"Int to String".cpp}
+  }
+
+  \subsection{PERMUTAÇÃO}{
+    \includecode{"Funcoes Interessantes"/"Permutacao".cpp}
+  }
+
+  \subsection{MAIOR E MENOR ELEMENTO NUM VETOR}{
+    \includecode{"Funcoes Interessantes"/"Max e Min Element num vetor".cpp}
+  }
+
+  \subsection{CHECAGEM E TRANSFORMAÇÃO DE CARACTERE}{
+    \includecode{"Funcoes Interessantes"/"Checagem e Tranformacao de Caractere".cpp}
+  }
+
+  \subsection{SUBSTRING}{
+    \includecode{"Funcoes Interessantes"/"Substring".cpp}
+  }
+
+  \subsection{REMOVE REPETIÇÕES CONTÍNUAS NUM VETOR}{
+    \includecode{"Funcoes Interessantes"/"Remove Repeticoes Continuas num Vetor".cpp}
+  }
+
+  \subsection{CHECAGEM DE BITS}{
+    \includecode{"Funcoes Interessantes"/"Checagem de Bits".cpp}
+  }
+
+  \subsection{INT TO BINARY STRING}{
+    \includecode{"Funcoes Interessantes"/"Int to Binary String".cpp}
+  }
+
+  \subsection{BINARY STRING TO INT}{
+    \includecode{"Funcoes Interessantes"/"Binary String to Int".cpp}
+  }
+
+  \subsection{STRING TO LONG LONG}{
+    \includecode{"Funcoes Interessantes"/"String to Long Long".cpp}
+  }
+
+  \subsection{SPLIT FUNCTION }{
+    \includecode{"Funcoes Interessantes"/"Split Function".cpp}
+  }
+
+  \subsection{LEITURA NUM ARQUIVO}{
+    \includecode{"Funcoes Interessantes"/"Leitura de Arquivo".cpp}
+  }
+
+  \subsection{ESCRITA EM ARQUIVO}{
+    \includecode{"Funcoes Interessantes"/"Escrita em Arquivo".cpp}
+  }
+
+  \subsection{CHECAGEM BRUTE FORCE COM SOLUCAO}{
+    \includecode{"Funcoes Interessantes"/"Checagem Brute Force com Solucao".cpp}
+  }    
+
+}
+
+\newpage
+
+\section{DP}{
+  \subsection{PROBLEMA DO TROCO}{
+
+    \includecode{DP/troco.cpp}
+  }
+
+  \subsection{PROBLEMA DA MOCHILA}{
+    \includecode{DP/Knapsack.cpp}
+  }
+
+  \subsection{CATALAN (1, 1, 2, 5, 14, 42, 132, 429) - $O(n)$}{
+    \centering
+    \includegraphics[scale=0.5]{Images/Catalan.jpg}
+    \includecode{DP/Catalan.cpp}
+  }
+
+  \subsection{LONGEST COMMON SUBSEQUENCE - $O(n^{2})$}{
+    \includecode{DP/"Longest Common Subsequence".cpp}
+  }
+
+  \subsection{LONGEST COMMON SUBSTRING - $O(n^{2})$}{
+    \includecode{DP/"Longest Common Substring".cpp}
+  }
+
+  \subsection{LONGEST INCREASING SUBSEQUENCE - $O(n log(n))$}{
+    \includecode{DP/"Longest Increasing Subsequence.cpp"}
+  }
+
+  \subsection{LONGEST INCREASING SUBSEQUENCE 2D (NOT SORTED) - $O(n log(n))$}{
+    \includecode{DP/"Longest Increasing Subsequence 2D (not sorted).cpp"}
+  }
+
+  \subsection{LONGEST INCREASING SUBSEQUENCE 2D (SORTED) - $O(n log(n))$}{
+    \includecode{DP/"Longest Increasing Subsequence 2D (sorted).cpp"}
+  }
+
+  \subsection{ACHAR MAIOR PALÍNDROMO}{
+    \includecode{DP/"Achar Maior Palindromo.txt"}
+  }
+
+  \subsection{SUBSET SUM COM BITSET - $O((maxSum)\text{$*$}n/32)$}{
+    \includecode{DP/"Subset Sum com Bitset.cpp"}
+  }
+
+  \subsection{DIGIT DP}{
+    \includecode{DP/"Digit DP.cpp"}
+  }
+}
+  
+\newpage
+
+\section{Math}{
+  \subsection{INCLUSÃO–EXCLUSÃO}{
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[scale=0.5]{Images/Inclusao-Exclusao.jpg}
+      % \caption{Formula}
+      % \label{fig:Inclusao-Exclusao1}
+    \end{figure}
+
+   % \includegraphics[scale=0.5]{Inclusao-Exclusao.jpg}
+   % \centering
+   % \caption{Formula}
+   % \centering
+
+    \includecode{Math/"Inclusao-Exclusao".cpp}
+  }
+
+  \subsection{TODOS OS DIVISORES DE N – $O(sqrt(n))$}{
+    \includecode{Math/"Divisores".cpp}
+  }
+
+  \subsection{ALGORITMO DE EUCLIDES ESTENDIDO - $O(log(min(a,b)))$}{
+    \includecode{Math/"Euclides Estendido".cpp}
+  }
+
+  \subsection{TEOREMA CHINES DO RESTO}{
+    \includecode{Math/"Teorema Chines do Resto".cpp}
+  }
+  \subsection{BELL NUMBERS (NUMBER OF WAYS TO PARTITION A SET) - $O(n^{2})$}{
+    \includecode{Math/"Bell Numbers".cpp}
+  }
+
+  \subsection{FATORAÇÃO SIMPLES - $O(sqrt(n))$}{
+    \includecode{Math/"Fatoracao Simples".cpp}
+  }
+
+  \subsection{FATORAÇÃO PRA MULTIPLAS QUERIES - $O(n(log(log(n))))$}{
+    \includecode{Math/"Fatoracao Multiplas Queries".cpp}
+  }
+
+  \subsection{CRIVO COMUM E SEGMENTADO COM BITSET}{
+    \includecode{Math/"Crivo Segmentado com Bitset".cpp}
+  }
+
+  \subsection{CHECAR SE UM NUMERO É PRIMO - $O(sqrt(n))$}{
+    \includecode{Math/"Checagem de Primalidade".cpp}
+  }
+
+  \subsection{EXPONENCIAÇÃO BINÁRIA – $O(log(n))$}{
+    \includecode{Math/"Exponenciacao Binaria".cpp}
+  }
+
+  \subsection{PRECOMPUTAR COMBINAÇÃO nCr – $O(n^{2})$}{
+    \includecode{Math/"Precomputar Combinacao nCr".cpp}
+  }
+
+  \subsection{COMBINAÇÃO nCr – $O(n)$}{
+    \includecode{Math/"Combinacao nCr".cpp}
+  }
+
+  \subsection{POLLARD RHO (FIND A DIVISOR FOR N) – $O(n^{(1/4)})$}{
+    \includecode{Math/"Pollard Rho (Find a Divisor)".cpp}
+  }
+
+  \subsection{EQUAÇÃO DIOFANTINA (ACHAR UMA SOLUÇÃO)}{
+    \includecode{Math/"Equacao Diofantina".cpp}
+  }
+
+  \subsection{EULER'S TOTIENT FUNCTION}{
+    \includecode{Math/"Euler Totient".cpp}
   }
 }
 
-\section{Grafos}{
-  \subsection{Componentes fortemente conexas (SCC)}{
-    \includecode{graphs/scc.cpp}
+\newpage
+
+\section{Geometry}{
+  \subsection{PRODUTO VETORIAL}{
+    \includecode{Geometry/"Cross Product".cpp}
   }
-  \subsection{Caminho Euleriano}{
-    \includecode{graphs/euler.cpp}
+
+  \subsection{DISTANCIA PONTO RETA}{
+    \includecode{Geometry/"Line-Point Distance".cpp}
   }
-  \subsection{LCA (Menor Ancestral Comum)}{
-    \includecode{graphs/lca.cpp}
+
+  \subsection{ÁREA DE POLÍGONOS}{
+    \includecode{Geometry/"Polygon Area".cpp}
   }
-  \subsection{Dijkstra (Caminhos mínimos)}{
-    \includecode{graphs/dijkstra.cpp}
+
+  \subsection{PONTOS DENTRO DE UM POLIGONO}{
+    \includecode{Geometry/"Point Inside Polygon".cpp}
   }
-  \subsection{Fluxo}{
-    \includecode{graphs/fluxo.cpp}
+
+  \subsection{PONTOS DENTRO E NA BORDA DE UM POLIGONO}{
+    \includecode{Geometry/"Points Inside and in Boundary Polygon".cpp}
   }
-  \subsection{DisjointSet}{
-    \includecode{graphs/disjointSet.cpp}
+
+  \subsection{INTERSECÇÃO DE RETAS}{
+    \includecode{Geometry/"Line-Line Intersection".cpp}
   }
+
+  \subsection{INTERSECÇÃO DE SEGMENTOS}{
+    \includecode{Geometry/"Segment-Segment Intersection".cpp}
+  }
+
+  \subsection{INTERSECÇÃO DE CIRCULOS (2PTOS)}{
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[scale=0.5]{"Images/Intersecao de Circulos".jpg}
+      % \caption{Formula}
+      % \label{fig:Inclusao-Exclusao1}
+    \end{figure}
+
+    \includecode{Geometry/"Circle-Circle Intersection".cpp}
+  }
+
+  \subsection{PONTO DENTRO DE UM POLIGONO}{
+    \includecode{Geometry/"Point Inside Polygon".cpp}
+  }
+  \subsection{CLOSEST PAIR OF POINTS}{
+    \includecode{Geometry/"Closest Pair of Points".cpp}
+  }
+
+  \subsection{CENTRO DE MASSA DE UM POLÍGONO}{
+    \includecode{Geometry/"Centro de Massa de um Poligono".cpp}
+  }
+
+  \subsection{POINT AND LINE STRUCT}{
+    \includecode{Geometry/"struct Point and Line".cpp}
+  }
+
+  \subsection{CONVEX HULL - $O(n log(n))$}{
+    \includecode{Geometry/"Convex Hull".cpp}
+  }
+
+   \subsection{UPPER AND LOWER HULL - $O(n log(n))$}{
+    \includecode{Geometry/"Upper and Lower Hull".cpp}
+  }
+
+  \subsection{CONDIÇÃO DE EXISTÊNCIA DE UM TRIÂNGULO}{
+    \includecode{Geometry/"Condicao de Existencia de um Triangulo.txt"}
+  }
+
+  \subsection{ÁREA POLÍGONO 3D – $O(n)$}{
+    \includecode{Geometry/"Polygon Area (3d)".cpp}
+  }
+  
 }
 
-\section{Programação dinâmica}{
-  \subsection{Mochila}{
-    \includecode{dp/knapsack.cpp}
+
+\newpage
+
+\section{Strings}{
+  \subsection{KMP ALGORITMO – $O(n \text{$+$} m)$}{
+    \includecode{Strings/KMP.cpp}
   }
-  \subsection{Moedas}{
-    \includecode{dp/moedas.cpp}
+
+  \subsection{TRIE}{
+    \includecode{Strings/Trie.cpp}
   }
-  \subsection{Troco}{
-    \includecode{dp/troco.cpp}
+
+  \subsection{TRIE (CONTANDO TRANSICOES)}{
+    \includecode{Strings/"Trie - Contando Transicoes".cpp}
   }
-  \subsection{Segtree}{
-    \includecode{dp/segtree.cpp}
+
+  \subsection{TRIE (MAXIMUM XOR BETWEEN TWO ELEMENTS)}{
+    \includecode{Strings/"Trie - Maximum XOR two elements.txt"}
   }
+  \subsection{TRIE (MAXIMUM XOR SUM)}{
+    \includecode{Strings/"Trie - Maximum XOR Sum.txt"}
+  }
+
+  \subsection{Z-FUNCTION – $O(n)$}{
+    \includecode{Strings/"Z-Function".cpp}
+  }
+
 }
+
+\newpage
+
+\section{Data Structures}{
+  \subsection{RMQ MIN-MAX + LAZY PROPAGATION}{
+    \includecode{"Data Structures"/"RMQ Min-Max + Lazy Propagation".cpp}
+  }
+
+  \subsection{ARVORE BINARIA}{
+    \includecode{"Data Structures"/"Arvore Binaria".cpp}
+  }
+
+  \subsection{SQRT DECOMPOSITION}{
+    \includecode{"Data Structures"/"SQRT Decomposition".cpp}
+  }
+
+  \subsection{MO'S ALGORITHM (MOST FREQUENT VALUE IN INTERVALS) - $O((m\text{$+$}n) \text{$*$} \sqrt{n})$}{
+    \includecode{"Data Structures"/"Mos Algorithm.cpp (Most frequent Value in intervals)".cpp}
+  }
+  \subsection{MERGE SORT TREE (K-ESIMO MAIOR ELEMENTO NUM INTERVALO, VALORES MAIORES QUE K NUM INTERVALO, ...)}{
+    \includecode{"Data Structures"/"Merge Sort Tree (K-ESIMO MAIOR ELEMENTO NUM INTERVALO, VALORES MAIORES QUE K NUM INTERVALO, ...)".cpp}
+  }
+
+  \subsection{ORDENAÇÃO DE ESTRUTURAS(PQ,ETC)}{
+    \includecode{"Data Structures"/"Ordenacao de Estruturas (PQ, etc)".cpp}
+  }
+
+  \subsection{POLICY BASED DATA STRUCTURES - ORDERED SET}{
+    \includecode{"Data Structures"/"Ordered Set (Policy Based Data Structures)".cpp}
+  }
+
+  \subsection{CONTANDO INVERSÕES}{
+    \includecode{"Data Structures"/"Contando Inversoes.cpp"}
+  }
+  
+}
+
+
+\newpage
+
+\section{GRAPHS}{
+  \subsection{CICLO GRAFO - $O(V\text{$+$}E)$}{
+    \includecode{Graphs/"Ciclo Grafo".cpp}
+  }
+
+  \subsection{CHECA GRAFO BIPARTIDO - $O(V\text{$+$}E)$}{
+    \includecode{Graphs/"Checa Grafo Bipartido".cpp}
+  }
+
+  \subsection{BELLMAN FORD (MENOR CAMINHO ARESTAS NEGATIVAS) - $O(V\text{$*$}E)$}{
+    \includecode{Graphs/"Bellman Ford (Menor Caminho Arestas Negativas)".cpp}
+  }
+
+  \subsection{DIAMETRO EM ARVORE (MAIOR CAMINHO ENTRE DOIS VERTICES)}{
+    \includecode{Graphs/"Diametro em Arvore".txt}
+  }
+  \subsection{PONTES NUM GRAFO - $O(V\text{$+$}E)$}{
+    \includecode{Graphs/"Pontes num Grafo".cpp}
+  }
+
+  \subsection{PONTOS DE ARTICULAÇÃO NUM GRAFO (se retirar esses vértices o grafo fica desconexo) - $O(V\text{$+$}E)$}{
+    \includecode{Graphs/"Pontos de Articulacao".cpp}
+  }
+
+  \subsection{LCA (shortest path)}{
+    \includecode{Graphs/"LCA - Shortest Path".cpp}
+  }
+
+  \subsection{FORD FULKERSSON (MAXIMUM FLOW) – $O(V\text{$*$}(E^2))$}{
+    \includecode{Graphs/"Ford Fulkersson (Maximum Flow)".cpp}
+  }
+  \subsection{DINIC (MAXIMUM FLOW) -> $O(E\text{$+$}(V^2)$)}{
+    \includecode{Graphs/"Dinic (Maximum Flow)".cpp}
+  }
+
+  \subsection{CAMINHO EULERIANO (Caminho para visitar todas as arestas) – $O(V\text{$+$}E)$}{
+    \includecode{Graphs/"Caminho Euleriano (Caminho que visita todas as arestas)".cpp}
+  }
+
+  \subsection{DIJKSTRA COM PRIORITY QUEUE - $O(E\text{$*$}(log V))$)}{
+    \includecode{Graphs/"Dijkstra".cpp}
+  }
+
+  \subsection{ORDENAÇÃO TOPOLOGICA (FILA) - $O(V\text{$+$}E)$}{
+    \includecode{Graphs/"Ordenacao Topologica (Fila)".cpp}
+  }
+   \subsection{KRUSKAL (UNION FIND – $O(log(n))$) – $O(E\text{$*$}log(V))$}{
+    \includecode{Graphs/"Kruskal (Union Find)".cpp}
+  }
+  \subsection{FLOYD WARSHALL – $O(V^3)$}{
+    \includecode{Graphs/"Floyd Warshall".cpp}
+  }
+
+  \subsection{SCC (Kosaraju) – $O(V\text{$+$}E)$}{
+    \includecode{Graphs/"SCC (Kosaraju)".cpp}
+  }
+  
+}
+
+\newpage
+
+\section{Diverse}{
+  \subsection{INTERVAL SCHEDULING}{
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[scale=0.5]{"Images/Interval Scheduling".jpg}
+      % \caption{Formula}
+      % \label{fig:Inclusao-Exclusao1}
+    \end{figure}
+
+    \includecode{Diverse/"Interval Scheduling.txt"}
+  }
+
+  \subsection{PROBLEMA DAS OITO RAINHAS}{
+    \includecode{Diverse/"Oito Rainhas".cpp}
+  }
+
+  \subsection{3SUM PROBLEM (a[x]+a[y]+a[z] = valor) - $O(n^{2})$}{
+    \includecode{Diverse/"3SUM Problem".cpp}
+  }
+
+  \subsection{INFIX TO PREFIX}{
+    \includecode{Diverse/"Infix to Prefix".cpp}
+  }
+  \subsection{KADANE (MAIOR SOMA NUM VETOR) – $O(n)$}{
+    \includecode{Diverse/"Kadane (Maior soma num Vetor)".cpp}
+  }
+
+  \subsection{KADANE 2D – $O(n^3)$}{
+    \includecode{Diverse/"Kadane 2d".cpp}
+  }
+
+  \subsection{KADANE (SEGMENT TREE) - (QUERY IN RANGE $O(log n))$}{
+    \includecode{Diverse/"Kadane (Segment Tree)".cpp}
+  }
+
+  \subsection{COMPRESSAO DE PONTOS}{
+    \includecode{Diverse/"Compressao de Pontos".cpp}
+  }
+  \subsection{TORRE DE HANOI – $O(2^{n-1})$}{
+    \includecode{Diverse/"Torre de Hanoi".cpp}
+  }
+
+  \subsection{FIBONACCI MATRIX EXPONENTIATION - $O(log n)$}{
+    \includecode{Diverse/"Fibonacci Matrix Exponentiation".cpp}
+  }
+
+  \subsection{2-SAT PROBLEM - $O(V\text{$+$}E)$}{
+    \includecode{Diverse/"2-SAT Problem".cpp}
+  }
+  
+}
+
 
 \newpage
 

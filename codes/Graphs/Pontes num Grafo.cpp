@@ -1,10 +1,10 @@
 //SE TIRA-LAS O GRAFO FICA DESCONEXO
-// OBS: PRESTAR ATENCAO EM SELF-LOOPS, É MELHOR NÃO ADICIONA-LOS
-// SO FUNCIONA EM GRAFO NÃO DIRECIONADO
+// OBS: PRESTAR ATENCAO EM SELF-LOOPS, é MELHOR NãO ADICIONA-LOS
+// SO FUNCIONA EM GRAFO NãO DIRECIONADO
 int t=1;
 vector<int> T((int)2e6,0); //Tempo necessário para chegar naquele vértice na dfs 
 vector<int> adj[(int)2e6]; 
-vector<int> Low((int)2e6); // Tempo “mínimo” para chegar naquele vértice na dfs
+vector<int> Low((int)2e6); // Tempo "mínimo" para chegar naquele vértice na dfs
 vector<int> ciclo((int)2e6, false);
 vector<ii> bridges;
 void dfs(int u, int p){
@@ -28,7 +28,7 @@ void dfs(int u, int p){
 		else
 		  Low[u]=min(Low[u], T[v]);
 		ciclo[u] |= (T[u]>=Low[v]);
-		//checa se o vértice u faz    //parte de um ciclo
+		//checa se o vértice u faz parte de um ciclo
 	}
 }
 

@@ -28,7 +28,7 @@ double ptoReta(double x1, double y1, double x2,double y2,double pointX, double p
       // pto nao esta mais proximo de uma das bordas do segmento
       // Ex:              .
       //                  |
-      //                  |(90º)      
+      //                  |(Ângulo Reto)      
       //________________________________________
       // cord x do pto na reta = (x1 + t * diffX)
       // cord y do pto na reta = (y1 + t * diffY)

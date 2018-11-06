@@ -1,3 +1,15 @@
+// The first few Catalan numbers for n = 0, 1, 2, 3, ... 
+// are 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, ...
+// Formula Recursiva: 
+// cat(0) = 0
+// cat(n+1) = somatorio(i from 0 to n)(cat(i)*cat(n-i))
+// 
+// Using Binomial Coefficient
+// We can also use the below formula to find nth catalan number in O(n) time.
+// Formula acima
+
+// Returns value of Binomial Coefficient C(n, k)
+
 int binomialCoeff(int n, int k) {
   int res = 1;
  

@@ -1,4 +1,4 @@
-// OBS: ATÉ ∛N    DIVISORES DE N
+// OBS: ATÉ cuberoot(N) DIVISORES DE N
 vector<int> divisors(int n) {
 	int sq = sqrt(n);
 	vector<int> ans;

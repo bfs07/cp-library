@@ -1,0 +1,113 @@
+\BOOKMARK [1][-]{section.1}{Template}{}% 1
+\BOOKMARK [1][-]{section.2}{Funcoes Interessantes}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{GCD}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{HIPOTENUSA}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{SCANF DE UMA STRING}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{PRINTF PARA UMA STRING}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{CLIMITS}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.6}{ROTATE \(LEFT\)}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.7}{ROTATE \(RIGHT\)}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.8}{WIDTH}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.9}{INT TO STRING \(C++11\)}{section.2}% 11
+\BOOKMARK [2][-]{subsection.2.10}{PERMUTA\307\303O}{section.2}% 12
+\BOOKMARK [2][-]{subsection.2.11}{MAIOR E MENOR ELEMENTO NUM VETOR}{section.2}% 13
+\BOOKMARK [2][-]{subsection.2.12}{CHECAGEM E TRANSFORMA\307\303O DE CARACTERE}{section.2}% 14
+\BOOKMARK [2][-]{subsection.2.13}{SUBSTRING}{section.2}% 15
+\BOOKMARK [2][-]{subsection.2.14}{REMOVE REPETI\307\325ES CONT\315NUAS NUM VETOR}{section.2}% 16
+\BOOKMARK [2][-]{subsection.2.15}{CHECAGEM DE BITS}{section.2}% 17
+\BOOKMARK [2][-]{subsection.2.16}{INT TO BINARY STRING}{section.2}% 18
+\BOOKMARK [2][-]{subsection.2.17}{BINARY STRING TO INT}{section.2}% 19
+\BOOKMARK [2][-]{subsection.2.18}{STRING TO LONG LONG}{section.2}% 20
+\BOOKMARK [2][-]{subsection.2.19}{SPLIT FUNCTION }{section.2}% 21
+\BOOKMARK [2][-]{subsection.2.20}{LEITURA NUM ARQUIVO}{section.2}% 22
+\BOOKMARK [2][-]{subsection.2.21}{ESCRITA EM ARQUIVO}{section.2}% 23
+\BOOKMARK [2][-]{subsection.2.22}{CHECAGEM BRUTE FORCE COM SOLUCAO}{section.2}% 24
+\BOOKMARK [1][-]{section.3}{DP}{}% 25
+\BOOKMARK [2][-]{subsection.3.1}{PROBLEMA DO TROCO}{section.3}% 26
+\BOOKMARK [2][-]{subsection.3.2}{PROBLEMA DA MOCHILA}{section.3}% 27
+\BOOKMARK [2][-]{subsection.3.3}{CATALAN \(1, 1, 2, 5, 14, 42, 132, 429\) - O\(n\)}{section.3}% 28
+\BOOKMARK [2][-]{subsection.3.4}{LONGEST COMMON SUBSEQUENCE - O\(n2\)}{section.3}% 29
+\BOOKMARK [2][-]{subsection.3.5}{LONGEST COMMON SUBSTRING - O\(n2\)}{section.3}% 30
+\BOOKMARK [2][-]{subsection.3.6}{LONGEST INCREASING SUBSEQUENCE - O\(n log\(n\)\)}{section.3}% 31
+\BOOKMARK [2][-]{subsection.3.7}{LONGEST INCREASING SUBSEQUENCE 2D \(NOT SORTED\) - O\(n log\(n\)\)}{section.3}% 32
+\BOOKMARK [2][-]{subsection.3.8}{LONGEST INCREASING SUBSEQUENCE 2D \(SORTED\) - O\(n log\(n\)\)}{section.3}% 33
+\BOOKMARK [2][-]{subsection.3.9}{ACHAR MAIOR PAL\315NDROMO}{section.3}% 34
+\BOOKMARK [2][-]{subsection.3.10}{SUBSET SUM COM BITSET - O\(\(maxSum\)*n/32\)}{section.3}% 35
+\BOOKMARK [2][-]{subsection.3.11}{DIGIT DP}{section.3}% 36
+\BOOKMARK [1][-]{section.4}{Math}{}% 37
+\BOOKMARK [2][-]{subsection.4.1}{INCLUS\303O\205EXCLUS\303O}{section.4}% 38
+\BOOKMARK [2][-]{subsection.4.2}{TODOS OS DIVISORES DE N \205 O\(sqrt\(n\)\)}{section.4}% 39
+\BOOKMARK [2][-]{subsection.4.3}{ALGORITMO DE EUCLIDES ESTENDIDO - O\(log\(min\(a,b\)\)\)}{section.4}% 40
+\BOOKMARK [2][-]{subsection.4.4}{TEOREMA CHINES DO RESTO}{section.4}% 41
+\BOOKMARK [2][-]{subsection.4.5}{BELL NUMBERS \(NUMBER OF WAYS TO PARTITION A SET\) - O\(n2\)}{section.4}% 42
+\BOOKMARK [2][-]{subsection.4.6}{FATORA\307\303O SIMPLES - O\(sqrt\(n\)\)}{section.4}% 43
+\BOOKMARK [2][-]{subsection.4.7}{FATORA\307\303O PRA MULTIPLAS QUERIES - O\(n\(log\(log\(n\)\)\)\)}{section.4}% 44
+\BOOKMARK [2][-]{subsection.4.8}{CRIVO COMUM E SEGMENTADO COM BITSET}{section.4}% 45
+\BOOKMARK [2][-]{subsection.4.9}{CHECAR SE UM NUMERO \311 PRIMO - O\(sqrt\(n\)\)}{section.4}% 46
+\BOOKMARK [2][-]{subsection.4.10}{EXPONENCIA\307\303O BIN\301RIA \205 O\(log\(n\)\)}{section.4}% 47
+\BOOKMARK [2][-]{subsection.4.11}{PRECOMPUTAR COMBINA\307\303O nCr \205 O\(n2\)}{section.4}% 48
+\BOOKMARK [2][-]{subsection.4.12}{COMBINA\307\303O nCr \205 O\(n\)}{section.4}% 49
+\BOOKMARK [2][-]{subsection.4.13}{POLLARD RHO \(FIND A DIVISOR FOR N\) \205 O\(n\(1/4\)\)}{section.4}% 50
+\BOOKMARK [2][-]{subsection.4.14}{EQUA\307\303O DIOFANTINA \(ACHAR UMA SOLU\307\303O\)}{section.4}% 51
+\BOOKMARK [2][-]{subsection.4.15}{EULER'S TOTIENT FUNCTION}{section.4}% 52
+\BOOKMARK [1][-]{section.5}{Geometry}{}% 53
+\BOOKMARK [2][-]{subsection.5.1}{PRODUTO VETORIAL}{section.5}% 54
+\BOOKMARK [2][-]{subsection.5.2}{DISTANCIA PONTO RETA}{section.5}% 55
+\BOOKMARK [2][-]{subsection.5.3}{\301REA DE POL\315GONOS}{section.5}% 56
+\BOOKMARK [2][-]{subsection.5.4}{PONTOS DENTRO DE UM POLIGONO}{section.5}% 57
+\BOOKMARK [2][-]{subsection.5.5}{PONTOS DENTRO E NA BORDA DE UM POLIGONO}{section.5}% 58
+\BOOKMARK [2][-]{subsection.5.6}{INTERSEC\307\303O DE RETAS}{section.5}% 59
+\BOOKMARK [2][-]{subsection.5.7}{INTERSEC\307\303O DE SEGMENTOS}{section.5}% 60
+\BOOKMARK [2][-]{subsection.5.8}{INTERSEC\307\303O DE CIRCULOS \(2PTOS\)}{section.5}% 61
+\BOOKMARK [2][-]{subsection.5.9}{PONTO DENTRO DE UM POLIGONO}{section.5}% 62
+\BOOKMARK [2][-]{subsection.5.10}{CLOSEST PAIR OF POINTS}{section.5}% 63
+\BOOKMARK [2][-]{subsection.5.11}{CENTRO DE MASSA DE UM POL\315GONO}{section.5}% 64
+\BOOKMARK [2][-]{subsection.5.12}{POINT AND LINE STRUCT}{section.5}% 65
+\BOOKMARK [2][-]{subsection.5.13}{CONVEX HULL - O\(n log\(n\)\)}{section.5}% 66
+\BOOKMARK [2][-]{subsection.5.14}{UPPER AND LOWER HULL - O\(n log\(n\)\)}{section.5}% 67
+\BOOKMARK [2][-]{subsection.5.15}{CONDI\307\303O DE EXIST\312NCIA DE UM TRI\302NGULO}{section.5}% 68
+\BOOKMARK [2][-]{subsection.5.16}{\301REA POL\315GONO 3D \205 O\(n\)}{section.5}% 69
+\BOOKMARK [1][-]{section.6}{Strings}{}% 70
+\BOOKMARK [2][-]{subsection.6.1}{KMP ALGORITMO \205 O\(n + m\)}{section.6}% 71
+\BOOKMARK [2][-]{subsection.6.2}{TRIE}{section.6}% 72
+\BOOKMARK [2][-]{subsection.6.3}{TRIE \(CONTANDO TRANSICOES\)}{section.6}% 73
+\BOOKMARK [2][-]{subsection.6.4}{TRIE \(MAXIMUM XOR BETWEEN TWO ELEMENTS\)}{section.6}% 74
+\BOOKMARK [2][-]{subsection.6.5}{TRIE \(MAXIMUM XOR SUM\)}{section.6}% 75
+\BOOKMARK [2][-]{subsection.6.6}{Z-FUNCTION \205 O\(n\)}{section.6}% 76
+\BOOKMARK [1][-]{section.7}{Data Structures}{}% 77
+\BOOKMARK [2][-]{subsection.7.1}{RMQ MIN-MAX + LAZY PROPAGATION}{section.7}% 78
+\BOOKMARK [2][-]{subsection.7.2}{ARVORE BINARIA}{section.7}% 79
+\BOOKMARK [2][-]{subsection.7.3}{SQRT DECOMPOSITION}{section.7}% 80
+\BOOKMARK [2][-]{subsection.7.4}{MO'S ALGORITHM \(MOST FREQUENT VALUE IN INTERVALS\) - O\(\(m+n\) * n\)}{section.7}% 81
+\BOOKMARK [2][-]{subsection.7.5}{MERGE SORT TREE \(K-ESIMO MAIOR ELEMENTO NUM INTERVALO, VALORES MAIORES QUE K NUM INTERVALO, ...\)}{section.7}% 82
+\BOOKMARK [2][-]{subsection.7.6}{ORDENA\307\303O DE ESTRUTURAS\(PQ,ETC\)}{section.7}% 83
+\BOOKMARK [2][-]{subsection.7.7}{POLICY BASED DATA STRUCTURES - ORDERED SET}{section.7}% 84
+\BOOKMARK [2][-]{subsection.7.8}{CONTANDO INVERS\325ES}{section.7}% 85
+\BOOKMARK [1][-]{section.8}{GRAPHS}{}% 86
+\BOOKMARK [2][-]{subsection.8.1}{CICLO GRAFO - O\(V+E\)}{section.8}% 87
+\BOOKMARK [2][-]{subsection.8.2}{CHECA GRAFO BIPARTIDO - O\(V+E\)}{section.8}% 88
+\BOOKMARK [2][-]{subsection.8.3}{BELLMAN FORD \(MENOR CAMINHO ARESTAS NEGATIVAS\) - O\(V*E\)}{section.8}% 89
+\BOOKMARK [2][-]{subsection.8.4}{DIAMETRO EM ARVORE \(MAIOR CAMINHO ENTRE DOIS VERTICES\)}{section.8}% 90
+\BOOKMARK [2][-]{subsection.8.5}{PONTES NUM GRAFO - O\(V+E\)}{section.8}% 91
+\BOOKMARK [2][-]{subsection.8.6}{PONTOS DE ARTICULA\307\303O NUM GRAFO \(se retirar esses v\351rtices o grafo fica desconexo\) - O\(V+E\)}{section.8}% 92
+\BOOKMARK [2][-]{subsection.8.7}{LCA \(shortest path\)}{section.8}% 93
+\BOOKMARK [2][-]{subsection.8.8}{FORD FULKERSSON \(MAXIMUM FLOW\) \205 O\(V*\(E2\)\)}{section.8}% 94
+\BOOKMARK [2][-]{subsection.8.9}{DINIC \(MAXIMUM FLOW\) -> O\(E+\(V2\)\)}{section.8}% 95
+\BOOKMARK [2][-]{subsection.8.10}{CAMINHO EULERIANO \(Caminho para visitar todas as arestas\) \205 O\(V+E\)}{section.8}% 96
+\BOOKMARK [2][-]{subsection.8.11}{DIJKSTRA COM PRIORITY QUEUE - O\(E*\(log V\)\)\)}{section.8}% 97
+\BOOKMARK [2][-]{subsection.8.12}{ORDENA\307\303O TOPOLOGICA \(FILA\) - O\(V+E\)}{section.8}% 98
+\BOOKMARK [2][-]{subsection.8.13}{KRUSKAL \(UNION FIND \205 O\(log\(n\)\)\) \205 O\(E*log\(V\)\)}{section.8}% 99
+\BOOKMARK [2][-]{subsection.8.14}{FLOYD WARSHALL \205 O\(V3\)}{section.8}% 100
+\BOOKMARK [2][-]{subsection.8.15}{SCC \(Kosaraju\) \205 O\(V+E\)}{section.8}% 101
+\BOOKMARK [1][-]{section.9}{Diverse}{}% 102
+\BOOKMARK [2][-]{subsection.9.1}{INTERVAL SCHEDULING}{section.9}% 103
+\BOOKMARK [2][-]{subsection.9.2}{PROBLEMA DAS OITO RAINHAS}{section.9}% 104
+\BOOKMARK [2][-]{subsection.9.3}{3SUM PROBLEM \(a[x]+a[y]+a[z] = valor\) - O\(n2\)}{section.9}% 105
+\BOOKMARK [2][-]{subsection.9.4}{INFIX TO PREFIX}{section.9}% 106
+\BOOKMARK [2][-]{subsection.9.5}{KADANE \(MAIOR SOMA NUM VETOR\) \205 O\(n\)}{section.9}% 107
+\BOOKMARK [2][-]{subsection.9.6}{KADANE 2D \205 O\(n3\)}{section.9}% 108
+\BOOKMARK [2][-]{subsection.9.7}{KADANE \(SEGMENT TREE\) - \(QUERY IN RANGE O\(log n\)\)}{section.9}% 109
+\BOOKMARK [2][-]{subsection.9.8}{COMPRESSAO DE PONTOS}{section.9}% 110
+\BOOKMARK [2][-]{subsection.9.9}{TORRE DE HANOI \205 O\(2n-1\)}{section.9}% 111
+\BOOKMARK [2][-]{subsection.9.10}{FIBONACCI MATRIX EXPONENTIATION - O\(log n\)}{section.9}% 112
+\BOOKMARK [2][-]{subsection.9.11}{2-SAT PROBLEM - O\(V+E\)}{section.9}% 113

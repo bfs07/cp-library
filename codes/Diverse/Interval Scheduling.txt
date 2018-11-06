@@ -1,0 +1,2 @@
+1 -> Ordena pelo final do evento, depois pelo inicio.
+2 -> Vai iterando pelos eventos, se eles não tiverem horário em comum então adiciona o evento à lista.

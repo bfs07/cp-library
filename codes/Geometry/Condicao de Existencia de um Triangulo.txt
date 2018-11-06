@@ -1,0 +1,9 @@
+
+		| b - c | < a < b + c
+		| a - c | < b < a + c
+		| a - b | < c < a + b
+
+Para a < b < c, basta checar 
+		a + b > c
+
+OBS: Para um conjunto n >= 100 sempre exite um retângulo válido, pois a sequência de rettângulos não válidos seguem a sequência de Fibonacci e Fib(100) > 2^64

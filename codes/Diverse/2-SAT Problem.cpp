@@ -57,18 +57,18 @@ void computeSCC() {
   }
 }
 
-//  (X v Y)  = (X -> ¬Y) ∧ (¬X -> Y)
+//  (X v Y)  = (X -> ~Y) and (~X -> Y)
 void orEdge(int u, int v, int idxu, int idxv, int n) {
   // idx represents the index of the atoms
-  // Example there are atoms X, ¬X, Y, ¬Y
-  // Then for Clause (X v ¬Y) idxu = 0ll and idxv = 3ll
+  // Example there are atoms X, ~X, Y, ~Y
+  // Then for Clause (X v ~Y) idxu = 0ll and idxv = 3ll
   idxv ^= 1ll;
   adj[u + idxu*n].pb(v + idxv*n);
   idxu ^= 1ll, idxv ^= 1ll;
   adj[v + idxv*n].pb(u + idxu*n);
 }
 
-// (X xor Y) = (X v Y) ∧ (¬X v ¬Y) 
+// (X xor Y) = (X v Y) and (~X v ~Y) 
 // for this function the result is always 0 1 or 1 0 
 void xorEdge(int u, int v, int idxu, int idxv, int n) {
   orEdge(u, v, idxu, idxv, n);

@@ -1,7 +1,7 @@
 // (achar substring numa string)
 // Complexidade: O(n)
 
-// TXT = “ABABABABA”, PAT = “AB”
+// TXT = "ABABABABA", PAT = "AB"
 // Fills lps[] for given patttern pat[0..M-1]
 void compute(string &pat, int m, int lps[]) {
   // length of the previous longest prefix suffix
