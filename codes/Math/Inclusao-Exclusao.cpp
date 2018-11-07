@@ -1,3 +1,7 @@
+// |A ∪ B ∪ C|=|A|+|B|+|C|-|A ∩ B|-|A ∩ C|-|B ∩ C|+|A ∩ B ∩ C|
+
+// EXEMPLO: Quantos números de 1 a 10^9 são múltiplos de 42, 54, 137 ou 201?
+
 int f(vector<int> arr, int LIMIT) {
 
 	int n = arr.size();

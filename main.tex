@@ -26,9 +26,12 @@
 \lhead{Federal University of Bahia - Universidade Federal da Bahia}
 
 \lstset{
-language=R,   % R code
+language=R, 
 literate=
 {≡}{{$\equiv$}}1
+{∩}{{$\cap$}}1
+{∪}{{$\cup$}}1
+{∛N}{{$\sqrt[3]{N}$}}1
 {Ã}{{\~A}}1
 {Á}{{\'A}}1
 {Â}{{\^A}}1
@@ -519,7 +522,7 @@ literate=
   \subsection{FORD FULKERSSON (MAXIMUM FLOW) – $O(V\text{$*$}(E^2))$}{
     \includecode{Graphs/"Ford Fulkersson (Maximum Flow)".cpp}
   }
-  \subsection{DINIC (MAXIMUM FLOW) -> $O(E\text{$+$}(V^2)$)}{
+  \subsection{DINIC (MAXIMUM FLOW) - $O(E\text{$+$}(V^2))$ or $O(n*m)$ for Matching}{
     \includecode{Graphs/"Dinic (Maximum Flow)".cpp}
   }
 

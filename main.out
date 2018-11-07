@@ -92,7 +92,7 @@
 \BOOKMARK [2][-]{subsection.8.6}{PONTOS DE ARTICULA\307\303O NUM GRAFO \(se retirar esses v\351rtices o grafo fica desconexo\) - O\(V+E\)}{section.8}% 92
 \BOOKMARK [2][-]{subsection.8.7}{LCA \(shortest path\)}{section.8}% 93
 \BOOKMARK [2][-]{subsection.8.8}{FORD FULKERSSON \(MAXIMUM FLOW\) \205 O\(V*\(E2\)\)}{section.8}% 94
-\BOOKMARK [2][-]{subsection.8.9}{DINIC \(MAXIMUM FLOW\) -> O\(E+\(V2\)\)}{section.8}% 95
+\BOOKMARK [2][-]{subsection.8.9}{DINIC \(MAXIMUM FLOW\) - O\(E+\(V2\)\) or O\(n*m\) for Matching}{section.8}% 95
 \BOOKMARK [2][-]{subsection.8.10}{CAMINHO EULERIANO \(Caminho para visitar todas as arestas\) \205 O\(V+E\)}{section.8}% 96
 \BOOKMARK [2][-]{subsection.8.11}{DIJKSTRA COM PRIORITY QUEUE - O\(E*\(log V\)\)\)}{section.8}% 97
 \BOOKMARK [2][-]{subsection.8.12}{ORDENA\307\303O TOPOLOGICA \(FILA\) - O\(V+E\)}{section.8}% 98

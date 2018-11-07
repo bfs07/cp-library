@@ -49,7 +49,7 @@
 \contentsline {subsection}{\numberline {4.12}COMBINA\IeC {\c C}\IeC {\~A}O nCr \IeC {\textendash } $O(n)$}{11}{subsection.4.12}
 \contentsline {subsection}{\numberline {4.13}POLLARD RHO (FIND A DIVISOR FOR N) \IeC {\textendash } $O(n^{(1/4)})$}{11}{subsection.4.13}
 \contentsline {subsection}{\numberline {4.14}EQUA\IeC {\c C}\IeC {\~A}O DIOFANTINA (ACHAR UMA SOLU\IeC {\c C}\IeC {\~A}O)}{11}{subsection.4.14}
-\contentsline {subsection}{\numberline {4.15}EULER'S TOTIENT FUNCTION}{12}{subsection.4.15}
+\contentsline {subsection}{\numberline {4.15}EULER'S TOTIENT FUNCTION}{11}{subsection.4.15}
 \contentsline {section}{\numberline {5}Geometry}{12}{section.5}
 \contentsline {subsection}{\numberline {5.1}PRODUTO VETORIAL}{12}{subsection.5.1}
 \contentsline {subsection}{\numberline {5.2}DISTANCIA PONTO RETA}{12}{subsection.5.2}
@@ -92,7 +92,7 @@
 \contentsline {subsection}{\numberline {8.6}PONTOS DE ARTICULA\IeC {\c C}\IeC {\~A}O NUM GRAFO (se retirar esses v\IeC {\'e}rtices o grafo fica desconexo) - $O(V\text {$+$}E)$}{26}{subsection.8.6}
 \contentsline {subsection}{\numberline {8.7}LCA (shortest path)}{26}{subsection.8.7}
 \contentsline {subsection}{\numberline {8.8}FORD FULKERSSON (MAXIMUM FLOW) \IeC {\textendash } $O(V\text {$*$}(E^2))$}{27}{subsection.8.8}
-\contentsline {subsection}{\numberline {8.9}DINIC (MAXIMUM FLOW) -> $O(E\text {$+$}(V^2)$)}{27}{subsection.8.9}
+\contentsline {subsection}{\numberline {8.9}DINIC (MAXIMUM FLOW) - $O(E\text {$+$}(V^2))$ or $O(n*m)$ for Matching}{27}{subsection.8.9}
 \contentsline {subsection}{\numberline {8.10}CAMINHO EULERIANO (Caminho para visitar todas as arestas) \IeC {\textendash } $O(V\text {$+$}E)$}{29}{subsection.8.10}
 \contentsline {subsection}{\numberline {8.11}DIJKSTRA COM PRIORITY QUEUE - $O(E\text {$*$}(log V))$)}{29}{subsection.8.11}
 \contentsline {subsection}{\numberline {8.12}ORDENA\IeC {\c C}\IeC {\~A}O TOPOLOGICA (FILA) - $O(V\text {$+$}E)$}{30}{subsection.8.12}

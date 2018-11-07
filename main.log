@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.11.5)  6 NOV 2018 10:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.11.5)  7 NOV 2018 10:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1181,21 +1181,21 @@ LaTeX Warning: Unused global option(s):
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 100.
-LaTeX Font Info:    ... okay on input line 100.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 100.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 103.
+LaTeX Font Info:    ... okay on input line 103.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 103.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
@@ -1265,7 +1265,7 @@ e
 ))
 \c@lstlisting=\count171
 \AtBeginShipoutBox=\box70
-Package hyperref Info: Link coloring ON on input line 100.
+Package hyperref Info: Link coloring ON on input line 103.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1275,9 +1275,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count172
 )
-LaTeX Info: Redefining \ref on input line 100.
-LaTeX Info: Redefining \pageref on input line 100.
-LaTeX Info: Redefining \nameref on input line 100.
+LaTeX Info: Redefining \ref on input line 103.
+LaTeX Info: Redefining \pageref on input line 103.
+LaTeX Info: Redefining \nameref on input line 103.
 
 (./main.out) (./main.out)
 \@outlinefile=\write5
@@ -1288,7 +1288,7 @@ LaTeX Info: Redefining \nameref on input line 100.
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.15} into 
 your preamble.
- on input line 100.
+ on input line 103.
 
 (./main.toc
 LaTeX Font Info:    Try loading font information for T1+phv on input line 1.
@@ -1427,68 +1427,68 @@ File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 (./codes/DP/Knapsack.cpp)
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 269.
+(hyperref)                removing `math shift' on input line 272.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 269.
+(hyperref)                removing `math shift' on input line 272.
 
 <Images/Catalan.jpg, id=739, 973.74316pt x 66.56447pt>
 File: Images/Catalan.jpg Graphic file (type jpg)
 <use Images/Catalan.jpg>
-Package pdftex.def Info: Images/Catalan.jpg  used on input line 269.
+Package pdftex.def Info: Images/Catalan.jpg  used on input line 272.
 (pdftex.def)             Requested size: 486.87039pt x 33.28214pt.
 
-Overfull \hbox (114.70834pt too wide) in paragraph at lines 269--269
+Overfull \hbox (114.70834pt too wide) in paragraph at lines 272--272
  [][] 
  []
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 ) (./codes/DP/Catalan.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 269--269
+Underfull \hbox (badness 10000) in paragraph at lines 272--272
 |[]\T1/pcr/m/n/10 3.4. LONGEST COMMON SUBSEQUENCE - $\OML/cmm/m/it/10 O\OT1/cmr
 /m/n/10 (\OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 269.
+(hyperref)                removing `math shift' on input line 272.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 269.
+(hyperref)                removing `superscript' on input line 272.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 269.
+(hyperref)                removing `math shift' on input line 272.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/DP/Longest Common Subsequence.cpp [5 <./Images/Catalan.jpg>])
-Underfull \hbox (badness 10000) in paragraph at lines 269--269
+Underfull \hbox (badness 10000) in paragraph at lines 272--272
 |[]\T1/pcr/m/n/10 3.5. LONGEST COMMON SUBSTRING - $\OML/cmm/m/it/10 O\OT1/cmr/m
 /n/10 (\OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 269.
+(hyperref)                removing `math shift' on input line 272.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 269.
+(hyperref)                removing `superscript' on input line 272.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 269.
+(hyperref)                removing `math shift' on input line 272.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/DP/Longest Common Substring.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 269--269
+Underfull \hbox (badness 10000) in paragraph at lines 272--272
 |[]\T1/pcr/m/n/10 3.6. LONGEST INCREASING SUBSEQUENCE - $\OML/cmm/m/it/10 O\OT1
 /cmr/m/n/10 (\OML/cmm/m/it/10 nlog\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n\OT1/cmr/m
 /n/10 ))$|
@@ -1496,39 +1496,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 269--269
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 269.
+(hyperref)                removing `math shift' on input line 272.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 269.
+(hyperref)                removing `math shift' on input line 272.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/DP/Longest Increasing Subsequence.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 269--269
+Underfull \hbox (badness 10000) in paragraph at lines 272--272
 |[]\T1/pcr/m/n/10 3.7. LONGEST INCREASING SUBSEQUENCE 2D (NOT SORTED) -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 269--269
+Underfull \hbox (badness 10000) in paragraph at lines 272--272
 \OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 nlog\OT1/cmr/m/n/10 (\OML/c
 mm/m/it/10 n\OT1/cmr/m/n/10 ))$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 269.
+(hyperref)                removing `math shift' on input line 272.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 269.
+(hyperref)                removing `math shift' on input line 272.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/DP/Longest Increasing Subsequence 2D (not sorted).cpp [6])
-Underfull \hbox (badness 10000) in paragraph at lines 269--269
+Underfull \hbox (badness 10000) in paragraph at lines 272--272
 |[]\T1/pcr/m/n/10 3.8. LONGEST INCREASING SUBSEQUENCE 2D (SORTED) - $\OML/cmm/m
 /it/10 O\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 nlog\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
  n\OT1/cmr/m/n/10 ))$|
@@ -1536,17 +1536,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 269--269
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 269.
+(hyperref)                removing `math shift' on input line 272.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 269.
+(hyperref)                removing `math shift' on input line 272.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/DP/Longest Increasing Subsequence 2D (sorted).cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 269--269
+Underfull \hbox (badness 10000) in paragraph at lines 272--272
 |[]\T1/pcr/m/n/10 3.9. ACHAR MAIOR PALÍNDROMO|
  []
 
@@ -1554,7 +1554,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 269--269
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/DP/Achar Maior Palindromo.txt)
-Underfull \hbox (badness 10000) in paragraph at lines 269--269
+Underfull \hbox (badness 10000) in paragraph at lines 272--272
 |[]\T1/pcr/m/n/10 3.10. SUBSET SUM COM BITSET - $\OML/cmm/m/it/10 O\OT1/cmr/m/n
 /10 ((\OML/cmm/m/it/10 maxSum\OT1/cmr/m/n/10 )[]\OML/cmm/m/it/10 n=\OT1/cmr/m/n
 /10 32)$|
@@ -1562,25 +1562,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 269--269
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 269.
+(hyperref)                removing `math shift' on input line 272.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 269.
+(hyperref)                removing `math shift' on input line 272.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 269.
+(hyperref)                removing `math shift' on input line 272.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 269.
+(hyperref)                removing `math shift' on input line 272.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/DP/Subset Sum com Bitset.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 269--269
+Underfull \hbox (badness 10000) in paragraph at lines 272--272
 |[]\T1/pcr/m/n/10 3.11. DIGIT DP|
  []
 
@@ -1588,25 +1588,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 269--269
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/DP/Digit DP.cpp [7])
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 348--348
 |[]\T1/pcr/m/n/12 4. Math|
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 348--348
 |[]\T1/pcr/m/n/10 4.1. INCLUSÃO^^UEXCLUSÃO|
  []
 
 <Images/Inclusao-Exclusao.jpg, id=1101, 473.51906pt x 86.57344pt>
 File: Images/Inclusao-Exclusao.jpg Graphic file (type jpg)
 <use Images/Inclusao-Exclusao.jpg>
-Package pdftex.def Info: Images/Inclusao-Exclusao.jpg  used on input line 345.
+Package pdftex.def Info: Images/Inclusao-Exclusao.jpg  used on input line 348.
 (pdftex.def)             Requested size: 236.75894pt x 43.2866pt.
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Math/Inclusao-Exclusao.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 348--348
 |[]\T1/pcr/m/n/10 4.2. TODOS OS DIVISORES DE N ^^U $\OML/cmm/m/it/10 O\OT1/cmr/
 m/n/10 (\OML/cmm/m/it/10 sqrt\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n\OT1/cmr/m/n/10
  ))$|
@@ -1614,17 +1614,17 @@ m/n/10 (\OML/cmm/m/it/10 sqrt\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n\OT1/cmr/m/n/10
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 345.
+(hyperref)                removing `math shift' on input line 348.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 345.
+(hyperref)                removing `math shift' on input line 348.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Math/Divisores.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 348--348
 |[]\T1/pcr/m/n/10 4.3. ALGORITMO DE EUCLIDES ESTENDIDO - $\OML/cmm/m/it/10 O\OT
 1/cmr/m/n/10 (\OML/cmm/m/it/10 log\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 min\OT1/cmr
 /m/n/10 (\OML/cmm/m/it/10 a; b\OT1/cmr/m/n/10 )))$|
@@ -1632,17 +1632,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 345--345
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 345.
+(hyperref)                removing `math shift' on input line 348.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 345.
+(hyperref)                removing `math shift' on input line 348.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Math/Euclides Estendido.cpp [8 <./Images/Inclusao-Exclusao.jpg>])
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 348--348
 |[]\T1/pcr/m/n/10 4.4. TEOREMA CHINES DO RESTO|
  []
 
@@ -1650,45 +1650,45 @@ Underfull \hbox (badness 10000) in paragraph at lines 345--345
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Math/Teorema Chines do Resto.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 348--348
 |[]\T1/pcr/m/n/10 4.5. BELL NUMBERS (NUMBER OF WAYS TO PARTITION A SET) - $\OML
 /cmm/m/it/10 O\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 345.
+(hyperref)                removing `math shift' on input line 348.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 345.
+(hyperref)                removing `superscript' on input line 348.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 345.
+(hyperref)                removing `math shift' on input line 348.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Math/Bell Numbers.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 348--348
 |[]\T1/pcr/m/n/10 4.6. FATORAÇÃO SIMPLES - $\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (
 \OML/cmm/m/it/10 sqrt\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ))$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 345.
+(hyperref)                removing `math shift' on input line 348.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 345.
+(hyperref)                removing `math shift' on input line 348.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Math/Fatoracao Simples.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 348--348
 |[]\T1/pcr/m/n/10 4.7. FATORAÇÃO PRA MULTIPLAS QUERIES - $\OML/cmm/m/it/10 O\OT
 1/cmr/m/n/10 (\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 log\OT1/cmr/m
 /n/10 (\OML/cmm/m/it/10 log\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 )
@@ -1697,17 +1697,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 345--345
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 345.
+(hyperref)                removing `math shift' on input line 348.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 345.
+(hyperref)                removing `math shift' on input line 348.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Math/Fatoracao Multiplas Queries.cpp [9])
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 348--348
 |[]\T1/pcr/m/n/10 4.8. CRIVO COMUM E SEGMENTADO COM BITSET|
  []
 
@@ -1715,7 +1715,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 345--345
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Math/Crivo Segmentado com Bitset.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 348--348
 |[]\T1/pcr/m/n/10 4.9. CHECAR SE UM NUMERO É PRIMO - $\OML/cmm/m/it/10 O\OT1/cm
 r/m/n/10 (\OML/cmm/m/it/10 sqrt\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n\OT1/cmr/m/n/
 10 ))$|
@@ -1723,17 +1723,17 @@ r/m/n/10 (\OML/cmm/m/it/10 sqrt\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n\OT1/cmr/m/n/
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 345.
+(hyperref)                removing `math shift' on input line 348.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 345.
+(hyperref)                removing `math shift' on input line 348.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Math/Checagem de Primalidade.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 348--348
 |[]\T1/pcr/m/n/10 4.10. EXPONENCIAÇÃO BINÁRIA ^^U $\OML/cmm/m/it/10 O\OT1/cmr/m
 /n/10 (\OML/cmm/m/it/10 log\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 )
 )$|
@@ -1741,97 +1741,97 @@ Underfull \hbox (badness 10000) in paragraph at lines 345--345
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 345.
+(hyperref)                removing `math shift' on input line 348.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 345.
+(hyperref)                removing `math shift' on input line 348.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Math/Exponenciacao Binaria.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 348--348
 |[]\T1/pcr/m/n/10 4.11. PRECOMPUTAR COMBINAÇÃO nCr ^^U $\OML/cmm/m/it/10 O\OT1/
 cmr/m/n/10 (\OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 345.
+(hyperref)                removing `math shift' on input line 348.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 345.
+(hyperref)                removing `superscript' on input line 348.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 345.
+(hyperref)                removing `math shift' on input line 348.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Math/Precomputar Combinacao nCr.cpp [10])
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 348--348
 |[]\T1/pcr/m/n/10 4.12. COMBINAÇÃO nCr ^^U $\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (
 \OML/cmm/m/it/10 n\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 345.
+(hyperref)                removing `math shift' on input line 348.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 345.
+(hyperref)                removing `math shift' on input line 348.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Math/Combinacao nCr.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 348--348
 |[]\T1/pcr/m/n/10 4.13. POLLARD RHO (FIND A DIVISOR FOR N) ^^U $\OML/cmm/m/it/1
 0 O\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 345.
+(hyperref)                removing `math shift' on input line 348.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 345.
+(hyperref)                removing `superscript' on input line 348.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 345.
+(hyperref)                removing `math shift' on input line 348.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Math/Pollard Rho (Find a Divisor).cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+Underfull \hbox (badness 10000) in paragraph at lines 348--348
 |[]\T1/pcr/m/n/10 4.14. EQUAÇÃO DIOFANTINA (ACHAR UMA SOLUÇÃO)|
  []
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
-(./codes/Math/Equacao Diofantina.cpp [11])
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+(./codes/Math/Equacao Diofantina.cpp)
+Underfull \hbox (badness 10000) in paragraph at lines 348--348
 |[]\T1/pcr/m/n/10 4.15. EULER'S TOTIENT FUNCTION|
  []
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
-(./codes/Math/Euler Totient.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 421--421
+(./codes/Math/Euler Totient.cpp [11])
+Underfull \hbox (badness 10000) in paragraph at lines 424--424
 |[]\T1/pcr/m/n/12 5. Geometry|
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--421
+Underfull \hbox (badness 10000) in paragraph at lines 424--424
 |[]\T1/pcr/m/n/10 5.1. PRODUTO VETORIAL|
  []
 
@@ -1839,7 +1839,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 421--421
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Geometry/Cross Product.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 421--421
+Underfull \hbox (badness 10000) in paragraph at lines 424--424
 |[]\T1/pcr/m/n/10 5.2. DISTANCIA PONTO RETA|
  []
 
@@ -1847,7 +1847,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 421--421
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Geometry/Line-Point Distance.cpp [12])
-Underfull \hbox (badness 10000) in paragraph at lines 421--421
+Underfull \hbox (badness 10000) in paragraph at lines 424--424
 |[]\T1/pcr/m/n/10 5.3. ÁREA DE POLÍGONOS|
  []
 
@@ -1855,7 +1855,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 421--421
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Geometry/Polygon Area.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 421--421
+Underfull \hbox (badness 10000) in paragraph at lines 424--424
 |[]\T1/pcr/m/n/10 5.4. PONTOS DENTRO DE UM POLIGONO|
  []
 
@@ -1863,7 +1863,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 421--421
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Geometry/Point Inside Polygon.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 421--421
+Underfull \hbox (badness 10000) in paragraph at lines 424--424
 |[]\T1/pcr/m/n/10 5.5. PONTOS DENTRO E NA BORDA DE UM POLIGONO|
  []
 
@@ -1871,7 +1871,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 421--421
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Geometry/Points Inside and in Boundary Polygon.cpp [13])
-Underfull \hbox (badness 10000) in paragraph at lines 421--421
+Underfull \hbox (badness 10000) in paragraph at lines 424--424
 |[]\T1/pcr/m/n/10 5.6. INTERSECÇÃO DE RETAS|
  []
 
@@ -1879,7 +1879,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 421--421
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Geometry/Line-Line Intersection.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 421--421
+Underfull \hbox (badness 10000) in paragraph at lines 424--424
 |[]\T1/pcr/m/n/10 5.7. INTERSECÇÃO DE SEGMENTOS|
  []
 
@@ -1887,22 +1887,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 421--421
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Geometry/Segment-Segment Intersection.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 421--421
+Underfull \hbox (badness 10000) in paragraph at lines 424--424
 |[]\T1/pcr/m/n/10 5.8. INTERSECÇÃO DE CIRCULOS (2PTOS)|
  []
 
-<"Images/Intersecao de Circulos".jpg, id=1775, 170.13562pt x 129.48375pt>
+<"Images/Intersecao de Circulos".jpg, id=1756, 170.13562pt x 129.48375pt>
 File: "Images/Intersecao de Circulos".jpg Graphic file (type jpg)
 <use "Images/Intersecao de Circulos".jpg>
 Package pdftex.def Info: "Images/Intersecao de Circulos".jpg  used on input lin
-e 421.
+e 424.
 (pdftex.def)             Requested size: 85.0676pt x 64.7417pt.
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Geometry/Circle-Circle Intersection.cpp [14 <./Images/Intersecao de Ci
 rculos.jpg>])
-Underfull \hbox (badness 10000) in paragraph at lines 421--421
+Underfull \hbox (badness 10000) in paragraph at lines 424--424
 |[]\T1/pcr/m/n/10 5.9. PONTO DENTRO DE UM POLIGONO|
  []
 
@@ -1910,7 +1910,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 421--421
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Geometry/Point Inside Polygon.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 421--421
+Underfull \hbox (badness 10000) in paragraph at lines 424--424
 |[]\T1/pcr/m/n/10 5.10. CLOSEST PAIR OF POINTS|
  []
 
@@ -1918,7 +1918,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 421--421
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Geometry/Closest Pair of Points.cpp [15])
-Underfull \hbox (badness 10000) in paragraph at lines 421--421
+Underfull \hbox (badness 10000) in paragraph at lines 424--424
 |[]\T1/pcr/m/n/10 5.11. CENTRO DE MASSA DE UM POLÍGONO|
  []
 
@@ -1930,7 +1930,7 @@ Underfull \vbox (badness 2781) has occurred while \output is active []
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Geometry/Centro de Massa de um Poligono.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 421--421
+Underfull \hbox (badness 10000) in paragraph at lines 424--424
 |[]\T1/pcr/m/n/10 5.12. POINT AND LINE STRUCT|
  []
 
@@ -1938,24 +1938,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 421--421
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Geometry/struct Point and Line.cpp [16])
-Underfull \hbox (badness 10000) in paragraph at lines 421--421
+Underfull \hbox (badness 10000) in paragraph at lines 424--424
 |[]\T1/pcr/m/n/10 5.13. CONVEX HULL - $\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (\OML/
 cmm/m/it/10 nlog\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ))$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 421.
+(hyperref)                removing `math shift' on input line 424.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 421.
+(hyperref)                removing `math shift' on input line 424.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Geometry/Convex Hull.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 421--421
+Underfull \hbox (badness 10000) in paragraph at lines 424--424
 |[]\T1/pcr/m/n/10 5.14. UPPER AND LOWER HULL - $\OML/cmm/m/it/10 O\OT1/cmr/m/n/
 10 (\OML/cmm/m/it/10 nlog\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ))$
 |
@@ -1963,17 +1963,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 421--421
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 421.
+(hyperref)                removing `math shift' on input line 424.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 421.
+(hyperref)                removing `math shift' on input line 424.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Geometry/Upper and Lower Hull.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 421--421
+Underfull \hbox (badness 10000) in paragraph at lines 424--424
 |[]\T1/pcr/m/n/10 5.15. CONDIÇÃO DE EXISTÊNCIA DE UM TRIÂNGULO|
  []
 
@@ -1981,54 +1981,54 @@ Underfull \hbox (badness 10000) in paragraph at lines 421--421
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Geometry/Condicao de Existencia de um Triangulo.txt) [17]
-Underfull \hbox (badness 10000) in paragraph at lines 421--421
+Underfull \hbox (badness 10000) in paragraph at lines 424--424
 |[]\T1/pcr/m/n/10 5.16. ÁREA POLÍGONO 3D ^^U $\OML/cmm/m/it/10 O\OT1/cmr/m/n/10
  (\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 421.
+(hyperref)                removing `math shift' on input line 424.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 421.
+(hyperref)                removing `math shift' on input line 424.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Geometry/Polygon Area (3d).cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 450--450
+Underfull \hbox (badness 10000) in paragraph at lines 453--453
 |[]\T1/pcr/m/n/12 6. Strings|
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 450--450
+Underfull \hbox (badness 10000) in paragraph at lines 453--453
 |[]\T1/pcr/m/n/10 6.1. KMP ALGORITMO ^^U $\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (\O
 ML/cmm/m/it/10 n[]m\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 450.
+(hyperref)                removing `math shift' on input line 453.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 450.
+(hyperref)                removing `math shift' on input line 453.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 450.
+(hyperref)                removing `math shift' on input line 453.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 450.
+(hyperref)                removing `math shift' on input line 453.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Strings/KMP.cpp [18])
-Underfull \hbox (badness 10000) in paragraph at lines 450--450
+Underfull \hbox (badness 10000) in paragraph at lines 453--453
 |[]\T1/pcr/m/n/10 6.2. TRIE|
  []
 
@@ -2036,7 +2036,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 450--450
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Strings/Trie.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 450--450
+Underfull \hbox (badness 10000) in paragraph at lines 453--453
 |[]\T1/pcr/m/n/10 6.3. TRIE (CONTANDO TRANSICOES)|
  []
 
@@ -2047,7 +2047,7 @@ File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [19])
-Underfull \hbox (badness 10000) in paragraph at lines 450--450
+Underfull \hbox (badness 10000) in paragraph at lines 453--453
 |[]\T1/pcr/m/n/10 6.4. TRIE (MAXIMUM XOR BETWEEN TWO ELEMENTS)|
  []
 
@@ -2055,7 +2055,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 450--450
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Strings/Trie - Maximum XOR two elements.txt)
-Underfull \hbox (badness 10000) in paragraph at lines 450--450
+Underfull \hbox (badness 10000) in paragraph at lines 453--453
 |[]\T1/pcr/m/n/10 6.5. TRIE (MAXIMUM XOR SUM)|
  []
 
@@ -2063,29 +2063,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 450--450
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Strings/Trie - Maximum XOR Sum.txt)
-Underfull \hbox (badness 10000) in paragraph at lines 450--450
+Underfull \hbox (badness 10000) in paragraph at lines 453--453
 |[]\T1/pcr/m/n/10 6.6. Z-FUNCTION ^^U $\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (\OML/
 cmm/m/it/10 n\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 450.
+(hyperref)                removing `math shift' on input line 453.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 450.
+(hyperref)                removing `math shift' on input line 453.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Strings/Z-Function.cpp) [20]
-Underfull \hbox (badness 10000) in paragraph at lines 486--486
+Underfull \hbox (badness 10000) in paragraph at lines 489--489
 |[]\T1/pcr/m/n/12 7. Data Structures|
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 486--486
+Underfull \hbox (badness 10000) in paragraph at lines 489--489
 |[]\T1/pcr/m/n/10 7.1. RMQ MIN-MAX + LAZY PROPAGATION|
  []
 
@@ -2093,7 +2093,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 486--486
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Data Structures/RMQ Min-Max + Lazy Propagation.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 486--486
+Underfull \hbox (badness 10000) in paragraph at lines 489--489
 |[]\T1/pcr/m/n/10 7.2. ARVORE BINARIA|
  []
 
@@ -2104,7 +2104,7 @@ File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 486--486
+Underfull \hbox (badness 10000) in paragraph at lines 489--489
 |[]\T1/pcr/m/n/10 7.3. SQRT DECOMPOSITION|
  []
 
@@ -2112,55 +2112,55 @@ Underfull \hbox (badness 10000) in paragraph at lines 486--486
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Data Structures/SQRT Decomposition.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 486--486
+Underfull \hbox (badness 10000) in paragraph at lines 489--489
 |[]\T1/pcr/m/n/10 7.4. MO'S ALGORITHM (MOST FREQUENT VALUE IN INTERVALS) -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 486--486
+Underfull \hbox (badness 10000) in paragraph at lines 489--489
 \OML/cmm/m/it/10 O\OT1/cmr/m/n/10 ((\OML/cmm/m/it/10 m[]n\OT1/cmr/m/n/10 )[][])
 $|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 486.
+(hyperref)                removing `math shift' on input line 489.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 486.
+(hyperref)                removing `math shift' on input line 489.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 486.
+(hyperref)                removing `math shift' on input line 489.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 486.
+(hyperref)                removing `math shift' on input line 489.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 486.
+(hyperref)                removing `math shift' on input line 489.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\@ifnextchar' on input line 486.
+(hyperref)                removing `\@ifnextchar' on input line 489.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 486.
+(hyperref)                removing `math shift' on input line 489.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Data Structures/Mos Algorithm.cpp (Most frequent Value in intervals).c
 pp [22])
-Underfull \hbox (badness 10000) in paragraph at lines 486--486
+Underfull \hbox (badness 10000) in paragraph at lines 489--489
 |[]\T1/pcr/m/n/10 7.5. MERGE SORT TREE (K-ESIMO MAIOR ELEMENTO NUM
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 486--486
+Underfull \hbox (badness 10000) in paragraph at lines 489--489
 \T1/pcr/m/n/10 INTERVALO, VALORES MAIORES QUE K NUM INTERVALO, ...)|
  []
 
@@ -2169,7 +2169,7 @@ File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Data Structures/Merge Sort Tree (K-ESIMO MAIOR ELEMENTO NUM INTERVALO,
  VALORES MAIORES QUE K NUM INTERVALO, ...).cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 486--486
+Underfull \hbox (badness 10000) in paragraph at lines 489--489
 |[]\T1/pcr/m/n/10 7.6. ORDENAÇÃO DE ESTRUTURAS(PQ,ETC)|
  []
 
@@ -2177,7 +2177,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 486--486
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Data Structures/Ordenacao de Estruturas (PQ, etc).cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 486--486
+Underfull \hbox (badness 10000) in paragraph at lines 489--489
 |[]\T1/pcr/m/n/10 7.7. POLICY BASED DATA STRUCTURES - ORDERED SET|
  []
 
@@ -2186,7 +2186,7 @@ File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Data Structures/Ordered Set (Policy Based Data Structures).cpp
 [23])
-Underfull \hbox (badness 10000) in paragraph at lines 486--486
+Underfull \hbox (badness 10000) in paragraph at lines 489--489
 |[]\T1/pcr/m/n/10 7.8. CONTANDO INVERSÕES|
  []
 
@@ -2194,87 +2194,87 @@ Underfull \hbox (badness 10000) in paragraph at lines 486--486
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Data Structures/Contando Inversoes.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 548--548
+Underfull \hbox (badness 10000) in paragraph at lines 551--551
 |[]\T1/pcr/m/n/12 8. GRAPHS|
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 548--548
+Underfull \hbox (badness 10000) in paragraph at lines 551--551
 |[]\T1/pcr/m/n/10 8.1. CICLO GRAFO - $\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (\OML/c
 mm/m/it/10 V[]E\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Graphs/Ciclo Grafo.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 548--548
+Underfull \hbox (badness 10000) in paragraph at lines 551--551
 |[]\T1/pcr/m/n/10 8.2. CHECA GRAFO BIPARTIDO - $\OML/cmm/m/it/10 O\OT1/cmr/m/n/
 10 (\OML/cmm/m/it/10 V[]E\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Graphs/Checa Grafo Bipartido.cpp [24])
-Underfull \hbox (badness 10000) in paragraph at lines 548--548
+Underfull \hbox (badness 10000) in paragraph at lines 551--551
 |[]\T1/pcr/m/n/10 8.3. BELLMAN FORD (MENOR CAMINHO ARESTAS NEGATIVAS) - $\OML/c
 mm/m/it/10 O\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 V[]E\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Graphs/Bellman Ford (Menor Caminho Arestas Negativas).cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 548--548
+Underfull \hbox (badness 10000) in paragraph at lines 551--551
 |[]\T1/pcr/m/n/10 8.4. DIAMETRO EM ARVORE (MAIOR CAMINHO ENTRE DOIS VERTICES)|
  []
 
@@ -2282,62 +2282,62 @@ Underfull \hbox (badness 10000) in paragraph at lines 548--548
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Graphs/Diametro em Arvore.txt)
-Underfull \hbox (badness 10000) in paragraph at lines 548--548
+Underfull \hbox (badness 10000) in paragraph at lines 551--551
 |[]\T1/pcr/m/n/10 8.5. PONTES NUM GRAFO - $\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (\
 OML/cmm/m/it/10 V[]E\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Graphs/Pontes num Grafo.cpp [25])
-Underfull \hbox (badness 10000) in paragraph at lines 548--548
+Underfull \hbox (badness 10000) in paragraph at lines 551--551
 |[]\T1/pcr/m/n/10 8.6. PONTOS DE ARTICULAÇÃO NUM GRAFO (se retirar
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 548--548
+Underfull \hbox (badness 10000) in paragraph at lines 551--551
 \T1/pcr/m/n/10 esses vértices o grafo fica desconexo) - $\OML/cmm/m/it/10 O\OT1
 /cmr/m/n/10 (\OML/cmm/m/it/10 V[]E\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Graphs/Pontos de Articulacao.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 548--548
+Underfull \hbox (badness 10000) in paragraph at lines 551--551
 |[]\T1/pcr/m/n/10 8.7. LCA (shortest path)|
  []
 
@@ -2348,7 +2348,7 @@ File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [26])
-Underfull \hbox (badness 10000) in paragraph at lines 548--548
+Underfull \hbox (badness 10000) in paragraph at lines 551--551
 |[]\T1/pcr/m/n/10 8.8. FORD FULKERSSON (MAXIMUM FLOW) ^^U $\OML/cmm/m/it/10 O\O
 T1/cmr/m/n/10 (\OML/cmm/m/it/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 E[]\OT1/cm
 r/m/n/10 ))$|
@@ -2356,53 +2356,55 @@ r/m/n/10 ))$|
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 548.
+(hyperref)                removing `superscript' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Graphs/Ford Fulkersson (Maximum Flow).cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 548--548
-|[]\T1/pcr/m/n/10 8.9. DINIC (MAXIMUM FLOW) -> $\OML/cmm/m/it/10 O\OT1/cmr/m/n/
-10 (\OML/cmm/m/it/10 E[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 V[]\OT1/cmr/m/n/10 )$
-\T1/pcr/m/n/10 )|
- []
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `superscript' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 551.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
@@ -2414,37 +2416,37 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [28])
-Underfull \hbox (badness 10000) in paragraph at lines 548--548
+Underfull \hbox (badness 10000) in paragraph at lines 551--551
 |[]\T1/pcr/m/n/10 8.10. CAMINHO EULERIANO (Caminho para visitar todas as
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 548--548
+Underfull \hbox (badness 10000) in paragraph at lines 551--551
 \T1/pcr/m/n/10 arestas) ^^U $\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
 0 V[]E\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Graphs/Caminho Euleriano (Caminho que visita todas as arestas).cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 548--548
+Underfull \hbox (badness 10000) in paragraph at lines 551--551
 |[]\T1/pcr/m/n/10 8.11. DIJKSTRA COM PRIORITY QUEUE - $\OML/cmm/m/it/10 O\OT1/c
 mr/m/n/10 (\OML/cmm/m/it/10 E[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 logV\OT1/cmr/m
 /n/10 ))$\T1/pcr/m/n/10 )|
@@ -2452,50 +2454,50 @@ mr/m/n/10 (\OML/cmm/m/it/10 E[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 logV\OT1/cmr/m
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Graphs/Dijkstra.cpp [29])
-Underfull \hbox (badness 10000) in paragraph at lines 548--548
+Underfull \hbox (badness 10000) in paragraph at lines 551--551
 |[]\T1/pcr/m/n/10 8.12. ORDENAÇÃO TOPOLOGICA (FILA) - $\OML/cmm/m/it/10 O\OT1/c
 mr/m/n/10 (\OML/cmm/m/it/10 V[]E\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Graphs/Ordenacao Topologica (Fila).cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 548--548
+Underfull \hbox (badness 10000) in paragraph at lines 551--551
 |[]\T1/pcr/m/n/10 8.13. KRUSKAL (UNION FIND ^^U $\OML/cmm/m/it/10 O\OT1/cmr/m/n
 /10 (\OML/cmm/m/it/10 log\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 ))$
 \T1/pcr/m/n/10 ) ^^U $\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 E[]lo
@@ -2504,98 +2506,98 @@ g\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 V\OT1/cmr/m/n/10 ))$|
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Graphs/Kruskal (Union Find).cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 548--548
+Underfull \hbox (badness 10000) in paragraph at lines 551--551
 |[]\T1/pcr/m/n/10 8.14. FLOYD WARSHALL ^^U $\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (
 \OML/cmm/m/it/10 V[]\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 548.
+(hyperref)                removing `superscript' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Graphs/Floyd Warshall.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 548--548
+Underfull \hbox (badness 10000) in paragraph at lines 551--551
 |[]\T1/pcr/m/n/10 8.15. SCC (Kosaraju) ^^U $\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (
 \OML/cmm/m/it/10 V[]E\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 548.
+(hyperref)                removing `math shift' on input line 551.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Graphs/SCC (Kosaraju).cpp [30])
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 |[]\T1/pcr/m/n/12 9. Diverse|
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 |[]\T1/pcr/m/n/10 9.1. INTERVAL SCHEDULING|
  []
 
-<"Images/Interval Scheduling".jpg, id=3822, 402.75468pt x 226.59656pt>
+<"Images/Interval Scheduling".jpg, id=3802, 402.75468pt x 226.59656pt>
 File: "Images/Interval Scheduling".jpg Graphic file (type jpg)
 <use "Images/Interval Scheduling".jpg>
 Package pdftex.def Info: "Images/Interval Scheduling".jpg  used on input line 6
-03.
+06.
 (pdftex.def)             Requested size: 201.37685pt x 113.29799pt.
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Diverse/Interval Scheduling.txt)
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 |[]\T1/pcr/m/n/10 9.2. PROBLEMA DAS OITO RAINHAS|
  []
 
@@ -2603,29 +2605,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 603--603
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Diverse/Oito Rainhas.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 |[]\T1/pcr/m/n/10 9.3. 3SUM PROBLEM (a[x]+a[y]+a[z] = valor) - $\OML/cmm/m/it/1
 0 O\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 n[]\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 603.
+(hyperref)                removing `math shift' on input line 606.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 603.
+(hyperref)                removing `superscript' on input line 606.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 603.
+(hyperref)                removing `math shift' on input line 606.
 
 [31 <./Images/Interval Scheduling.jpg>]
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Diverse/3SUM Problem.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 |[]\T1/pcr/m/n/10 9.4. INFIX TO PREFIX|
  []
 
@@ -2633,62 +2635,62 @@ Underfull \hbox (badness 10000) in paragraph at lines 603--603
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Diverse/Infix to Prefix.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 |[]\T1/pcr/m/n/10 9.5. KADANE (MAIOR SOMA NUM VETOR) ^^U $\OML/cmm/m/it/10 O\OT
 1/cmr/m/n/10 (\OML/cmm/m/it/10 n\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 603.
+(hyperref)                removing `math shift' on input line 606.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 603.
+(hyperref)                removing `math shift' on input line 606.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Diverse/Kadane (Maior soma num Vetor).cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 |[]\T1/pcr/m/n/10 9.6. KADANE 2D ^^U $\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (\OML/c
 mm/m/it/10 n[]\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 603.
+(hyperref)                removing `math shift' on input line 606.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 603.
+(hyperref)                removing `superscript' on input line 606.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 603.
+(hyperref)                removing `math shift' on input line 606.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Diverse/Kadane 2d.cpp [32])
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 |[]\T1/pcr/m/n/10 9.7. KADANE (SEGMENT TREE) - (QUERY IN RANGE $\OML/cmm/m/it/1
 0 O\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 logn\OT1/cmr/m/n/10 ))$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 603.
+(hyperref)                removing `math shift' on input line 606.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 603.
+(hyperref)                removing `math shift' on input line 606.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Diverse/Kadane (Segment Tree).cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 |[]\T1/pcr/m/n/10 9.8. COMPRESSAO DE PONTOS|
  []
 
@@ -2696,64 +2698,64 @@ Underfull \hbox (badness 10000) in paragraph at lines 603--603
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Diverse/Compressao de Pontos.cpp [33])
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 |[]\T1/pcr/m/n/10 9.9. TORRE DE HANOI ^^U $\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (2
 [])$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 603.
+(hyperref)                removing `math shift' on input line 606.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `superscript' on input line 603.
+(hyperref)                removing `superscript' on input line 606.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 603.
+(hyperref)                removing `math shift' on input line 606.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Diverse/Torre de Hanoi.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 |[]\T1/pcr/m/n/10 9.10. FIBONACCI MATRIX EXPONENTIATION - $\OML/cmm/m/it/10 O\O
 T1/cmr/m/n/10 (\OML/cmm/m/it/10 logn\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 603.
+(hyperref)                removing `math shift' on input line 606.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 603.
+(hyperref)                removing `math shift' on input line 606.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 )
 (./codes/Diverse/Fibonacci Matrix Exponentiation.cpp)
-Underfull \hbox (badness 10000) in paragraph at lines 603--603
+Underfull \hbox (badness 10000) in paragraph at lines 606--606
 |[]\T1/pcr/m/n/10 9.11. 2-SAT PROBLEM - $\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (\OM
 L/cmm/m/it/10 V[]E\OT1/cmr/m/n/10 )$|
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 603.
+(hyperref)                removing `math shift' on input line 606.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 603.
+(hyperref)                removing `math shift' on input line 606.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 603.
+(hyperref)                removing `math shift' on input line 606.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 603.
+(hyperref)                removing `math shift' on input line 606.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
@@ -2762,50 +2764,52 @@ File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [34])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 609.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 612.
 
 [35
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 609.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 612.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 609.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 609.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 612.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 612.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 11016FE5C64FE4D02733683E3134452C;9125.
+(rerunfilecheck)             Checksum: F526EBE6A9DF1198A38A2B104F1B3DDC;9149.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 37096 strings out of 492982
- 805636 string characters out of 6134896
- 1359814 words of memory out of 5000000
- 35929 multiletter control sequences out of 15000+600000
+ 37085 strings out of 492982
+ 805391 string characters out of 6134896
+ 1359949 words of memory out of 5000000
+ 35940 multiletter control sequences out of 15000+600000
  23166 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,12n,98p,790b,2371s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,12n,98p,790b,2376s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/hel
-vetic/uhvb8ac.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8
-a.pfb>
-Output written on main.pdf (35 pages, 471022 bytes).
+ype1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
+/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr
+8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
+Output written on main.pdf (35 pages, 492569 bytes).
 PDF statistics:
- 5123 PDF objects out of 5155 (max. 8388607)
- 5015 compressed objects within 51 object streams
- 3687 named destinations out of 4296 (max. 500000)
+ 5106 PDF objects out of 5155 (max. 8388607)
+ 4996 compressed objects within 50 object streams
+ 3665 named destinations out of 4296 (max. 500000)
  937 words of extra memory for PDF output out of 10000 (max. 10000000)
 
