@@ -1,4 +1,7 @@
 // pra achar so o lca é so tirar o q ta comentado com (// short path)
+// INDEXED FROM 0
+// INDEXED FROM 0
+// INDEXED FROM 0
 int anc[105000][(int)log2(150000)+2];
 
 vector<ii> adj[105000];
@@ -17,7 +20,7 @@ void dfsLCA(int u, int p, int d = 1) {
 	}
 }
 
-void init(int n) {
+void initLCA(int n) {
 
 	for(int i = 0; i <= n; i++) {
 		for(int j = 0; (1<<j) < n; j++) {
@@ -93,7 +96,7 @@ int lca(int a, int b) {
     }
   }
   // anc[a][0] é o LCA
-  // return anc[a][0]; retorna o lca
+  // return anc[a][0]; // retorna o lca
   //cout << "LCA  = " << anc[a][0] << endl;
   return dist[ac] + dist[bc] - 2*dist[anc[a][0]];
 

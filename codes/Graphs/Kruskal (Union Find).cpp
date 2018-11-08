@@ -2,6 +2,10 @@ struct edge {
 	int u, v, w;
 	edge() {}
 	edge(int u, int v, int w) : u(u), v(v), w(w) {}
+
+  bool operator<(const edge &a) {
+    return w < a.w;
+  }
 }
 
 vector<edge> edges((int)2e6);
@@ -39,6 +43,8 @@ bool Union(int p, int q) {
 int kruskal(int n, int m) {
 
   init(n);
+
+  sort(edges.begin(), edges.end());
 
 	int c = 0;
 	for(int i = 0; i < (int)edges.size(); i++) {
