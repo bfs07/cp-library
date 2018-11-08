@@ -4,7 +4,7 @@ int anc[105000][(int)log2(150000)+2];
 vector<ii> adj[105000];
 vector<int> level(105000), dist(105000), vis(105000,false);
 
-void dfs(int u, int p, int d = 1) {
+void dfsLCA(int u, int p, int d = 1) {
 
 	level[u] = d;
 	vis[u] = true; 
@@ -13,7 +13,7 @@ void dfs(int u, int p, int d = 1) {
 		if(vis[x.ff])
 			continue;
 		dist[x.ff] = dist[u] + x.ss; // short path
-		dfs(x.ff,u,d+1); 
+		dfsLCA(x.ff,u,d+1); 
 	}
 }
 
@@ -42,7 +42,7 @@ void read(int n) {
 void build(int n) {
   
   dist[0] = 0; // short path
-  dfs(0,-1);
+  dfsLCA(0,-1);
 
   for(int j = 1; (1<<j) < n; j++) {
     for(int i = 0; i < n; i++) {
@@ -80,7 +80,7 @@ int lca(int a, int b) {
       a = anc[a][i];
     }
   }
-  
+
   if(a == b) 
     // return a; // to find lca
     return dist[ac] + dist[bc] - 2*dist[a]; // short path
