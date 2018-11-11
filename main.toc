@@ -111,3 +111,8 @@
 \contentsline {subsection}{\numberline {9.9}TORRE DE HANOI \IeC {\textendash } $O(2^{n-1})$}{34}{subsection.9.9}
 \contentsline {subsection}{\numberline {9.10}FIBONACCI MATRIX EXPONENTIATION - $O(log n)$}{34}{subsection.9.10}
 \contentsline {subsection}{\numberline {9.11}2-SAT PROBLEM - $O(V\text {$+$}E)$}{34}{subsection.9.11}
+\contentsline {section}{\numberline {10}Anexos}{35}{section.10}
+\contentsline {subsection}{\numberline {10.1}ANOTA\IeC {\c C}\IeC {\~O}ES DE MATEM\IeC {\'A}TICA}{35}{subsection.10.1}
+\contentsline {subsection}{\numberline {10.2}ANOTA\IeC {\c C}\IeC {\~O}ES DE GEOMETRIA}{35}{subsection.10.2}
+\contentsline {subsection}{\numberline {10.3}EQUA\IeC {\c C}\IeC {\~O}ES DIOFANTINAS (AVAN\IeC {\c C}ADO)}{35}{subsection.10.3}
+\contentsline {subsection}{\numberline {10.4}COMBINA\IeC {\c C}\IeC {\~A}O NCR (AVAN\IeC {\c C}ADO)}{35}{subsection.10.4}

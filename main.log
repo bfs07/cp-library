@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.11.5)  7 NOV 2018 10:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.11.5)  7 NOV 2018 10:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1433,7 +1433,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 272.
 
-<Images/Catalan.jpg, id=739, 973.74316pt x 66.56447pt>
+<Images/Catalan.jpg, id=764, 973.74316pt x 66.56447pt>
 File: Images/Catalan.jpg Graphic file (type jpg)
 <use Images/Catalan.jpg>
 Package pdftex.def Info: Images/Catalan.jpg  used on input line 272.
@@ -1597,7 +1597,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 348--348
 |[]\T1/pcr/m/n/10 4.1. INCLUSÃO^^UEXCLUSÃO|
  []
 
-<Images/Inclusao-Exclusao.jpg, id=1101, 473.51906pt x 86.57344pt>
+<Images/Inclusao-Exclusao.jpg, id=1126, 473.51906pt x 86.57344pt>
 File: Images/Inclusao-Exclusao.jpg Graphic file (type jpg)
 <use Images/Inclusao-Exclusao.jpg>
 Package pdftex.def Info: Images/Inclusao-Exclusao.jpg  used on input line 348.
@@ -1891,7 +1891,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 424--424
 |[]\T1/pcr/m/n/10 5.8. INTERSECÇÃO DE CIRCULOS (2PTOS)|
  []
 
-<"Images/Intersecao de Circulos".jpg, id=1756, 170.13562pt x 129.48375pt>
+<"Images/Intersecao de Circulos".jpg, id=1781, 170.13562pt x 129.48375pt>
 File: "Images/Intersecao de Circulos".jpg Graphic file (type jpg)
 <use "Images/Intersecao de Circulos".jpg>
 Package pdftex.def Info: "Images/Intersecao de Circulos".jpg  used on input lin
@@ -2587,7 +2587,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 606--606
 |[]\T1/pcr/m/n/10 9.1. INTERVAL SCHEDULING|
  []
 
-<"Images/Interval Scheduling".jpg, id=3802, 402.75468pt x 226.59656pt>
+<"Images/Interval Scheduling".jpg, id=3827, 402.75468pt x 226.59656pt>
 File: "Images/Interval Scheduling".jpg Graphic file (type jpg)
 <use "Images/Interval Scheduling".jpg>
 Package pdftex.def Info: "Images/Interval Scheduling".jpg  used on input line 6
@@ -2764,27 +2764,50 @@ File: utf8.def 2017/01/28 v1.1t UTF-8 support for inputenc
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [34])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 612.
+Underfull \hbox (badness 10000) in paragraph at lines 619--619
+|[]\T1/pcr/m/n/12 10. Anexos|
+ []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 619--619
+|[]\T1/pcr/m/n/10 10.1. ANOTAÇÕES DE MATEMÁTICA|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 619--619
+|[]\T1/pcr/m/n/10 10.2. ANOTAÇÕES DE GEOMETRIA|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 619--619
+|[]\T1/pcr/m/n/10 10.3. EQUAÇÕES DIOFANTINAS (AVANÇADO)|
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 619--619
+|[]\T1/pcr/m/n/10 10.4. COMBINAÇÃO NCR (AVANÇADO)|
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 625.
 [35
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 612.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 625.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 612.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 612.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 625.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 625.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: F526EBE6A9DF1198A38A2B104F1B3DDC;9149.
+(rerunfilecheck)             Checksum: A7B1ADD2E0AF0E73E078FD28133BE89C;9543.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 37085 strings out of 492982
- 805391 string characters out of 6134896
+ 37095 strings out of 492982
+ 805541 string characters out of 6134896
  1359949 words of memory out of 5000000
- 35940 multiletter control sequences out of 15000+600000
+ 35945 multiletter control sequences out of 15000+600000
  23166 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,12n,98p,790b,2376s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2806,10 +2829,10 @@ pe1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr
 8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on main.pdf (35 pages, 492569 bytes).
+Output written on main.pdf (35 pages, 494250 bytes).
 PDF statistics:
- 5106 PDF objects out of 5155 (max. 8388607)
- 4996 compressed objects within 50 object streams
- 3665 named destinations out of 4296 (max. 500000)
- 937 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 5133 PDF objects out of 5155 (max. 8388607)
+ 5022 compressed objects within 51 object streams
+ 3670 named destinations out of 4296 (max. 500000)
+ 977 words of extra memory for PDF output out of 10000 (max. 10000000)
 

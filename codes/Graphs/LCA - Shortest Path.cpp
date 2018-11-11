@@ -11,6 +11,7 @@ void dfsLCA(int u, int p, int d = 1) {
 
 	level[u] = d;
 	vis[u] = true; 
+  anc[u][0] = p;
 
 	for(ii x: adj[u]) {
 		if(vis[x.ff])
@@ -38,7 +39,6 @@ void read(int n) {
     cin >> x >> c;    
     adj[x].pb(ii(i,c));
     adj[i].pb(ii(x,c));
-    anc[i][0] = x;
   }
 }
 
