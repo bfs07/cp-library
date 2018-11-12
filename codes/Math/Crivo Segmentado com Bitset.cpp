@@ -7,7 +7,7 @@ vector<int> segPrimes;
 void sieve(int n = (int)1e6) {
 
 	isPrime.set();
-	for(int i = 2; i*i <= n; i++) {
+	for(int i = 2; i <= n; i++) {
 		if(!isPrime[i])
 			continue;
 
