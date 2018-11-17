@@ -2,7 +2,7 @@
 
 using namespace std;
 
-#define INF 1ll << 62
+#define INF (1ll << 62)
 #define pb push_back
 #define ii pair<int,int>
 #define OK cerr <<"OK"<< endl
@@ -10,10 +10,11 @@ using namespace std;
 #define ff first
 #define ss second
 #define int long long
+#define tt tuple<int, int, int>
 
 signed main () {
-	
-	ios_base::sync_with_stdio(false);
-	cin.tie(NULL);
-	
+  
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+
 }
