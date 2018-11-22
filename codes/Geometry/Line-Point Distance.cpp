@@ -1,13 +1,13 @@
 double ptoReta(double x1, double y1, double x2,double y2,double pointX, double pointY, double *ptox,double *ptoy){
   double diffX = x2 - x1;
-  float diffY = y2 - y1;
+  double diffY = y2 - y1;
   if ((diffX == 0) && (diffY == 0)) {
     diffX = pointX - x1;
     diffY = pointY - y1;
     //se os dois sao pontos
     return hypot(pointX - x1,pointY - y1);
   }
-  float t = ((pointX - x1) * diffX + (pointY - y1) * diffY) / 
+  double t = ((pointX - x1) * diffX + (pointY - y1) * diffY) / 
                   (diffX * diffX + diffY * diffY);
   if (t < 0) {
     //point is nearest to the first point i.e x1 and y1
