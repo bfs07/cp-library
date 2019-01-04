@@ -2,6 +2,7 @@ int comp[312345];
 vector<int> adj[312345];
 // grafo reverso de adj
 vector<int> trans[312345];
+// contains each element of each component
 vector<int> scc[312345];
 int V;
 
@@ -55,3 +56,9 @@ void computeSCC() {
       dfsTrans(v, id++, comp);
   }
 }
+
+/* 
+  ONLY WORKS WITH 0-INDEXED GRAPHS
+  
+  DONT FORGET TO DECLARE V
+*/
