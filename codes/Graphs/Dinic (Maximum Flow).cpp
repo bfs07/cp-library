@@ -81,8 +81,8 @@ struct Dinic {
     return 0;
   }
   
-  void calculate(){
-    if(src == snk){max_flow = -1; return;} //not sure if needed
+  int calculate(){
+    if(src == snk){max_flow = -1; return - 1;} //not sure if needed
     
     max_flow = 0;
     
@@ -90,6 +90,8 @@ struct Dinic {
       for(int i=0; i<sz; i++) used[i] = 0;
       while(int inc = send_flow(src, INF)) max_flow += inc;
     }
+
+    return max_flow;
     
   }
   
