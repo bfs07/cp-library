@@ -1,9 +1,3 @@
-/* 
-    Ex: x ≡ 2 (mod 3)
-        x ≡ 3 (mod 5)
-        x ≡ 2 (mod 7)
- */
-
 int inv(int a, int m) {
   int m0 = m, t, q;
   int x0 = 0, x1 = 1;
@@ -11,10 +5,11 @@ int inv(int a, int m) {
   if (m == 1)
     return 0;
  
-    
 // Apply extended Euclid Algorithm
   while (a > 1) {     
 // q is quotient
+    if(m == 0)
+      return INF;
     q = a / m;
     t = m;
     // m is remainder now, process same as euclid's algo
@@ -27,6 +22,7 @@ int inv(int a, int m) {
   // Make x1 positive
   if (x1 < 0)
     x1 += m0;
+  // debug(x1);
 
   return x1;
 }
@@ -36,7 +32,7 @@ int inv(int a, int m) {
 //  x % num[1] = rem[1],
 //  ..................
 //  x % num[k-2] = rem[k-1]
-// Assumption: Numbers in num[] are pairwise coprime
+// Assumption: Numbers in num[] are pairwise coprimes
 // (gcd for every pair is 1)
 int findMinX(int num[], int rem[], int k){
   // Compute product of all numbers
@@ -50,8 +46,13 @@ int findMinX(int num[], int rem[], int k){
   // Apply above formula
   for (int i = 0; i < k; i++){
     int pp = prod / num[i];
+    // debug(pp);
+    int iv = inv(pp, num[i]);
+    if(iv == INF)
+      return INF;
     result+=rem[i]*inv(pp,num[i])*pp;
   }
  
-  return result % prod;
+  // IF IS NOT VALID RETURN INF
+  return (result % prod == 0 ? INF: result % prod);
 }
