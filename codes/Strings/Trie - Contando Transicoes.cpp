@@ -1,14 +1,15 @@
 // Contém também deleção de números e conversão
-// NUMERO TA EM LONG LONG
-struct No {
-	map<char,pair<No*,int> > trans;
+
+struct Node {
+	map<char, Node*> trans;
 	bool word = false;
+	int cont = 0;
 };	
 
-No *head;
+Node *head;
 
-No *makeNo() {
-	return new No();
+Node *makeNode() {
+	return (new Node());
 }
 
 char comp(char x) {
@@ -43,47 +44,48 @@ int toInt(string x) {
 	return c;
 }
 
-void insert(string x) {
-	No *aux = head;
+void insert(string &x) {
+	Node *aux = head;
+	int dep = 1;
 	for(char c: x) {
-
-		if(aux->trans[c].ff) {
-			aux->trans[c].ss += 1;
-		} else {
-			aux->trans[c].ff = makeNo();
-			aux->trans[c].ss = 1;
+		if(!((aux->trans).count(c))) {
+			aux->trans[c] = makeNode();
 		}
-		aux = aux->trans[c].ff;
+		aux = aux->trans[c];
+		aux->cont++;
+		dep++;
 	}
 	aux->word = true;
 }
 
-void del(string x) {
-	No *aux = head;
+void del(string &x) {
+	Node *aux = head;
 	for(char c: x) {
-		if((--(aux->trans[c].ss)) == 0) {
-			aux->trans[c].ff = NULL;
+		if((--(aux->trans[c].cont)) == 0) {
+			aux->trans[c] = NULL;
 			return;
 		}
-		aux = aux->trans[c].ff;
+		aux = aux->trans[c];
 	}
 }
 
+// example of query in problem to find maximum xor
 string query(string x) {
-	No *aux = head;
+	Node *aux = head;
 	string r = "";
 	for(char c: x) {
-		if(aux->trans[c].ff) {
+		if(aux->trans[c]) {
 			r += c;
-			aux = aux->trans[c].ff;
+			aux = aux->trans[c];
 		} else {
 			r += comp(c);
-			aux = aux->trans[comp(c)].ff;
+			aux = aux->trans[comp(c)];
 		}
 	}
 	return r;
 }
 
-int main() {
-	No *head = makeNo();
+void init() {
+	// Dont forget to initialize head
+	head = makeNode();
 }
