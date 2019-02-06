@@ -6,7 +6,7 @@ struct edge {
   bool operator<(const edge &a) {
     return w < a.w;
   }
-}
+};
 
 vector<edge> edges((int)2e6);
 vector<int> root((int)2e6), sz((int)2e6);
