@@ -40,7 +40,7 @@ bool Union(int p, int q) {
 }
 
 
-int kruskal(int n, int m) {
+int kruskal(int n) {
 
   init(n);
 
