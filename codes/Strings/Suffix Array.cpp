@@ -1,5 +1,17 @@
 // Created by Ubiratan Neto
 
+/*
+                                    Suf,   lcp
+0 banana                          5 a       0
+1 anana     Sort the Suffixes     3 ana     1
+2 nana      ---------------->     1 anana   3
+3 ana        alphabetically       0 banana  0
+4 na                              4 na      0
+5 a                               2 nana    2
+
+lcp = number of characters equal prefi
+*/
+
 struct SuffixArray {
   
   vector<int> rnk,tmp,sa, sa_aux, lcp, pot, sp[22];
@@ -16,9 +28,11 @@ struct SuffixArray {
     rnk.resize(n+1);
     for(int i=0; i<22; i++) sp[i].resize(n+1);
     pot.resize(n+1);
-    tmp.resize(max(257LL, n+1));
+    tmp.resize(max((int)257, n+1));
+    // sa stores index of first char of sufix
     sa.resize(n+1);
     sa_aux.resize(n+1);
+    // lcp stores value between the string and next string
     lcp.resize(n+1);
     block = 0;
   }
@@ -75,7 +89,7 @@ struct SuffixArray {
     for(int i=0; i<n; i++){
       if(rnk[i] == n-1) continue;
       int x = rnk[i];
-      lcp[x] = max(0LL,last-1);
+      lcp[x] = max((int)0,last-1);
       while(sa[x] + lcp[x] < n && sa[x+1] + lcp[x] < n && s[sa[x]+lcp[x]] == s[sa[x+1]+lcp[x]]){
         lcp[x]++;
       }
@@ -87,7 +101,7 @@ struct SuffixArray {
     int k = 0;
     for(int j = 0; (1<<j) <= 2*n; j++) {
       for(; k <= n && k < (1<<j); k++) {
-          pot[k] = j-1;
+        pot[k] = j-1;
       }
     }
     for(int i=0; i<n; i++){
@@ -100,6 +114,7 @@ struct SuffixArray {
     }
   }
   
+  // to find lcp of two different sufixes starting at x and y
   int query_lcp(int x, int y){
     if(x == y) return n - x;
     if(rnk[x] > rnk[y]) swap(x,y);
@@ -107,6 +122,7 @@ struct SuffixArray {
     return min(sp[pot[r-l+1]][l], sp[pot[r-l+1]][r-(1LL<<pot[r-l+1])+1]);
   }
   
+  // needs calculate and calculate lcp first
   int number_of_substrings(){
     int ans = n - sa[0];
     for(int i=0; i<n-1; i++){
@@ -114,6 +130,23 @@ struct SuffixArray {
       ans += length - lcp[i];
     }
     return ans;
+  }
+
+  // needs calculate and calculate lcp first
+  int lcs(string &x, string &y) {
+
+    string s = x + "#" + y;
+
+    int n = (int)s.size() - 1;
+    int ans = 0;
+    for(int i = 0; i < n - 1; i++) {
+      int ida = sa[i];
+      int idb = sa[i+1];
+      if(ida < x.size() && idb > x.size() || ida > x.size() && idb < x.size()) {
+        ans = max(ans, lcp[i]);
+      } 
+    }
+
   }
 
 };
