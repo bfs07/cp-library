@@ -1,8 +1,7 @@
-bool isBipartite(int src){
+bool isBipartite(int src, int V){
 	
-	int colorArr[V];
-	for (int i = 0; i < V; ++i)
-		colorArr[i] = -1;
+	int colorArr[V + 1];
+	memset(colorArr, -1, sizeof(colorArr));
 	colorArr[src] = 1;
 
 	queue <int> q; q.push(src);
