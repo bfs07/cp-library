@@ -1,67 +1,60 @@
-// (achar substring numa string)
-// Complexidade: O(n)
+vector<int> pi(const string &s) {
 
-// TXT = "ABABABABA", PAT = "AB"
-// Fills lps[] for given patttern pat[0..M-1]
-void compute(string &pat, int m, int lps[]) {
-  // length of the previous longest prefix suffix
-  int len = 0;
-  lps[0] = 0; // lps[0] is always 0
- 
-  // the loop calculates lps[i] for i = 1 to m-1
-  int i = 1;
-  while (i < m) {
-    if (pat[i] == pat[len]) {
-      len++, i++;
-      lps[i] = len;
-    } else {// (pat[i] != pat[len])
-      if (len != 0)
-        len = lps[len-1];
-      else
-        lps[i++] = 0;
+  int n = s.size();
+  vector<int> pi(n);
+
+  int l = 0, r = 1;
+
+  while(r < n) {
+    if(s[l] == s[r]) {
+      l++;
+      pi[r] = l;
+      r++;
+    } else {
+      if(l == 0) {
+        pi[r] = 0;
+        r++;
+      } else {
+        l = pi[l - 1];
+      }
     }
   }
+
+  return pi;
+
 }
 
-// Driver program to test above function
-// Prints occurrences of txt[] in pat[]
-int KMPSearch(string pat, string txt) {
+// returns the index of first occurence of a pat in a txt
+int kmp(const string &txt, const string &pat) {
+
   int n = txt.size(), m = pat.size();
-  // create lps[] that will hold the longest prefix suffix values for pattern
-  int lps[m], c = 0;
- 
-  // Preprocess the pattern (calculate lps[] array)
-  compute(pat, m, lps);
- 
-  int i = 0;  // index for txt[]
-  int j = 0;  // index for pat[]
-  while (i < n) {
-    if (pat[j] == txt[i])
-      j++, i++;
- 
-    if (j == m) {
-      printf("pattern at %d \n", i-j);
-      j = lps[j-1];
-      c++;
-      // Múltiplos matches
+
+  int t = 0, p = 0;
+  vector<int> pi_pat = pi(pat);
+  // vector<int> occ;
+
+  while(t < n) {
+
+    if(txt[t] == pat[p]) {
+      t++, p++;
+      if(p == m) {
+        return t - m;
+        // if you want to continue searching
+        // occ.pb(t - m);
+        // p = pi_pat[p - 1];
+      }
+    } else {
+      if(p == 0) {
+        t++;
+      } else {
+        p = pi_pat[p - 1];
+      }
     }
- 
-    // mismatch after j matches
-    else if (i < n && pat[j] != txt[i]){
-      // Do not match lps[0..lps[j-1]] characters, they will match anyway
-      if (j != 0)
-        j = lps[j-1];
-      else
-        i = i+1;
-    }
+
   }
-  // return the number of occurrences
-  return c;
+
+  return -1;
+
+  // return occ;
+
 }
-int main() {
-  string txt = "ABABDABACDABABCABAB";
-  string pat = "AB";
-  KMPSearch(pat, txt);
-}
-Output:
-pattern at 0,2,5,10,12,15,17
