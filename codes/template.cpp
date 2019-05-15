@@ -11,6 +11,7 @@ using namespace std;
 #define ss second
 #define int long long
 #define tt tuple<int, int, int>
+#define endl '\n'
 
 signed main () {
   
