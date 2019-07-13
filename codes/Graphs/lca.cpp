@@ -1,5 +1,4 @@
 // in order to find the lca vertex remove comments (// short path)
-// INDEXED FROM 0
 
 class LCA
 {
