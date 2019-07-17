@@ -15,7 +15,7 @@ private:
 
 public:
 
-	BIT(const vector<int> &arr)
+	BIT(vector<int> &arr)
 	{
 		// OBS: BIT IS INDEXED FROM 1
 		// THE USE OF 1-BASED ARRAY IS RECOMMENDED 
@@ -65,20 +65,20 @@ public:
 		return sum;
 	}
 
+};
+
+signed main()
+{
+
+	vector<int> input = {0,1,2,3,4,5,6,7};
+
+	BIT ft(input);
+
+	assert (1 == ft.query(1));
+	assert (3 == ft.query(2));
+	assert (6 == ft.query(3));
+	assert (10 == ft.query(4));
+	assert (15 == ft.query(5));
+	assert (21 == ft.query(6));
+	assert (28 == ft.query(7));
 }
-
-// int main()
-// {
-
-// 	vector<int> input = {1,2,3,4,5,6,7};
-
-// 	BIT ft(input);
-
-// 	assert (1 == ft.getSum(binaryIndexedTree, 0));
-// 	assert (3 == ft.getSum(binaryIndexedTree, 1));
-// 	assert (6 == ft.getSum(binaryIndexedTree, 2));
-// 	assert (10 == ft.getSum(binaryIndexedTree, 3));
-// 	assert (15 == ft.getSum(binaryIndexedTree, 4));
-// 	assert (21 == ft.getSum(binaryIndexedTree, 5));
-// 	assert (28 == ft.getSum(binaryIndexedTree, 6));
-// }
