@@ -67,18 +67,19 @@ public:
 
 };
 
-signed main()
-{
+// TESTS
+// signed main()
+// {
 
-	vector<int> input = {0,1,2,3,4,5,6,7};
+// 	vector<int> input = {0,1,2,3,4,5,6,7};
 
-	BIT ft(input);
+// 	BIT ft(input);
 
-	assert (1 == ft.query(1));
-	assert (3 == ft.query(2));
-	assert (6 == ft.query(3));
-	assert (10 == ft.query(4));
-	assert (15 == ft.query(5));
-	assert (21 == ft.query(6));
-	assert (28 == ft.query(7));
-}
+// 	assert (1 == ft.query(1));
+// 	assert (3 == ft.query(2));
+// 	assert (6 == ft.query(3));
+// 	assert (10 == ft.query(4));
+// 	assert (15 == ft.query(5));
+// 	assert (21 == ft.query(6));
+// 	assert (28 == ft.query(7));
+// }
