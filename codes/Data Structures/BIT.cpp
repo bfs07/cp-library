@@ -3,7 +3,8 @@ class BIT
 
 private:
 
-	vector<int> bit;
+	vector<int> bit1;
+	vector<int> bit2;
 	int n;
 
 private:
@@ -13,30 +14,54 @@ private:
 		return (i & (-i));
 	}
 
+	// point update
+	void update(int i, const int delta, vector<int> &bit)
+	{	
+		while(i <= this->n)
+		{
+			bit[i] += delta;
+			i += this->low(i);
+		}
+	}
+
+	// point query
+	int query(int i, const vector<int> &bit)
+	{
+		int sum = 0;
+		while(i > 0)
+		{
+			sum += bit[i];
+			i -= this->low(i);
+		}
+
+		return sum;
+	}
+
 public:
 
 	BIT(vector<int> &arr)
 	{
-		// OBS: BIT IS INDEXED FROM 1
-		// THE USE OF 1-BASED ARRAY IS RECOMMENDED 
-
-		assert(arr.front() == 0);
-		this->bit.resize(arr.size(), 0);
-		this->n = (int)arr.size() - 1;
-
 		this->build(arr);
 	}
 
 	BIT(int n)
 	{
+		// OBS: BIT IS INDEXED FROM 1
+		// THE USE OF 1-BASED ARRAY IS RECOMMENDED 
 		this->n = n;
-		this->bit.resize(n + 1, 0); 
+		this->bit1.resize(n + 1, 0); 
+		this->bit2.resize(n + 1, 0); 
 	}
 
+	// build the bit
 	int build(vector<int> &arr)
 	{
 		// OBS: BIT IS INDEXED FROM 1
 		// THE USE OF 1-BASED ARRAY IS RECOMMENDED
+		assert(arr.front() == 0);
+		this->n = (int)arr.size() - 1;
+		this->bit1.resize(arr.size(), 0);
+		this->bit2.resize(arr.size(), 0);
 
 		for(int i = 1; i <= this->n; i++)
 		{
@@ -44,25 +69,29 @@ public:
 		}
 	}
 
-	void update(int i, const int delta)
-	{	
-		while(i <= this->n)
-		{
-			this->bit[i] += delta;
-			i += this->low(i);
-		}
+	// range update
+	void update(int l, int r, const int delta)
+	{
+		this->update(l, delta, this->bit1);
+		this->update(r + 1, -delta, this->bit1);
+		this->update(l, delta*(l - 1), this->bit2);
+		this->update(r + 1, -delta*r, this->bit2);
 	}
 
-	int query(int i)
+	// point update
+	void update(int i, const int delta)
 	{
-		int sum = 0;
-		while(i > 0)
-		{
-			sum += this->bit[i];
-			i -= this->low(i);
-		}
+		this->update(i, i, delta); 
+	}
 
-		return sum;
+	// range query
+	int query(int l, int r) {
+		return this->query(r) - this->query(l - 1);
+	}
+
+	// point query
+	int query(int i) {
+		return (this->query(i, this->bit1)*i) - this->query(i, this->bit2);
 	}
 
 };
@@ -82,4 +111,7 @@ public:
 // 	assert (15 == ft.query(5));
 // 	assert (21 == ft.query(6));
 // 	assert (28 == ft.query(7));
+// 	assert (12 == ft.query(3,5));
+// 	assert (21 == ft.query(1,6));
+// 	assert (28 == ft.query(1,7));
 // }
