@@ -10,6 +10,7 @@ private:
 
 private:
 
+  // returns an integer which constains only the least significant bit 
   int low(int i)
   {
     return (i & (-i));
@@ -18,7 +19,6 @@ private:
   // update from (1, 1) to (x, y)
   void bit_update(const int x, const int y, const int delta)
   { 
-    assert(x > 0 && y > 0 && x <= this->n && y <= this->m);
 
     for(int i = x, c = x - 1, d = y - 1; i <= this->n; i += this->low(i))
       for(int j = y; j <= this->m; j += this->low(j)) {
@@ -32,7 +32,6 @@ private:
   // query from (1, 1) to (x, y)
   int bit_query(const int x, const int y)
   {
-    assert(x > 0 && y > 0 && x <= this->n && y <= this->m);
 
     int a, b, c, d, e;
     a = b = c = 0;
@@ -66,7 +65,10 @@ public:
   {
     this->n = n;
     this->m = m;
-    this->bit.resize(n + 2, vector<int>(m + 2, 0)); 
+    this->bit1.resize(this->n + 2, vector<int>(this->m + 2, 0));
+    this->bit2.resize(this->n + 2, vector<int>(this->m + 2, 0));
+    this->bit3.resize(this->n + 2, vector<int>(this->m + 2, 0));
+    this->bit4.resize(this->n + 2, vector<int>(this->m + 2, 0));
   }
 
   int build(vector<vector<int>> &mat)
@@ -90,7 +92,7 @@ public:
   // point update
   void update(const int x, const int y, const int delta)
   {
-    assert(x2 >= x1 && x1 > 0 && y2 >= y1 && y1 > 0);
+    assert(x > 0 && y > 0 && x <= this->n && y <= this->m);
     this->update(x, y, x, y, delta);
   }
 
@@ -98,10 +100,10 @@ public:
   void update(const int x1, const int y1, const int x2, const int y2, const int delta)
   {
     assert(x2 >= x1 && x1 > 0 && y2 >= y1 && y1 > 0);
-    this->update(x1, y1, delta);
-    this->update(x2 + 1, y1, -delta);
-    this->update(x1, y2 + 1, -delta);
-    this->update(x2 + 1, y2 + 1, delta);
+    this->bit_update(x1, y1, delta);
+    this->bit_update(x2 + 1, y1, -delta);
+    this->bit_update(x1, y2 + 1, -delta);
+    this->bit_update(x2 + 1, y2 + 1, delta);
   }
 
   // point query
@@ -138,4 +140,18 @@ public:
 //   assert(b2d.query(1,1,2,2) == 12);
 //   assert(b2d.query(2,2,4,3) == 51);
 //   assert(b2d.query(2,2,3,3) == 28);
+//   b2d.update(1,1,2,2,-3);
+//   assert(b2d.query(1,1,2,3) == 9);
+
+//   BIT2D b2d2((int)mat.size() - 1, (int)mat.front().size() - 1);
+//   for(int i = 1; i < mat.size(); i++)
+//     for(int j = 1; j < mat.front().size(); j++)
+//       b2d2.update(i, j, mat[i][j]);
+
+//   assert(b2d2.query(1,1,1,2) == 3);
+//   assert(b2d2.query(1,1,1,1) == 1);
+//   assert(b2d2.query(1,1,4,3) == 78);
+//   assert(b2d2.query(1,1,2,2) == 12);
+//   assert(b2d2.query(2,2,4,3) == 51);
+//   assert(b2d2.query(2,2,3,3) == 28);  
 // }
