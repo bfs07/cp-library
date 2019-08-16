@@ -97,7 +97,7 @@ literate=
 }
 
 \title{Competitive Programming Library}
-\author{Bernardo Flores Salmeron}
+\author{Bernardo Flores Salmeron \n***DO NOT DISCLOSE OR DISTRIBUTE***}
 \date{}
 
 \begin{document}
@@ -222,6 +222,10 @@ literate=
     \includecode{"Funcoes Interessantes"/"Conta Digitos 1 ate N".cpp}
   }
 
+  \subsection{READINT}{
+    \includecode{"Funcoes Interessantes"/"readint.cpp"}
+  }
+
 }
 
 \newpage
@@ -229,11 +233,11 @@ literate=
 \section{DP}{
   \subsection{PROBLEMA DO TROCO}{
 
-    \includecode{DP/troco.cpp}
+    \includecode{DP/coin_change_problem.cpp}
   }
 
   \subsection{PROBLEMA DA MOCHILA}{
-    \includecode{DP/Knapsack.cpp}
+    \includecode{DP/knapsack.cpp}
   }
 
   \subsection{CATALAN (1, 1, 2, 5, 14, 42, 132, 429) - $O(n)$}{
@@ -296,7 +300,7 @@ literate=
   }
 
   \subsection{TODOS OS DIVISORES DE N – $O(sqrt(n))$}{
-    \includecode{Math/"Divisores".cpp}
+    \includecode{Math/divisors.cpp}
   }
 
   \subsection{ALGORITMO DE EUCLIDES ESTENDIDO - $O(log(min(a,b)))$}{
@@ -338,6 +342,10 @@ literate=
     \includecode{Math/"Combinacao nCr".cpp}
   }
 
+  \subsection{COMBINAÇÃO nCr mod Primo}{
+    \includecode{Math/"Combinacao nCr mod Primo".cpp}
+  }
+
   \subsection{POLLARD RHO (FIND A DIVISOR FOR N) – $O(n^{(1/4)})$}{
     \includecode{Math/"Pollard Rho (Find a Divisor)".cpp}
   }
@@ -348,6 +356,14 @@ literate=
 
   \subsection{EULER'S TOTIENT FUNCTION}{
     \includecode{Math/"Euler Totient".cpp}
+  }
+
+  \subsection{Compressão de Pontos} {
+    \includecode{Math/"Compressão de Pontos.cpp"}
+  }
+
+  \subsection{Modular Inverse} {
+    \includecode{Math/"modular_inverse.cpp"}
   }
 }
 
@@ -424,6 +440,10 @@ literate=
   \subsection{ÁREA POLÍGONO 3D – $O(n)$}{
     \includecode{Geometry/"Polygon Area (3d)".cpp}
   }
+
+  \subsection{POINT INSIDE CONVEX POLYGON – $O(log n)$}{
+    \includecode{Geometry/"Point Inside Convex Polygon - log(n).cpp"}
+  }
   
 }
 
@@ -435,8 +455,8 @@ literate=
     \includecode{Strings/KMP.cpp}
   }
 
-  \subsection{TRIE}{
-    \includecode{Strings/Trie.cpp}
+  \subsection{SUFFIX ARRAY}{
+    \includecode{Strings/"Suffix Array.cpp"}
   }
 
   \subsection{TRIE (CONTANDO TRANSICOES)}{
@@ -459,12 +479,16 @@ literate=
 \newpage
 
 \section{Data Structures}{
-  \subsection{RMQ MIN-MAX + LAZY PROPAGATION}{
-    \includecode{"Data Structures"/"RMQ Min-Max + Lazy Propagation".cpp}
+  \subsection{SEGMENT TREE RMQ MIN-MAX + LAZY PROPAGATION}{
+    \includecode{segment_tree.cpp}
   }
   
   \subsection{BIT}{
     \includecode{"Data Structures"/"BIT".cpp}
+  }
+  
+  \subsection{BIT 2D}{
+    \includecode{"Data Structures"/"BIT2D".cpp}
   }
 
   \subsection{ARVORE BINARIA}{
@@ -492,6 +516,10 @@ literate=
 
   \subsection{CONTANDO INVERSÕES}{
     \includecode{"Data Structures"/"Contando Inversoes.cpp"}
+  }
+
+  \subsection{SPARSE TABLE}{
+    \includecode{"Data Structures"/"Sparse Table.cpp"}
   }
   
 }
@@ -524,7 +552,7 @@ literate=
   }
 
   \subsection{LCA (shortest path)}{
-    \includecode{Graphs/"LCA - Shortest Path".cpp}
+    \includecode{Graphs/lca.cpp}
   }
 
   \subsection{FORD FULKERSSON (MAXIMUM FLOW) – $O(V\text{$*$}(E^2))$}{
@@ -546,7 +574,7 @@ literate=
     \includecode{Graphs/"Ordenacao Topologica (Fila)".cpp}
   }
    \subsection{KRUSKAL (UNION FIND – $O(log(n))$) – $O(E\text{$*$}log(V))$}{
-    \includecode{Graphs/"Kruskal (Union Find)".cpp}
+    \includecode{Graphs/kruskal_+_dsu.cpp}
   }
   \subsection{FLOYD WARSHALL – $O(V^3)$}{
     \includecode{Graphs/"Floyd Warshall".cpp}
@@ -609,6 +637,10 @@ literate=
 
   \subsection{2-SAT PROBLEM - $O(V\text{$+$}E)$}{
     \includecode{Diverse/"2-SAT Problem".cpp}
+  }
+
+  \subsection{SLIDING WINDOW MINIMUM - $O(N)$}{
+    \includecode{Diverse/"Sliding Window Minimum.cpp"}
   }
   
 }
