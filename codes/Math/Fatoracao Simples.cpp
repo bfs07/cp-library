@@ -1,14 +1,14 @@
-set<int> primeFactors(int n) {
+map<int, int> primeFactors(int n) {
 	set<int> ret;
   while (n%2 == 0) {
-  	ret.insert(2);
+  	m[2]++;
     n = n/2;
   }
  
  	int sq = sqrt(n);
   for (int i = 3; i <= sq+2; i = i+2) {
     while (n%i == 0) {
-    	ret.insert(i);
+    	m[i]++;;
       n = n/i;
     }
     /* OBS1
@@ -18,7 +18,7 @@ set<int> primeFactors(int n) {
   }
 
   if (n > 2) 
-  	ret.insert(n);
+  	m[n]++;
 
   return ret;
 }
