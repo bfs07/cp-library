@@ -85,7 +85,7 @@ private:
     vector<int> arr;
 
     int rank_table_size = 0;
-    this->rank_table.resize(ceil(log(this->n)) + 2);
+    this->rank_table.resize(ceil(log2(this->n)) + 2);
 
     for (int i = 1; i <= this->n; i++)
       ranks[i] = pair<Rank, int>(Rank(s[i], 0), i);
@@ -93,7 +93,7 @@ private:
     // Inserting only the ranks in the table.
     transform(ranks.begin(), ranks.end(),
               back_inserter(rank_table[rank_table_size++]),
-              [](auto &pair) { return pair.first.first; });
+              [](pair<Rank,int> &pair) { return pair.first.first; });
 
     RadixSort::sort_pairs(ranks, 256);
     arr = build_ranks(ranks);
@@ -114,7 +114,7 @@ private:
         // Inserting only the ranks in the table.
         transform(ranks.begin(), ranks.end(),
                   back_inserter(rank_table[rank_table_size++]),
-                  [](auto &pair) { return pair.first.first; });
+                  [](pair<Rank,int> &pair) { return pair.first.first; });
 
         RadixSort::sort_pairs(ranks, n);
 
@@ -133,7 +133,7 @@ private:
       // Inserting only the ranks in the table.
       transform(ranks.begin(), ranks.end(),
                 back_inserter(rank_table[rank_table_size++]),
-                [](auto &pair) { return pair.first.first; });
+                [](pair<Rank,int> &pair) { return pair.first.first; });
     }
 
     this->suffix_array.resize(this->n + 1);
