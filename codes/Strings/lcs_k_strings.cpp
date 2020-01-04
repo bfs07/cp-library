@@ -38,6 +38,7 @@ int main() {
   vector<int> freq(n);
   int cnt1 = 0;
 
+  /// Ignore separators
   int i = n, j = n - 1;
   int ans = 0;
 
