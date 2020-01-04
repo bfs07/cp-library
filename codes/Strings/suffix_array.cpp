@@ -37,6 +37,27 @@ template <typename T> void sort_pairs(vector<T> &arr, const int rank_size) {
 } // namespace RadixSort
 
 /// It is indexed by 1.
+/// Let the given string be "banana".
+///
+/// 0 banana                          5 a
+/// 1 anana     Sort the Suffixes     3 ana
+/// 2 nana      ---------------->     1 anana  
+/// 3 ana        alphabetically       0 banana  
+/// 4 na                              4 na   
+/// 5 a                               2 nana
+/// So the suffix array for "banana" is {null, 5, 3, 1, 0, 4, 2}
+///
+/// LCP
+///
+/// 1 a
+/// 3 ana
+/// 0 anana
+/// 0 banana
+/// 2 na
+/// 0 nana (The last position will always be zero)
+///
+/// So the LCP for "banana" is {null, 1, 3, 0, 0, 2, 0}
+///
 class Suffix_Array {
 private:
   string s;
@@ -109,6 +130,7 @@ private:
     }
 
     this->suffix_array.resize(this->n + 1);
+    this->suffix_array[0] = numeric_limits<int>::min();
     for (int i = 1; i <= this->n; i++)
       this->suffix_array[arr[i]] = i;
   }
