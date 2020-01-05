@@ -1,3 +1,23 @@
+// Make the change below in SuffixArray code.
+int MaximumNumberOfStrings;
+
+void build_suffix_array() {
+  vector<pair<Rank, int>> ranks(this->n + 1);
+  vector<int> arr;
+
+  for (int i = 1, separators = 0; i <= n; i++)
+    if(this->s[i] > 0) {
+      ranks[i] = pair<Rank, int>(Rank((int)this->s[i] + MaximumNumberOfStrings, 0), i);
+      this->s[i] += MaximumNumberOfStrings;
+    } else {
+      ranks[i] = pair<Rank, int>(Rank(separators, 0), i);
+      this->s[i] = separators;
+      separators++;
+    }
+
+  ...
+}
+
 /// Program to find the LCS between k different strings.
 ///
 /// Time Complexity: O(n*log(n))
@@ -6,6 +26,8 @@ int main() {
   int n;
 
   cin >> n;
+
+  MaximumNumberOfStrings = n;
 
   vector<string> arr(n);
 
@@ -16,7 +38,7 @@ int main() {
   }
 
   string concat;
-  vector<int> ind(sum);
+  vector<int> ind(sum + 1);
   int cnt = 0;
   for(string &x: arr) {
     if(concat.size())
@@ -26,8 +48,8 @@ int main() {
 
   cnt = 0;
   for(int i = 0; i < concat.size(); i++) {
-    ind[i] = cnt;
-    if(concat[i] < 10)
+    ind[i + 1] = cnt;
+    if(concat[i] < MaximumNumberOfStrings)
       cnt++;
   }
 

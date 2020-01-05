@@ -167,6 +167,7 @@ private:
         k--;
     }
 
+    this->lcp[0] = numeric_limits<int>::min();
     return lcp;
   }
 
