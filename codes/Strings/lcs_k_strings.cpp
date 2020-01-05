@@ -15,6 +15,7 @@ void build_suffix_array() {
       separators++;
     }
 
+  RadixSort::sort_pairs(ranks, 256 + MaximumNumberOfStrings);
   ...
 }
 
