@@ -45,7 +45,7 @@ template <typename T> void sort_pairs(vector<T> &arr, const int rank_size) {
 /// 3 ana        alphabetically       0 banana  
 /// 4 na                              4 na   
 /// 5 a                               2 nana
-/// So the suffix array for "banana" is {null, 5, 3, 1, 0, 4, 2}
+/// So the suffix array for "banana" is {null, 6, 4, 2, 1, 5, 3}
 ///
 /// LCP
 ///
@@ -95,7 +95,7 @@ private:
   /// Builds the Suffix Array for the string s.
   ///
   /// Time Complexity: O(n*log(n))
-  /// Space Complexity: O(n) (Uncomment to make it O(n*log(n)))
+  /// Space Complexity: O(n)
   void build_suffix_array() {
     // This tuple below represents the rank and the index associated with it.
     vector<pair<Rank, int>> ranks(this->n + 1);
