@@ -1,10 +1,19 @@
-bitset<(int)1e5+3> primesInSeg;
-bitset<(int)1e6+3> isPrime;
-int spf[(int)1e6+3];
-vector<int> primes;
-vector<int> segPrimes;
+const int MAXN = 1e6;
 
-void sieve(int n = (int)1e6) {
+/// Contains all the primes in the segments
+vector<int> segPrimes;
+bitset<MAXN+5> primesInSeg;
+
+/// smallest prime factor
+int spf[MAXN+5];
+
+vector<int> primes;
+bitset<MAXN+5> isPrime;
+
+void sieve(int n = MAXN + 2) {
+
+  for(int i = 0; i <= n; i++)
+    spf[i] = i;
 
 	isPrime.set();
 	for(int i = 2; i <= n; i++) {
@@ -28,12 +37,13 @@ vector<int> getFactorization(int x) {
   return ret;
 }
 
+/// Gets all primes from l to r
 void segSieve(int l, int r) {
-	// primos de l..r
-	// transladados de 0..(l-r)
+	// primes from l to r
+	// transferred to 0..(l-r)
 	segPrimes.clear();
 	primesInSeg.set();
-	int sq = sqrt(r);
+	int sq = sqrt(r) + 5;
 
 	for(int p: primes) {
 		if(p > sq)
@@ -43,7 +53,8 @@ void segSieve(int l, int r) {
 			if(i - l < 0)
 				continue;
 
-			// se i for menor q 1e6 checa na array do crivo
+      // if i is less than 1e6, it could be checked in the 
+      // array of the sieve
 			if(i >= (int)1e6 || !isPrime[i])
 				primesInSeg[i-l] = false;
 		}
