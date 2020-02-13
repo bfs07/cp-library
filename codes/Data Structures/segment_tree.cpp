@@ -16,14 +16,14 @@ class Seg_Tree {
   //   tree[pos].val += (r - l + 1) * tree[pos].lazy;
   // }
 
-  // RMQ max
-  Node NEUTRAL_NODE = Node(-INF, 0);
-  Node merge_nodes(const Node &x, const Node &y) {
-    return Node(max(x.val, y.val), 0);
-  }
-  void apply_lazy(const int l, const int r, const int pos) {
-    tree[pos].val += tree[pos].lazy; 
-  }
+  // // RMQ max
+  // Node NEUTRAL_NODE = Node(-INF, 0);
+  // Node merge_nodes(const Node &x, const Node &y) {
+  //   return Node(max(x.val, y.val), 0);
+  // }
+  // void apply_lazy(const int l, const int r, const int pos) {
+  //   tree[pos].val += tree[pos].lazy; 
+  // }
 
   // // RMQ min
   // Node NEUTRAL_NODE = Node(INF, 0);
