@@ -135,7 +135,7 @@ private:
       if(this->vis[x.ff])
         continue;
       // this->dist[x.ff] = this->dist[u] + x.ss; // short path
-      // dfs_LCA(x.ff, u, d+1, x.ss, adj); // max-min cost
+      dfs_LCA(x.ff, u, d+1, x.ss, adj); // max-min cost
     }
   }
 
