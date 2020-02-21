@@ -1,3 +1,14 @@
+
+struct edge {
+  int u, v, w;
+  edge() {}
+  edge(int u, int v, int w) : u(u), v(v), w(w) {}
+
+  bool operator<(const edge &a) const {
+    return w < a.w;
+  }
+};
+
 void BellmanFord(vector<edge> edges,int src, int V, int E)  {
   // V = qtd of vertices, E = qtd de arestas
   int dist[V];
