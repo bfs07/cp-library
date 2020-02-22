@@ -48,13 +48,12 @@ class SCC {
     fill(comp.begin(), comp.end(), -1);
    
     // Now process all vertices in order defined by stack
-    int id = 0;
     while(s.empty() == false) {
       int v = s.top();
       s.pop();
    
       if(comp[v] == -1)
-        dfs_trans(v, id++);
+        dfs_trans(v, this->number_of_comp++);
     }
   }
 
@@ -65,6 +64,7 @@ class SCC {
   // the i-th vector contains the vertices that belong to the i-th scc
   // it's always indexed from 0
   vector<vector<int>> scc;
+  int number_of_comp = 0;
 
   SCC(int n, int indexed_from, vector<vector<int>>& adj) {
     this->n = n;
