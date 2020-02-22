@@ -22,7 +22,7 @@ vector<int> topological_sort(int n) {
     top_order.push_back(u); 
     cnt++;
 
-    for(int v: adj[u]) {
+    for(int v: adj[u])
       if(--in_degree[v] == 0)
         q.push(v); 
   }
