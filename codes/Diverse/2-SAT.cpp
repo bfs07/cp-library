@@ -110,8 +110,7 @@ class SAT {
     add_or(x, y, pos_x^1, pos_y^1);
   }
  
-  bool check(int n) {
- 
+  bool check() {
     SCC scc(2*n, 0, adj);
  
     for(int i = 0; i < n; i++) {
