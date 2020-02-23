@@ -78,7 +78,7 @@ class SCC {
 };
  
 // OBS: INDEXED FROM 0
-class SAT_2 {
+class SAT {
  
  private:
   vector<vector<int>> adj;
@@ -87,7 +87,7 @@ class SAT_2 {
  public:
   vector<bool> ans;
  
-  SAT_2(int n) {
+  SAT(int n) {
     this->n = n;
     adj.resize(2*n);
     ans.resize(n);
