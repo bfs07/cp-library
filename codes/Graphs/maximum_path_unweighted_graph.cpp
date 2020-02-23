@@ -27,11 +27,11 @@ int maximum_path(int n) {
   }
   reverse(path.begin(), path.end());
 
-  cout << path.size() << endl;
-  for(int x: path) {
-    cout << x + 1 << ' ';
-  }
-  cout << endl;
+  // cout << path.size() << endl;
+  // for(int x: path) {
+  //   cout << x + 1 << ' ';
+  // }
+  // cout << endl;
 
   return dp[n - 1];
 }
