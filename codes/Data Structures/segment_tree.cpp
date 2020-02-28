@@ -33,6 +33,14 @@ class Seg_Tree {
   // void apply_lazy(const int l, const int r, const int pos) {
   //   tree[pos].val += tree[pos].lazy; 
   // }
+  
+  // XOR
+  // Only works with point updates
+  // Node NEUTRAL_NODE = Node(0, 0);
+  // Node merge_nodes(const Node &x, const Node &y) {
+  //   return Node(x.val ^ y.val, 0);
+  // }
+  // void apply_lazy(const int l, const int r, const int pos) {}
 
  private:
   int n;
