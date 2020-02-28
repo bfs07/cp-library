@@ -2,19 +2,22 @@
 
 struct Dinic {
 
-  struct FlowEdge{
+  struct FlowEdge {
     int v, rev, c, cap;
+    bool is_rev;
     FlowEdge() {}
-    FlowEdge(int v, int c, int cap, int rev) : v(v), c(c), cap(cap), rev(rev) {}
+    FlowEdge(int v, int c, int cap, int rev, bool is_rev) : v(v), c(c), cap(cap), rev(rev), is_rev(is_rev) {}
   };
   
-  vector< vector<FlowEdge> >  adj;
+  vector<vector<FlowEdge>>  adj;
   vector<int> level, used;
   int src, snk, V;
   int sz;
   int max_flow;
+  bool calculated;
   Dinic(){}
   Dinic(int n){
+    calculated = false;
     src = 0;
     snk = n+1;
     adj.resize(n+2, vector< FlowEdge >());
@@ -28,19 +31,19 @@ struct Dinic {
   void add_edge(int u, int v, int c){
     int id1 = adj[u].size();
     int id2 = adj[v].size();
-    adj[u].pb(FlowEdge(v, c, c, id2));
-    adj[v].pb(FlowEdge(u, 0, 0, id1));
+    adj[u].pb(FlowEdge(v, c, c, id2, false));
+    adj[v].pb(FlowEdge(u, 0, 0, id1, true));
   }
   
   void add_to_src(int v, int c){
-    adj[src].pb(FlowEdge(v, c, c, -1));
+    adj[src].pb(FlowEdge(v, c, c, -1, false));
   }
   
   void add_to_snk(int u, int c){
-    adj[u].pb(FlowEdge(snk, c, c, -1));
+    adj[u].pb(FlowEdge(snk, c, c, -1, false));
   }
   
-  bool bfs(){
+  bool bfs() {
     for(int i=0; i<sz; i++){
       level[i] = -1;
     }
@@ -62,7 +65,7 @@ struct Dinic {
     return (level[snk] == -1 ? false : true);
   }
   
-  int send_flow(int u, int flow){
+  int send_flow(int u, int flow) {
     if(u == snk) return flow;
     
     for(int &i = used[u]; i<adj[u].size(); i++){
@@ -83,7 +86,7 @@ struct Dinic {
     return 0;
   }
   
-  int calculate(){
+  int calculate() {
     if(src == snk){max_flow = -1; return - 1;} //not sure if needed
     
     max_flow = 0;
@@ -92,12 +95,13 @@ struct Dinic {
       for(int i=0; i<sz; i++) used[i] = 0;
       while(int inc = send_flow(src, INF)) max_flow += inc;
     }
+    calculated = true;
 
     return max_flow;
     
   }
   
-  vector< ii > mincut(){
+  vector<ii> mincut(){
     bool vis[sz];
     for(int i=0; i<sz; i++) vis[i] = false;
     queue<int> q;
@@ -113,17 +117,17 @@ struct Dinic {
         }
       }
     }
-    vector< ii > cut;
+    vector<ii> cut;
     for(int i=1; i<=sz-2; i++){
       if(!vis[i]) continue;
-      for(FlowEdge e : adj[i]){
+      for(FlowEdge &e : adj[i]){
         if(1 <= e.v && e.v <= sz-2 && !vis[e.v] && e.cap > 0 && e.c == 0) cut.pb(ii(i, e.v));
       }
     }
     return cut;
   }
   
-  vector< ii > min_edge_cover(){
+  vector<ii> min_edge_cover(){
     bool covered[sz];
     for(int i=0; i<sz; i++) covered[i] = false;
     vector< ii > edge_cover;
@@ -153,11 +157,14 @@ struct Dinic {
   }
 
   vector<vector<int>> allFlow() {
+    assert(calculated);
     vector<int> row(V, 0);
     vector<vector<int>> ret(V, row);
 
     for(int i = 0; i < V; i++) {
       for(FlowEdge x: adj[i]) {
+        if(x.is_rev)
+          continue;
         // flow from vertex i to x.v
         ret[i][x.v] = x.cap - x.c;
       }   
@@ -172,5 +179,37 @@ struct Dinic {
 
     return ret;
   }
-  
+
+  void dfs_build_path(int u, vector<int> &path, vector<vector<int>> &mat_flow, vector<vector<int>> &ans, vector<vector<int>> &adj) {
+    path.pb(u);
+
+    if(u == this->snk) {
+      ans.pb(path);
+      return;
+    }
+
+    for(int v: adj[u]) {
+      if(mat_flow[u][v]) {
+        mat_flow[u][v]--;
+        dfs_build_path(v, path, mat_flow, ans, adj);
+        return;
+      }
+    }
+  }
+
+  vector<vector<int>> get_all_paths(vector<vector<int>> &adj) {
+    assert(calculated);
+
+    vector<vector<int>> mat_flow = allFlow();
+    vector<vector<int>> ans;
+    ans.reserve(max_flow);
+
+    for(int i = 0; i < max_flow; i++) {
+      vector<int> path;
+      path.reserve(V);
+      dfs_build_path(this->src, path, mat_flow, ans, adj);
+    }
+
+    return ans;
+  }
 };
