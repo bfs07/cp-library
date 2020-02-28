@@ -66,6 +66,33 @@ class Seg_Tree {
     return tree[pos] = merge_nodes(st_build(l, mid, arr, 2*pos+1), st_build(mid + 1, r, arr, 2*pos+2));
   }
 
+  int st_get_first(const int l, const int r, const int v, const int pos) {
+    st_propagate(l, r, pos);
+
+    // RMQ MAX
+    // GREATER OR EQUAL
+    // if(tree[pos].val < v)
+    // GREATER 
+    // if(tree[pos].val <= v)
+    
+    // RMQ MIN
+    // SMALLER OR EQUAL
+    // if(tree[pos].val > v)
+    // SMALLER
+    // if(tree[pos].val >= v) 
+      assert(false);
+      return -1;
+
+    if(l == r)
+      return l;
+
+    int mid = (l + r) / 2;
+    int aux = st_get_first(l, mid, v, 2*pos + 1);
+    if(aux != -1)
+      return aux;
+    return st_get_first(mid + 1, r, v, 2*pos + 2);
+  }
+
   Node st_query(const int l, const int r, const int i, const int j, const int pos) { 
     st_propagate(l, r, pos);
 
@@ -114,6 +141,15 @@ class Seg_Tree {
     this->n = arr.size() + 1;
     this->tree.resize(4*this->n);
     this->st_build(0, this->n - 1, arr, 0);
+  }
+
+  /// ONLY WORKS WITH RMQ MAX.
+  /// Returns the first index from left to right.
+  /// Uncomment the line in the original funtion to get the proper element that may be:
+  /// GREATER OR EQUAL, GREATER, SMALLER OR EQUAL, SMALLER. 
+  int get_first(const int v) {
+    assert(this->n >= 0);
+    return this->st_get_first(0, this->n - 1, v, 0);
   }
 
   // update at a single index
