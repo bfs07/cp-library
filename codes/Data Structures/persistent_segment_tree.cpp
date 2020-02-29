@@ -50,7 +50,7 @@ class Persistent_Seg_Tree {
     return node;
   }
 
-  Node* pst_update(Node *cur_tree, Node *prev_tree, const int l, const int r, const int idx, const int v) {
+  Node* pst_update(Node *cur_tree, Node *prev_tree, const int l, const int r, const int idx, const int delta) {
     if(l > idx || r < idx) {
       if(cur_tree != nullptr)
         return cur_tree;
@@ -61,13 +61,13 @@ class Persistent_Seg_Tree {
       cur_tree = new Node(prev_tree->val, nullptr, nullptr);
 
     if(l == r) {
-      cur_tree->val += v;
+      cur_tree->val += delta;
       return cur_tree;
     }
 
     int mid = (l + r) / 2;
-    cur_tree->left = pst_update(cur_tree->left, prev_tree->left, l, mid, idx, v);
-    cur_tree->right = pst_update(cur_tree->right, prev_tree->right, mid + 1, r, idx, v);
+    cur_tree->left = pst_update(cur_tree->left, prev_tree->left, l, mid, idx, delta);
+    cur_tree->right = pst_update(cur_tree->right, prev_tree->right, mid + 1, r, idx, delta);
     cur_tree->val = merge_nodes(cur_tree->left->val, cur_tree->right->val);
     return cur_tree;
   }
@@ -97,11 +97,11 @@ class Persistent_Seg_Tree {
     this->version[0] = this->pst_build(this->version[0], 0, this->n - 1, arr);
   }
 
-  /// Updates an index in cur_tree based on prev_tree.
+  /// Updates an index in cur_tree based on prev_tree with a delta.
   ///
   /// Time complexity: O(log(n))
-  void update(const int cur_version, const int prev_version, const int idx, const int v) {
-    this->version[cur_version] = this->pst_update(this->version[cur_version], this->version[prev_version], 0, this->n - 1, idx, v);
+  void update(const int cur_version, const int prev_version, const int idx, const int delta) {
+    this->version[cur_version] = this->pst_update(this->version[cur_version], this->version[prev_version], 0, this->n - 1, idx, delta);
   }
 
   /// Query from l to r.
