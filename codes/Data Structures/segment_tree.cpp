@@ -44,6 +44,8 @@ class Seg_Tree {
 
  private:
   int n;
+
+ public:
   vector<Node> tree;
 
  private:
