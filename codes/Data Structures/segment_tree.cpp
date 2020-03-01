@@ -129,7 +129,7 @@ class Seg_Tree {
   }
 
   Seg_Tree(const int n) {
-    this->n = n + 1;
+    this->n = n;
     this->tree.resize(4*this->n, Node(0, 0));
   }
 
@@ -138,7 +138,7 @@ class Seg_Tree {
   }
 
   void build(const vector<int> &arr) {
-    this->n = arr.size() + 1;
+    this->n = arr.size();
     this->tree.resize(4*this->n);
     this->st_build(0, this->n - 1, arr, 0);
   }
