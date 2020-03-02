@@ -18,6 +18,9 @@ class Persistent_Seg_Tree {
   vector<Node*> version;
 
  public:
+  Persistent_Seg_Tree () {
+    this->n = -1;
+  }
   /// Builds version[0] with the values in the array.
   ///
   /// Time complexity: O(n)
@@ -57,7 +60,7 @@ class Persistent_Seg_Tree {
       return prev_tree;
     }
 
-    if(cur_tree == nullptr)
+    if(!cur_tree || cur_tree == prev_tree)
       cur_tree = new Node(prev_tree->val, nullptr, nullptr);
 
     if(l == r) {
@@ -76,7 +79,7 @@ class Persistent_Seg_Tree {
     if(l > j || r < i)
       return _NEUTRAL_NODE.val;
 
-    if(i <= l && r <= j) 
+    if(i <= l && r <= j)
       return node->val;
 
     int mid = (l + r) / 2;
@@ -97,17 +100,30 @@ class Persistent_Seg_Tree {
     this->version[0] = this->pst_build(this->version[0], 0, this->n - 1, arr);
   }
 
+  /// Links the root of a version to a previous version.
+  ///
+  /// Time Complexity: O(1)
+  void link(const int version, const int prev_version) {
+    assert(this->n > -1);
+    assert(0 <= prev_version); assert(prev_version <= version); assert(version < this->version.size());
+    this->version[version] = this->version[prev_version];
+  }
+
   /// Updates an index in cur_tree based on prev_tree with a delta.
   ///
-  /// Time complexity: O(log(n))
+  /// Time Complexity: O(log(n))
   void update(const int cur_version, const int prev_version, const int idx, const int delta) {
+    assert(this->n > -1);
+    assert(0 <= prev_version); assert(prev_version <= cur_version); assert(cur_version < this->version.size());
     this->version[cur_version] = this->pst_update(this->version[cur_version], this->version[prev_version], 0, this->n - 1, idx, delta);
   }
 
   /// Query from l to r.
   ///
-  /// Time complexity: O(log(n))
+  /// Time Complexity: O(log(n))
   int query(const int version, const int l, const int r) {
+    assert(this->n > -1);
+    assert(this->version[version] != nullptr);
     assert(0 <= l); assert(l <= r); assert(r < this->n);
     return this->pst_query(this->version[version], 0, this->n - 1, l, r);
   }
