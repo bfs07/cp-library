@@ -1,157 +1,81 @@
-class BIT2D
-{
-private:
-
-  vector<vector<int>> bit1;
-  vector<vector<int>> bit2;
-  vector<vector<int>> bit3;
-  vector<vector<int>> bit4;
+// INDEX BY ONE ALWAYS!!!
+class BIT_2D {
+ private:
+  // row, column
   int n, m;
+  vector<vector<int>> tree;
 
-private:
-
-  // returns an integer which constains only the least significant bit 
-  int low(int i)
-  {
-    return (i & (-i));
+ private:
+  // Returns an integer which constains only the least significant bit.
+  int low(int i) {
+    return i & (-i);
   }
 
-  // update from (1, 1) to (x, y)
-  void bit_update(const int x, const int y, const int delta)
-  { 
-
-    for(int i = x, c = x - 1, d = y - 1; i <= this->n; i += this->low(i))
-      for(int j = y; j <= this->m; j += this->low(j)) {
-        this->bit1[i][j] += delta;
-        this->bit2[i][j] += delta * d;
-        this->bit3[i][j] += delta * c;
-        this->bit4[i][j] += delta * c * d;
-      }
+  void bit_update(const int x, const int y, const int delta) {
+    for(int i = x; i < n; i += low(i))
+      for(int j = y; j < m; j += low(j))
+        this->tree[i][j] += delta;
   }
 
-  // query from (1, 1) to (x, y)
-  int bit_query(const int x, const int y)
-  {
-
-    int a, b, c, d, e;
-    a = b = c = 0;
+  int bit_query(const int x, const int y) {
+    int ans = 0;
     for(int i = x; i > 0; i -= low(i))
-    {
-      d = e = 0;
       for(int j = y; j > 0; j -= low(j))
-      {
-        d += bit1[i][j];
-        e += bit2[i][j];
-        b += bit3[i][j];
-        c += bit4[i][j];
-      }
-      a += (d * y) - e;
-    }
+        ans += this->tree[i][j];
 
-    return (a * x) - (b * y) + c;
+    return ans;
   }
 
-public:
+ public:
+  // put the size of the array without 1 indexing.
+  /// Time Complexity: O(n * m)
+  BIT_2D(int n, int m) {
+    this->n = n + 1;
+    this->m = m + 1;
 
-  BIT2D(vector<vector<int>> &mat)
-  {
-    // OBS: BIT IS INDEXED FROM 1
-    // THE USE OF 1-BASED MATRIX IS RECOMMENDED 
-
-    this->build(mat);
+    this->tree.resize(n, vector<int>(m, 0));
   }
 
-  BIT2D(int n, int m)
-  {
-    this->n = n;
-    this->m = m;
-    this->bit1.resize(this->n + 2, vector<int>(this->m + 2, 0));
-    this->bit2.resize(this->n + 2, vector<int>(this->m + 2, 0));
-    this->bit3.resize(this->n + 2, vector<int>(this->m + 2, 0));
-    this->bit4.resize(this->n + 2, vector<int>(this->m + 2, 0));
+  /// Time Complexity: O(n * m * (log(n) + log(m)))
+  BIT_2D(const vector<vector<int>> &mat) {
+    // Check if it is 1 index.
+    assert(mat[0][0] == 0);
+    this->n = mat.size();
+    this->m = mat.front().size();
+    
+    this->tree.resize(n, vector<int>(m, 0));
+    for(int i = 1; i < n; i++)
+      for(int j = 1; j < m; j++)
+        update(i, j, mat[i][j]);
   }
 
-  int build(vector<vector<int>> &mat)
-  {
-    // OBS: BIT IS INDEXED FROM 1
-    // THE USE OF 1-BASED MATRIX IS RECOMMENDED
-    assert(mat.front().front() == 0);
-    this->n = (int)mat.size() - 1;
-    this->m = (int)mat.front().size() - 1;
+  /// Query from (1, 1) to (x, y).
+  ///
+  /// Time Complexity: O(log(n) + log(m))
+  int prefix_query(const int x, const int y) {
+    assert(0 < x); assert(x < this->n);
+    assert(0 < y); assert(y < this->m);
 
-    this->bit1.resize(this->n + 2, vector<int>(this->m + 2, 0));
-    this->bit2.resize(this->n + 2, vector<int>(this->m + 2, 0));
-    this->bit3.resize(this->n + 2, vector<int>(this->m + 2, 0));
-    this->bit4.resize(this->n + 2, vector<int>(this->m + 2, 0));
-
-    for(int i = 1; i <= this->n; i++)
-      for(int j = 1; j <= this->m; j++)
-        this->update(i, j, mat[i][j]);
+    return bit_query(x, y);
   }
 
-  // point update
-  void update(const int x, const int y, const int delta)
-  {
-    assert(x > 0 && y > 0 && x <= this->n && y <= this->m);
-    this->update(x, y, x, y, delta);
+  /// Query from (x1, y1) to (x2, y2).
+  ///
+  /// Time Complexity: O(log(n) + log(m))
+  int query(const int x1, const int y1, const int x2, const int y2) {
+    assert(0 < x1); assert(x1 <= x2); assert(x2 < this->n);
+    assert(0 < y1); assert(y1 <= y2); assert(y2 < this->m);
+
+    return bit_query(x2, y2) - bit_query(x1 - 1, y2) - bit_query(x2, y1 - 1) + bit_query(x1 - 1, y1 - 1);
   }
 
-  // range update
-  void update(const int x1, const int y1, const int x2, const int y2, const int delta)
-  {
-    assert(x2 >= x1 && x1 > 0 && y2 >= y1 && y1 > 0);
-    this->bit_update(x1, y1, delta);
-    this->bit_update(x2 + 1, y1, -delta);
-    this->bit_update(x1, y2 + 1, -delta);
-    this->bit_update(x2 + 1, y2 + 1, delta);
-  }
+  /// Updates point (x, y).
+  ///
+  /// Time Complexity: O(log(n) + log(m))
+  void update(const int x, const int y, const int delta) {
+    assert(0 < x); assert(x < this->n);
+    assert(0 < y); assert(y < this->m);
 
-  // point query
-  int query(const int x, const int y) 
-  {
-    return this->query(x, y, x, y);
+    bit_update(x, y, delta);  
   }
-
-  // range query
-  int query(const int x1, const int y1, const int x2, const int y2)
-  {
-    assert(x2 >= x1 && x1 > 0 && y2 >= y1 && y1 > 0);
-    return this->bit_query(x2, y2) - this->bit_query(x1 - 1, y2) - this->bit_query(x2, y1 - 1) + this->bit_query(x1 - 1, y1 - 1);
-  }
-
 };
-
-// TESTS
-// signed main() {
-
-//   vector<vector<int>> mat = {
-//                               {0,0,0,0},
-//                               {0,1,2,3},
-//                               {0,4,5,6},
-//                               {0,7,8,9},
-//                               {0,10,11,12}
-//                             };
-
-//   BIT2D b2d(mat);
-
-//   assert(b2d.query(1,1,1,2) == 3);
-//   assert(b2d.query(1,1,1,1) == 1);
-//   assert(b2d.query(1,1,4,3) == 78);
-//   assert(b2d.query(1,1,2,2) == 12);
-//   assert(b2d.query(2,2,4,3) == 51);
-//   assert(b2d.query(2,2,3,3) == 28);
-//   b2d.update(1,1,2,2,-3);
-//   assert(b2d.query(1,1,2,3) == 9);
-
-//   BIT2D b2d2((int)mat.size() - 1, (int)mat.front().size() - 1);
-//   for(int i = 1; i < mat.size(); i++)
-//     for(int j = 1; j < mat.front().size(); j++)
-//       b2d2.update(i, j, mat[i][j]);
-
-//   assert(b2d2.query(1,1,1,2) == 3);
-//   assert(b2d2.query(1,1,1,1) == 1);
-//   assert(b2d2.query(1,1,4,3) == 78);
-//   assert(b2d2.query(1,1,2,2) == 12);
-//   assert(b2d2.query(2,2,4,3) == 51);
-//   assert(b2d2.query(2,2,3,3) == 28);  
-// }
