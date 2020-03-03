@@ -60,8 +60,10 @@ class Persistent_Seg_Tree {
       return prev_tree;
     }
 
-    if(!cur_tree || cur_tree == prev_tree)
-      cur_tree = new Node(prev_tree->val, nullptr, nullptr);
+    if(cur_tree == nullptr)
+      cur_tree = new Node(prev_tree->val, prev_tree->left, prev_tree->right);
+    else
+      cur_tree = new Node(cur_tree->val, cur_tree->left, cur_tree->right);
 
     if(l == r) {
       cur_tree->val += delta;
@@ -94,8 +96,8 @@ class Persistent_Seg_Tree {
   }
 
   /// Constructor that allows to pass initial values to the leafs.
-  Persistent_Seg_Tree(const int n, const int number_of_versions, vector<int> &arr) {
-    this->n = n;
+  Persistent_Seg_Tree(const vector<int> &arr, const int number_of_versions) {
+    this->n = arr.size();
     version.resize(number_of_versions);
     this->version[0] = this->pst_build(this->version[0], 0, this->n - 1, arr);
   }
