@@ -1,111 +1,205 @@
-// in order to find the distance remove comments (// short path)
+// #define DIST
+// #define COST
+/// UNCOMMENT ALSO THE LINE BELOW FOR COST! 
 
 class LCA {
  private:
+  int n;
+  // INDEXED from 0 or 1??
+  int indexed_from;
+  /// Store all log2 from 1 to n
+  vector<int> lg;
+  // level of the i-th node (height)
+  vector<int> level;
   // matrix to store the ancestors of each node in power of 2 levels
   vector<vector<int>> anc;
-  vector<vector<int>> cost; // max-min cost
-  vector<int> level;
-  // distance from root
-  vector<int> dist; 
-  vector<bool> vis;
-  // INDEXED from 0 or 1??
-  int start_idx;
-  int n;
+
+  #ifdef DIST 
+    vector<int> dist; 
+  #endif
+  #ifdef COST
+    // int NEUTRAL_VALUE = -INF; // MAX COST
+    // int combine(const int a, const int b) {return max(a, b);}
+    // int NEUTRAL_VALUE = INF; // MIN COST
+    // int combine(const int a, const int b) {return min(a, b);}
+    vector<vector<int>> cost;
+  #endif
 
  private:
-  void build(const vector<vector<ii>> &adj) {
-    // dist[this->start_idx] = 0; // short path
-    dfs_LCA(this->start_idx, -1, 1, -1, adj);
+  void allocate() {
+    // initializes a matrix [n][lg n] with -1
+    this->build_log_array();
+    this->anc.resize(n + 1, vector<int>(lg[n] + 1, -1));
+    this->level.resize(n + 1, -1);
+    
+    #ifdef DIST 
+      this->dist.resize(n + 1, 0); 
+    #endif
+    #ifdef COST 
+      this->cost.resize(n + 1, vector<int>(lg[n] + 1, NEUTRAL_VALUE)); 
+    #endif
+  }
 
+  void build_log_array() {
+    this->lg.resize(this->n + 1);
+    
+    for(int i = 2; i <= this->n; i++)
+      this->lg[i] = this->lg[i/2] + 1;
+  }
+
+  void build_anc() {
     for(int j = 1; j < anc.front().size(); j++)
       for(int i = 0; i < anc.size(); i++)
-        if(this->anc[i][j-1] != -1) {
-          this->anc[i][j] = this->anc[this->anc[i][j-1]][j-1];
-          // this->cost[i][j] = max(this->cost[i][j-1], this->cost[anc[i][j-1]][j-1]); // max-min cost
+        if(this->anc[i][j - 1] != -1) {
+          this->anc[i][j] = this->anc[this->anc[i][j - 1]][j - 1];
+          #ifdef COST 
+            this->cost[i][j] = combine(this->cost[i][j - 1], this->cost[anc[i][j - 1]][j - 1]); 
+          #endif
         }
   }
 
-  void dfs_LCA(const int u, const int p, const int d, const int w, const vector<vector<ii>> &adj) {
-    this->level[u] = d;
-    this->vis[u] = true; 
-    this->anc[u][0] = p;
-    // this->cost[u][0] = w; // max-min cost
+  void build_weighted(const vector<vector<pair<int, int>>> &adj) {
+    this->dfs_LCA_weighted(this->indexed_from, -1, 1, 0, adj);
 
-    for(const ii &x: adj[u]) {
-      if(this->vis[x.ff])
+    this->build_anc();
+  }
+
+  void dfs_LCA_weighted(const int u, const int p, const int l, const int d, const vector<vector<pair<int, int>>> &adj) {
+    this->level[u] = l;
+    this->anc[u][0] = p;
+    #ifdef DIST 
+      this->dist[u] = d; 
+    #endif
+
+    for(const pair<int, int> &x: adj[u]) {
+      int v = x.first, w = x.second;
+      if(v == p)
         continue;
-      // this->dist[x.ff] = this->dist[u] + x.ss; // short path
-      dfs_LCA(x.ff, u, d+1, x.ss, adj); // max-min cost
+      #ifdef COST
+        this->cost[v][0] = w; 
+      #endif
+      this->dfs_LCA_weighted(v, u, l + 1, d + w, adj);
     }
   }
 
- public:
-  explicit LCA(const int n, const int start_idx, const vector<vector<ii>> &adj) {
-    this->n = n;
-    // initializes a matrix [n][lg n] with -1
-    this->anc.resize(n + 1, vector<int>((int)log2(n) + 1, -1));
-    // this->cost.resize(n + 1, vector<int>((int)log2(n) + 1, -1)); // max-min cost
-    this->level.resize(n + 1, -1);
-    // this->dist.resize(n + 1); // short path
-    this->vis.resize(n + 1, false);
-    this->start_idx = start_idx;
-    this->build(adj);
+  void build_unweighted(const vector<vector<int>> &adj) {
+    this->dfs_LCA_unweighted(this->indexed_from, -1, 1, 0, adj);
+
+    this->build_anc();
   }
 
-  int query(int a, int b) {
-    assert(start_idx <= min(a, b)); assert(max(a, b) < this->n + start_idx);
-    const int a_cpy = a, b_cpy = b;
+  void dfs_LCA_unweighted(const int u, const int p, const int l, const int d, const vector<vector<int>> &adj) {
+    this->level[u] = l;
+    this->anc[u][0] = p;
+    #ifdef DIST 
+      this->dist[u] = d;
+    #endif
+
+    for(const int v: adj[u]) {
+      if(v == p)
+        continue;
+      this->dfs_LCA_unweighted(v, u, l + 1, d + 1, adj);
+    }
+  }
+
+  // go up k levels from x
+  int lca_go_up(int x, int k) {
+    for(int i = 0; k > 0; i++, k >>= 1) 
+      if(k & 1) {
+        x = this->anc[x][i];
+        if(x == -1)
+          return -1;
+      }
+    
+    return x;
+  }
+
+  #ifdef COST
+  /// Query between the an ancestor of v (p) and v. It returns the 
+  /// max/min edge between them.
+  int lca_query_cost_in_line(int v, int p) {
+    assert(this->level[v] >= this->level[p]);
+
+    int k = this->level[v] - this->level[p];
+    int ans = NEUTRAL_VALUE;
+
+    for(int i = 0; k > 0; i++, k >>= 1) 
+      if(k & 1) {
+        ans = combine(ans, this->cost[v][i]);
+        v = this->anc[v][i];
+      }
+
+    return ans;
+  }
+  #endif
+
+  int get_lca(int a, int b) {
     // a is below b
     if(this->level[b] > this->level[a])
       swap(a,b);
 
-    const int lg = log2(this->level[a]);
+    const int logg = lg[this->level[a]];
 
-    // checking whether a and b are in the same level
-    for(int i = lg; i >= 0; i--)
-      if(this->level[a]-(1<<i) >= this->level[b])
+    // putting a and b in the same level
+    for(int i = logg; i >= 0; i--)
+      if(this->level[a] - (1 << i) >= this->level[b])
         a = this->anc[a][i];
 
     if(a == b) 
-      return a; // to find lca
-      // return this->dist[a_cpy] + this->dist[b_cpy] - 2*this->dist[a]; // short path
+      return a;
 
-    for(int i = lg; i >= 0; i--)
+    for(int i = logg; i >= 0; i--)
       if(this->anc[a][i] != -1 && this->anc[a][i] != this->anc[b][i]) {
         a = this->anc[a][i];
         b = this->anc[b][i];
       }
 
-    // anc[a][0] is the LCA
-    return anc[a][0]; // returns the LCS
-    //cout << "LCA  = " << anc[a][0] << endl;
-    // returns the shortest path from a to b
-    // return this->dist[a_cpy] + this->dist[b_cpy] - 2*this->dist[anc[a][0]];
+    return anc[a][0];
   }
 
-  int max_edge(int v, int p) {
-    if(this->level[v] < this->level[p])
-      swap(v, p);
-
-    int k = this->level[v] - this->level[p];
-    int ans = -1;
-
-    for(int i = 0; k > 0; i++, k >>= 1) 
-      if(k & 1) {
-        v = this->anc[v][i];
-        // ans = max(ans, this->cost[v][i]);
-      }
-
-    return ans;
-  }
-
-  // go up k levels from x
-  int go_back(int x, int k) {
-    for(int i = 0; k > 0; i++, k >>= 1) 
-      if(k & 1) 
-        x = this->anc[x][i];
+ public:
+  explicit LCA(const vector<vector<pair<int, int>>> &adj, const int indexed_from) {
+    this->n = adj.size();
+    this->indexed_from = indexed_from;
+    this->allocate();
     
-    return x;
+    this->build_weighted(adj);
+  }
+
+  explicit LCA(const vector<vector<int>> &adj, const int indexed_from) {
+    this->n = adj.size();
+    this->indexed_from = indexed_from;
+    this->allocate();
+    
+    this->build_unweighted(adj);
+  }
+
+  int query_lca(const int a, const int b) {
+    assert(indexed_from <= min(a, b)); assert(max(a, b) < this->n + indexed_from);
+    
+    return this->get_lca(a, b);
+  }
+
+  #ifdef DIST
+  int query_dist(const int a, const int b) {
+    assert(indexed_from <= min(a, b)); assert(max(a, b) < this->n + indexed_from);
+
+    return this->dist[a] + this->dist[b] - 2*this->dist[this->get_lca(a, b)];
+  }
+  #endif
+
+  #ifdef COST
+  int query_cost(const int a, const int b) {
+    assert(indexed_from <= min(a, b)); assert(max(a, b) < this->n + indexed_from);
+
+    const int l = this->query_lca(a, b);
+    return combine(this->lca_query_cost_in_line(a, l), this->lca_query_cost_in_line(b, l)); 
+  }
+  #endif
+
+  int go_up(const int x, const int k) {
+    assert(indexed_from <= x); assert(x < this->n + indexed_from);
+
+    return this->lca_go_up(x, k);
   }
 };
