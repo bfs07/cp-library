@@ -158,6 +158,9 @@ class LCA {
   }
 
  public:
+  /// Builds an weighted graph. 
+  ///
+  /// Time Complexity: O(n*log(n)) 
   explicit LCA(const vector<vector<pair<int, int>>> &adj, const int indexed_from) {
     this->n = adj.size();
     this->indexed_from = indexed_from;
@@ -166,6 +169,9 @@ class LCA {
     this->build_weighted(adj);
   }
 
+  /// Builds an unweighted graph. 
+  ///
+  /// Time Complexity: O(n*log(n)) 
   explicit LCA(const vector<vector<int>> &adj, const int indexed_from) {
     this->n = adj.size();
     this->indexed_from = indexed_from;
@@ -174,6 +180,27 @@ class LCA {
     this->build_unweighted(adj);
   }
 
+  /// Goes up k levels from v. If it passes the root, returns -1.
+  ///
+  /// Time Complexity: O(log(k)) 
+  int go_up(const int v, const int k) {
+    assert(indexed_from <= v); assert(v < this->n + indexed_from);
+
+    return this->lca_go_up(v, k);
+  }
+
+  /// Returns the parent of v in the LCA dfs from 1.
+  ///
+  /// Time Complexity: O(1) 
+  int parent(int v) {
+    assert(indexed_from <= v); assert(v < this->n + indexed_from);
+
+    return this->anc[v][0]; 
+  }
+
+  /// Returns the LCA of a and b.
+  ///
+  /// Time Complexity: O(log(n)) 
   int query_lca(const int a, const int b) {
     assert(indexed_from <= min(a, b)); assert(max(a, b) < this->n + indexed_from);
     
@@ -181,6 +208,10 @@ class LCA {
   }
 
   #ifdef DIST
+  /// Returns the distance from a to b. When the graph is unweighted, it is considered
+  /// 1 as the weight of the edges.
+  ///
+  /// Time Complexity: O(log(n)) 
   int query_dist(const int a, const int b) {
     assert(indexed_from <= min(a, b)); assert(max(a, b) < this->n + indexed_from);
 
@@ -189,6 +220,9 @@ class LCA {
   #endif
 
   #ifdef COST
+  /// Returns the max/min weight edge from a to b. 
+  ///
+  /// Time Complexity: O(log(n)) 
   int query_cost(const int a, const int b) {
     assert(indexed_from <= min(a, b)); assert(max(a, b) < this->n + indexed_from);
 
@@ -196,10 +230,4 @@ class LCA {
     return combine(this->lca_query_cost_in_line(a, l), this->lca_query_cost_in_line(b, l)); 
   }
   #endif
-
-  int go_up(const int x, const int k) {
-    assert(indexed_from <= x); assert(x < this->n + indexed_from);
-
-    return this->lca_go_up(x, k);
-  }
 };
