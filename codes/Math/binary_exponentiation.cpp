@@ -1,4 +1,4 @@
-int power(int x, int p, int MOD) {
+int power(const int x, const int p, const int MOD = ((int)1e9 + 7)) {
 	if(p == 0)
 		return 1%MOD;
 	if(p == 1) 
