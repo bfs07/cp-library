@@ -1,11 +1,11 @@
 namespace matrix {
-
-  using Matrix = vector<vector<int>>;
-
+  #define Matrix vector<vector<int>>
   /// Creates an n x n identity matrix.
   ///
   /// Time Complexity: O(n*n)
   Matrix identity(const int n) {
+    assert(n > 0);
+
     Matrix mat_identity(n, vector<int>(n, 0));
 
     for(int i = 0; i < n; i++)
@@ -33,6 +33,7 @@ namespace matrix {
   ///
   /// Time Complexity: O((mat.size() ^ 3) * log2(p))
   Matrix expo(Matrix &mat, int p, const int MOD) {
+    assert(p >= 0);
 
     Matrix ans = identity(mat.size());
     Matrix cur_power;
@@ -48,5 +49,4 @@ namespace matrix {
 
     return ans;
   }
-
 };
