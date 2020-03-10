@@ -116,7 +116,7 @@ class Seg_Tree {
       return tree[pos];
 
     if(i <= l && r <= j) {
-      tree[pos].lazy += delta;
+      tree[pos].lazy = delta;
       st_propagate(l, r, pos);
       return tree[pos];
     }
