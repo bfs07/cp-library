@@ -1,5 +1,6 @@
 // https://medium.com/hackernoon/manachers-algorithm-explained-longest-palindromic-substring-22cb27a5e96f
 
+/// Create a string containing '#' characters between any two characters.
 string get_modified_string(string &s){
   string ret;
   for(int i = 0; i < s.size(); i++){
@@ -10,7 +11,43 @@ string get_modified_string(string &s){
   return ret;
 }
 
-int manacher(string &s) {
+/// Returns the first occurence of the longest palindrome based on the lps array.
+///
+/// Time Complexity: O(n)
+string get_best(const int max_len, const string &str, const vector<int> &lps) {
+  for(int i = 0; i < lps.size(); i++) {
+    if(lps[i] == max_len) {
+      string ans;
+      int cnt = max_len / 2;
+      int io = i - 1;
+      while(cnt) {
+        if(str[io] != '#') {
+          ans += str[io];
+          cnt--;
+        }
+        io--;
+      }
+      reverse(ans.begin(), ans.end());
+      if(str[i] != '#')
+        ans += str[i];
+      cnt = max_len / 2;
+      io = i + 1;
+      while(cnt) {
+        if(str[io] != '#') {
+          ans += str[io];
+          cnt--;
+        }
+        io++;
+      }
+      return ans;
+    }
+  }
+}
+
+/// Returns a pair containing the size of the longest palindrome and the first occurence of it.
+///
+/// Time Complexity: O(n)
+pair<int, string> manacher(string &s) {
   int n = s.size();
   string str = get_modified_string(s);
   int len = (2 * n) + 1;
@@ -49,5 +86,5 @@ int manacher(string &s) {
     }
   }
 
-  return max_len;
+  return make_pair(max_len, get_best(max_len, str, lps));
 }
