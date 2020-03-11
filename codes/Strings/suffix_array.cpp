@@ -27,12 +27,12 @@ void sort(vector<T> &arr, const int max_element, int (*get_key)(T &),
 /// Sorts an array by their pair of ranks stably in ascending order.
 template <typename T> void sort_pairs(vector<T> &arr, const int rank_size) {
   // Sort by the second rank
-  RadixSort::sort<T>(
-      arr, rank_size, [](T &item) { return item.first.second; }, 0ll);
+  RadixSort::sort<T>(arr, rank_size, [](T &item) { return item.first.second; },
+                     0ll);
 
   // Sort by the first rank
-  RadixSort::sort<T>(
-      arr, rank_size, [](T &item) { return item.first.first; }, 0ll);
+  RadixSort::sort<T>(arr, rank_size, [](T &item) { return item.first.first; },
+                     0ll);
 }
 } // namespace RadixSort
 
@@ -41,9 +41,9 @@ template <typename T> void sort_pairs(vector<T> &arr, const int rank_size) {
 ///
 /// 0 banana                          5 a
 /// 1 anana     Sort the Suffixes     3 ana
-/// 2 nana      ---------------->     1 anana  
-/// 3 ana        alphabetically       0 banana  
-/// 4 na                              4 na   
+/// 2 nana      ---------------->     1 anana
+/// 3 ana        alphabetically       0 banana
+/// 4 na                              4 na
 /// 5 a                               2 nana
 /// So the suffix array for "banana" is {5, 3, 1, 0, 4, 2}
 ///
@@ -68,11 +68,12 @@ private:
 public:
   Suffix_Array(string &s) {
     this->n = s.size();
-    this->s.swap(s);
-    // this->s = s;
+    this->s = s;
+    // little optimization, remove the line above
+    // this->s.swap(s);
 
-    build_suffix_array();
-    build_lcp();
+    this->sa = build_suffix_array();
+    this->lcp = build_lcp();
   }
 
 private:
@@ -92,7 +93,7 @@ private:
   ///
   /// Time Complexity: O(n*log(n))
   /// Space Complexity: O(n)
-  void build_suffix_array() {
+  vector<int> build_suffix_array() {
     // This tuple below represents the rank and the index associated with it.
     vector<pair<Rank, int>> ranks(this->n);
     vector<int> arr(this->n);
@@ -123,9 +124,10 @@ private:
       }
     }
 
-    this->sa.resize(this->n);
+    vector<int> sa(this->n);
     for (int i = 0; i < this->n; i++)
-      this->sa[arr[i] - 1] = i;
+      sa[arr[i] - 1] = i;
+    return sa;
   }
 
   /// Builds the lcp (Longest Common Prefix) array for the string s.
@@ -134,7 +136,7 @@ private:
   ///
   /// Time Complexity: O(n)
   /// Space Complexity: O(n)
-  void build_lcp() {
+  vector<int> build_lcp() {
     lcp.resize(n, 0);
     vector<int> inverse_suffix(this->n);
 
@@ -159,10 +161,11 @@ private:
       if (k > 0)
         k--;
     }
+
+    return lcp;
   }
 
 public:
-
   vector<int> sa;
   vector<int> lcp;
 
