@@ -1,1 +1,0 @@
-# Competitve-Programming-Library
