@@ -26,7 +26,7 @@
   breaklines=true,                 % sets automatic line breaking
   commentstyle=\itshape\color{black!63},    % comment style
   extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
-  frame=lbtr,	                   % adds a frame around the code
+  frame=lbtr,                    % adds a frame around the code
   keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
   keywordstyle=\bfseries,       % keyword style
   numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
@@ -37,7 +37,7 @@
   showstringspaces=false,          % underline spaces within strings only
   showtabs=false,                  % show tabs within strings adding particular underscores
   stringstyle=,     % string literal style
-  tabsize=2,	                   % sets default tabsize to 2 spaces
+  tabsize=2,                     % sets default tabsize to 2 spaces
   inputencoding=utf8
 }
 
@@ -50,12 +50,12 @@
 }
 
 \lstdefinestyle{mystyle}{
-    %backgroundcolor=\color{backcolour},   
-    commentstyle=\color{green!30!black},
-    keywordstyle=\color{magenta},
-    numberstyle=\color{codegray},
-    stringstyle=\color{codepurple},
-    rulecolor=\color{codegray},
+  %backgroundcolor=\color{backcolour},   
+  commentstyle=\color{green!30!black},
+  keywordstyle=\color{magenta},
+  numberstyle=\color{codegray},
+  stringstyle=\color{codepurple},
+  rulecolor=\color{codegray},
 }
 
 \lstset{columns=fullflexible}
@@ -66,16 +66,16 @@
 
 \newcommand{\includenote}[1]{\lstinputlisting{codes/#1}}
 \newcommand{\includecode}[2][C++]{
-    \lstinputlisting[escapechar=, language=#1]{codes/#2}
+  \lstinputlisting[escapechar=, language=#1]{codes/#2}
 }
 
 \newcommand{\includepiece}[3][C++]{
-	%{\detokenize{#2} (\normLineNumber{#3})}
-    \lstinputlisting[escapechar=, language=#1, linerange={#3}]{codes/#2}
+  %{\detokenize{#2} (\normLineNumber{#3})}
+  \lstinputlisting[escapechar=, language=#1, linerange={#3}]{codes/#2}
 }
 
 % \pgfplotstabletypeset{col sep=tab}
 
 \newcommand{\includetable}[1]{
-    \begin{verbatim}\input{notes/#1}\end{verbatim}
+  \begin{verbatim}\input{notes/#1}\end{verbatim}
 }
