@@ -91,12 +91,9 @@ private:
   }
 
 public:
-  Seg_Tree() { this->n = -1; }
+  Seg_Tree() : n(-1) {}
 
-  Seg_Tree(const int n) {
-    this->n = n;
-    this->tree.resize(4 * this->n, Node(0, 0, 0));
-  }
+  Seg_Tree(const int n) : n(n) { this->tree.resize(4 * this->n, Node(0, 0)); }
 
   Seg_Tree(const vector<int> &arr) { this->build(arr); }
 
@@ -106,28 +103,30 @@ public:
     this->st_build(0, this->n - 1, arr, 0);
   }
 
-  // update at a single index
+  /// Index update of a polynomial f(x) = z1*x + z0
+  ///
+  /// Time Complexity O(log n)
   void update(const int i, const int z1, const int z0) {
     assert(this->n >= 0);
-    assert(0 <= i);
-    assert(i < this->n);
+    assert(0 <= i), assert(i < this->n);
     this->st_update(0, this->n - 1, i, i, z1, z0, 0);
   }
 
-  // range update
+  /// Range update of a polynomial f(x) = z1*x + z0 from l to r
+  ///
+  /// Time Complexity O(log n)
   void update(const int l, const int r, const int z1, const int z0) {
     assert(this->n >= 0);
-    assert(0 <= l);
-    assert(l <= r);
-    assert(r < this->n);
+    assert(0 <= l), assert(l <= r), assert(r < this->n);
     this->st_update(0, this->n - 1, l, r, z1, z0, 0);
   }
 
+  /// Range sum query from l to r
+  ///
+  /// Time Complexity O(log n)
   int query(const int l, const int r) {
     assert(this->n >= 0);
-    assert(0 <= l);
-    assert(l <= r);
-    assert(r < this->n);
+    assert(0 <= l), assert(l <= r), assert(r < this->n);
     return this->st_query(0, this->n - 1, l, r, 0).val;
   }
 };

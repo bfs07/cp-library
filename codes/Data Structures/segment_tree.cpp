@@ -132,22 +132,19 @@ private:
   }
 
 public:
-  Seg_Tree() { this->n = -1; }
+  /// N equals to -1 means the Segment Tree hasn't been created yet.
+  Seg_Tree() : n(-1) {}
 
   /// Constructor responsible initialize a tree with 0.
   ///
   /// Time Complexity O(n)
-  Seg_Tree(const int n) {
-    this->n = n;
-    this->tree.resize(4 * this->n, Node(0, 0));
-  }
+  Seg_Tree(const int n) : n(n) { this->tree.resize(4 * this->n, Node(0, 0)); }
 
   /// Constructor responsible for building the initial tree based on a vector.
   ///
   /// Time Complexity O(n)
   Seg_Tree(const vector<int> &arr) { this->build(arr); }
 
-  /// ONLY WORKS WITH RMQ MAX.
   /// Returns the first index from left to right.
   /// Uncomment the line in the original funtion to get the proper element that
   /// may be: GREATER OR EQUAL, GREATER, SMALLER OR EQUAL, SMALLER.
@@ -163,7 +160,7 @@ public:
   /// Time Complexity O(log n)
   void update(const int i, const int delta) {
     assert(this->n >= 0);
-    assert(0 <= i && i < this->n);
+    assert(0 <= i), assert(i < this->n);
     this->st_update(0, this->n - 1, i, i, delta, 0);
   }
 
@@ -172,7 +169,7 @@ public:
   /// Time Complexity O(log n)
   void update(const int l, const int r, const int delta) {
     assert(this->n >= 0);
-    assert(0 <= l && l <= r && r < this->n);
+    assert(0 <= l), assert(l <= r), assert(r < this->n);
     this->st_update(0, this->n - 1, l, r, delta, 0);
   }
 
@@ -181,7 +178,7 @@ public:
   /// Time Complexity O(log n)
   int query(const int l, const int r) {
     assert(this->n >= 0);
-    assert(0 <= l && l <= r && r < this->n);
+    assert(0 <= l), assert(l <= r), assert(r < this->n);
     return this->st_query(0, this->n - 1, l, r, 0).val;
   }
 };
