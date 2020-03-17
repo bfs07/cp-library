@@ -1,0 +1,3 @@
+Cayley's formula
+
+n ^ (n - 2)
