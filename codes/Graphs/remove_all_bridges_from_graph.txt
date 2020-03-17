@@ -1,0 +1,3 @@
+1. Start a DFS and store the leafs in an array.
+2. Connect the first leaf vertex in the array with the one in the middle, 
+   the second one and the middle + 1, and so on.
