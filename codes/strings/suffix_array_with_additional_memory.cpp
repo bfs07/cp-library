@@ -54,9 +54,9 @@ public:
     this->n = s.size();
     this->s = "#" + s;
 
+    build_log_array();
     build_suffix_array();
     lcp = build_lcp();
-    build_log_array();
   }
 
 private:
@@ -85,7 +85,7 @@ private:
     vector<int> arr;
 
     int rank_table_size = 0;
-    this->rank_table.resize(ceil(log2(this->n)) + 2);
+    this->rank_table.resize(log_array[this->n] + 2);
 
     for (int i = 1; i <= this->n; i++)
       ranks[i] = pair<Rank, int>(Rank(s[i], 0), i);
