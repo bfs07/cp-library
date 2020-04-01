@@ -4,7 +4,7 @@ class Hash {
   vector<int> m = {1000000007, 1000000009};
 
   // static constexpr int OFFSET = 'a';
-  // Choose primes greater than the size of the alphabet.
+  // // Choose primes greater than the size of the alphabet.
   // vector<int> prime = {31, 37};
 
   // constexpr int OFFSET = 'A';
