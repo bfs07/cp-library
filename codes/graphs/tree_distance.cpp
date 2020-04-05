@@ -31,3 +31,10 @@ void dfs(int u, int d, int p) {
     }
   }
 }
+
+// Returns the maximum tree distance
+int solve() {
+  subu(0, -1);
+  dfs(0, 0, -1);
+  return *max_element(ans.begin(), ans.end());
+}
