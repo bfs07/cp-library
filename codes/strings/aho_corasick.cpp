@@ -1,3 +1,5 @@
+/// REQUIRES trie.cpp
+
 class Aho {
 private:
   // node of the output list
