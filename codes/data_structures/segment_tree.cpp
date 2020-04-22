@@ -158,10 +158,10 @@ public:
   /// Update at a single index.
   ///
   /// Time Complexity O(log n)
-  void update(const int i, const int delta) {
+  void update(const int idx, const int delta) {
     assert(this->n >= 0);
-    assert(0 <= i), assert(i < this->n);
-    this->st_update(0, this->n - 1, i, i, delta, 0);
+    assert(0 <= idx), assert(idx < this->n);
+    this->st_update(0, this->n - 1, idx, idx, delta, 0);
   }
 
   /// Range update from l to r.
@@ -171,6 +171,15 @@ public:
     assert(this->n >= 0);
     assert(0 <= l), assert(l <= r), assert(r < this->n);
     this->st_update(0, this->n - 1, l, r, delta, 0);
+  }
+
+  /// Query at a single index.
+  ///
+  /// Time Complexity O(log n)
+  int query(const int idx) {
+    assert(this->n >= 0);
+    assert(0 <= idx), assert(idx < this->n);
+    return this->st_query(0, this->n - 1, idx, idx, 0).val;
   }
 
   /// Range query from l to r.
