@@ -1,2 +1,2 @@
-* After constructing the Prüfer code two vertices will remain. One of them is the highest vertex n−1, but nothing else can be said about the other one.
+* After constructing the Prüfer code two vertices will remain. One of them is the highest vertex n-1, but nothing else can be said about the other one.
 * Each vertex appears in the Prüfer code exactly a fixed number of times - its degree minus one. This can be easily checked, since the degree will get smaller every time we record its label in the code, and we remove it once the degree is 1. For the two remaining vertices this fact is also true.

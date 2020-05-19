@@ -87,7 +87,7 @@ private:
 
   /// Builds the lcp (Longest Common Prefix) array for the string s.
   /// A value lcp[i] indicates length of the longest common prefix of the
-  /// suffixes indexed by i and i + 1. Implementation of the Kasai’s Algorithm.
+  /// suffixes indexed by i and i + 1. Implementation of the Kasai's Algorithm.
   ///
   /// Time Complexity: O(n)
   /// Space Complexity: O(n)

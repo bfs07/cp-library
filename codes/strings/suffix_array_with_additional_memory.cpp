@@ -93,7 +93,7 @@ private:
     // Inserting only the ranks in the table.
     transform(ranks.begin(), ranks.end(),
               back_inserter(rank_table[rank_table_size++]),
-              [](pair<Rank,int> &pair) { return pair.first.first; });
+              [](pair<Rank, int> &pair) { return pair.first.first; });
 
     RadixSort::sort_pairs(ranks, 256);
     arr = build_ranks(ranks);
@@ -114,7 +114,7 @@ private:
         // Inserting only the ranks in the table.
         transform(ranks.begin(), ranks.end(),
                   back_inserter(rank_table[rank_table_size++]),
-                  [](pair<Rank,int> &pair) { return pair.first.first; });
+                  [](pair<Rank, int> &pair) { return pair.first.first; });
 
         RadixSort::sort_pairs(ranks, n);
 
@@ -133,7 +133,7 @@ private:
       // Inserting only the ranks in the table.
       transform(ranks.begin(), ranks.end(),
                 back_inserter(rank_table[rank_table_size++]),
-                [](pair<Rank,int> &pair) { return pair.first.first; });
+                [](pair<Rank, int> &pair) { return pair.first.first; });
     }
 
     this->suffix_array.resize(this->n + 1);
@@ -143,7 +143,7 @@ private:
 
   /// Builds the lcp (Longest Common Prefix) array for the string s.
   /// A value lcp[i] indicates length of the longest common prefix of the
-  /// suffixes indexed by i and i + 1. Implementation of the Kasai’s Algorithm.
+  /// suffixes indexed by i and i + 1. Implementation of the Kasai's Algorithm.
   ///
   /// Time Complexity: O(n)
   /// Space Complexity: O(n)

@@ -27,12 +27,12 @@ void sort(vector<T> &arr, const int max_element, int (*get_key)(T &),
 /// Sorts an array by their pair of ranks stably in ascending order.
 template <typename T> void sort_pairs(vector<T> &arr, const int rank_size) {
   // Sort by the second rank
-  RadixSort::sort<T>(arr, rank_size, [](T &item) { return item.first.second; },
-                     0ll);
+  RadixSort::sort<T>(
+      arr, rank_size, [](T &item) { return item.first.second; }, 0ll);
 
   // Sort by the first rank
-  RadixSort::sort<T>(arr, rank_size, [](T &item) { return item.first.first; },
-                     0ll);
+  RadixSort::sort<T>(
+      arr, rank_size, [](T &item) { return item.first.first; }, 0ll);
 }
 } // namespace RadixSort
 
@@ -132,7 +132,7 @@ private:
 
   /// Builds the lcp (Longest Common Prefix) array for the string s.
   /// A value lcp[i] indicates length of the longest common prefix of the
-  /// suffixes indexed by i and i + 1. Implementation of the Kasai’s Algorithm.
+  /// suffixes indexed by i and i + 1. Implementation of the Kasai's Algorithm.
   ///
   /// Time Complexity: O(n)
   /// Space Complexity: O(n)

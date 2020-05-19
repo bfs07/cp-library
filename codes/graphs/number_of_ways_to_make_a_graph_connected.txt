@@ -1,4 +1,4 @@
-s_{1} ⋅ s_{2} ⋅ s_{3} ⋅ (⋯) ⋅ s_{k} ⋅ (n ^ (k − 2))
+s_{1} * s_{2} * s_{3} * (...) * s_{k} * (n ^ (k - 2))
 n = number of vertices
 s_{i} = size of the i-th connected component
 k = number of connected components 

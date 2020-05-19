@@ -10,3 +10,5 @@
 *.cb
 *.cb2
 .*.lb
+
+.latex/cpplib.pdf
