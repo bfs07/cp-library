@@ -1,64 +1,72 @@
+/// Works with 1-indexed graphs.
 class Dijkstra {
- private:
-  int src, dest;
+private:
+  static constexpr int INF = 2e18;
+  bool CREATE_GRAPH = false;
+  int src;
   int n;
+  vector<int> _dist;
+  vector<vector<int>> parent;
 
- private:
-  int calculate(vector<vector<ii>> &adj) {
-    dist.resize(this->n + 1, INF);
-    parent.resize(this->n + 1); 
-    vector<int> vis(this->n + 1, 0);
-    
-    for(int i = 0; i <= this->n; i++) 
-      parent[i].pb(i);
-    
-    priority_queue<ii, vector<ii>, greater<ii>> pq;
-    pq.push(make_pair(0, this->src));
-    dist[this->src] = 0;
+private:
+  void _compute(const int src, const vector<vector<pair<int, int>>> &adj) {
+    _dist.resize(this->n, INF);
+    vector<bool> vis(this->n, false);
 
-    while(!pq.empty()) {
-      int u = pq.top().ss;
+    if (CREATE_GRAPH) {
+      parent.resize(this->n);
+
+      for (int i = 0; i < this->n; i++)
+        parent[i].emplace_back(i);
+    }
+
+    priority_queue<pair<int, int>, vector<pair<int, int>>,
+                   greater<pair<int, int>>>
+        pq;
+    pq.emplace(0, src);
+    _dist[src] = 0;
+
+    while (!pq.empty()) {
+      int u = pq.top().second;
       pq.pop();
-      if(vis[u])
+      if (vis[u])
         continue;
       vis[u] = true;
 
-      for (ii x: adj[u]) {
-        int v = x.ff;
-        int w = x.ss;
+      for (const pair<int, int> &x : adj[u]) {
+        int v = x.first;
+        int w = x.second;
 
-        if(dist[u] + w < dist[v]) {
-          parent[v].clear();
-          parent[v].pb(u);
-          dist[v] = dist[u] + w;
-          pq.push(ii(dist[v], v));
-        } 
-        else if(dist[u] + w == dist[v]) {
-          parent[v].pb(u);
+        if (_dist[u] + w < _dist[v]) {
+          _dist[v] = _dist[u] + w;
+          pq.emplace(_dist[v], v);
+          if (CREATE_GRAPH) {
+            parent[v].clear();
+            parent[v].emplace_back(u);
+          }
+        } else if (CREATE_GRAPH && _dist[u] + w == _dist[v]) {
+          parent[v].emplace_back(u);
         }
       }
     }
-
-    return dist[dest];
   }
 
-  // Use a vector vis in a DFS on the dijkstra graph 
-  vector<vector<int>> gen_dij_graph() {
-    vector<vector<int>> dijkstra_graph(this->n + 1);
-    vector<bool> vis(this->n + 1);
-
+  vector<vector<int>> gen_dij_graph(const int dest) {
+    vector<vector<int>> dijkstra_graph(this->n);
+    vector<bool> vis(this->n, false);
     queue<int> q;
-    q.push(this->dest);
-    while(!q.empty()) {
+
+    q.emplace(dest);
+    while (!q.empty()) {
       int v = q.front();
       q.pop();
 
-      for(int u: parent[v]) {
-        if(u == v)
+      for (const int u : parent[v]) {
+        if (u == v)
           continue;
-        dijkstra_graph[u].pb(v);
-        if(!vis[u]) {
-          q.push(u);
+        dijkstra_graph[u].emplace_back(v);
+        if (!vis[u]) {
+          q.emplace(u);
           vis[u] = true;
         }
       }
@@ -66,53 +74,75 @@ class Dijkstra {
     return dijkstra_graph;
   }
 
- public:
-  int min_path;
-  vector<int> dist;
-  vector<vector<int>> parent;
-  vector<vector<int>> dij_graph;
-
-  Dijkstra(int n, int src, int dest, vector<vector<ii>> &adj) {
-    this->n = n;
-    this->src = src;
-    this->dest = dest;
-    this->min_path = this->calculate(adj);
-    /// Generates the dijkstra graph with the parent vector
-    this->dij_graph = this->gen_dij_graph();
-    d_graph = this->dij_graph;
-  }
-
-  // Returns a path with minimum costs and a minimum length.
-  vector<int> get_min_path() {
+  vector<int> gen_min_path(const int dest) {
     vector<int> path;
-    vector<int> pai(this->n + 1, -1);
-    vector<int> d(this->n + 1, INF);
-
+    vector<int> prev(this->n, -1);
+    vector<int> d(this->n, INF);
     queue<int> q;
-    q.push(this->dest);
-    d[this->dest] = 0;
 
-    while(!q.empty()) {
+    q.emplace(dest);
+    d[dest] = 0;
+
+    while (!q.empty()) {
       int v = q.front();
       q.pop();
 
-      for(int u: parent[v]) {
-        if(u == v)
+      for (const int u : parent[v]) {
+        if (u == v)
           continue;
-        if(d[v] + 1 < d[u]) {
+        if (d[v] + 1 < d[u]) {
           d[u] = d[v] + 1;
-          pai[u] = v;
-          q.push(u);
+          prev[u] = v;
+          q.emplace(u);
         }
       }
     }
 
     int cur = this->src;
-    while(cur != -1) {
-      path.pb(cur);
-      cur = pai[cur];
+    while (cur != -1) {
+      path.emplace_back(cur);
+      cur = prev[cur];
     }
 
     return path;
+  }
+
+public:
+  /// Allows creation of dijkstra graph and getting the minimum path.
+  Dijkstra(const int src, const bool create_graph,
+           const vector<vector<pair<int, int>>> &adj)
+      : n(adj.size()), src(src), CREATE_GRAPH(create_graph) {
+    this->_compute(src, adj);
+  }
+
+  /// Constructor that computes only the Dijkstra minimum path from src.
+  ///
+  /// Time Complexity: O(E log V)
+  Dijkstra(const int src, const vector<vector<pair<int, int>>> &adj)
+      : n(adj.size()), src(src) {
+    this->_compute(src, adj);
+  }
+
+  /// Returns the Dijkstra graph of the graph.
+  ///
+  /// Time Complexity: O(V)
+  vector<vector<int>> dij_graph(const int dest) {
+    assert(CREATE_GRAPH);
+    return gen_dij_graph(dest);
+  }
+
+  /// Returns the vertices present in a path from src to dest with
+  /// minimum cost and a minimum length.
+  ///
+  /// Time Complexity: O(V)
+  vector<int> min_path(const int dest) {
+    assert(CREATE_GRAPH);
+    return gen_min_path(dest);
+  }
+
+  /// Returns the distance from src to dest.
+  int dist(const int dest) {
+    assert(0 <= dest), assert(dest < n);
+    return _dist[dest];
   }
 };
