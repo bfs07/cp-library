@@ -1,18 +1,16 @@
 /// INDEX THE ARRAY BY 1!!!
 class BIT {
- private:
+private:
   vector<int> bit1;
   vector<int> bit2;
   int n;
 
- private:
-  int low(int i) {
-    return (i & (-i));
-  }
+private:
+  int low(int i) { return (i & (-i)); }
 
   // point update
   void update(int i, const int delta, vector<int> &bit) {
-    while(i <= this->n) {
+    while (i <= this->n) {
       bit[i] += delta;
       i += this->low(i);
     }
@@ -21,7 +19,7 @@ class BIT {
   // point query
   int query(int i, const vector<int> &bit) {
     int sum = 0;
-    while(i > 0) {
+    while (i > 0) {
       sum += bit[i];
       i -= this->low(i);
     }
@@ -37,26 +35,24 @@ class BIT {
     this->bit1.resize(arr.size(), 0);
     this->bit2.resize(arr.size(), 0);
 
-    for(int i = 1; i <= this->n; i++)
+    for (int i = 1; i <= this->n; i++)
       this->update(i, arr[i]);
   }
 
- public:
-  BIT(const vector<int> &arr) {
-    this->build(arr);
-  }
+public:
+  BIT(const vector<int> &arr) { this->build(arr); }
 
   BIT(const int n) {
     // OBS: BIT IS INDEXED FROM 1
-    // THE USE OF 1-BASED ARRAY IS MANDATORY 
+    // THE USAGE OF 1-INDEXED ARRAY IS MANDATORY
     this->n = n;
-    this->bit1.resize(n + 1, 0); 
-    this->bit2.resize(n + 1, 0); 
+    this->bit1.resize(n + 1, 0);
+    this->bit2.resize(n + 1, 0);
   }
 
   // range update
   void update(const int l, const int r, const int delta) {
-    assert(1 <= l); assert(l <= r); assert(r <= this->n); 
+    assert(1 <= l), assert(l <= r), assert(r <= this->n);
     this->update(l, delta, this->bit1);
     this->update(r + 1, -delta, this->bit1);
     this->update(l, delta * (l - 1), this->bit2);
@@ -65,19 +61,19 @@ class BIT {
 
   // point update
   void update(const int i, const int delta) {
-    assert(1 <= i); assert(i <= this->n); 
-    this->update(i, i, delta); 
+    assert(1 <= i), assert(i <= this->n);
+    this->update(i, i, delta);
   }
 
   // range query
   int query(const int l, const int r) {
-    assert(1 <= l); assert(l <= r); assert(r <= this->n); 
+    assert(1 <= l), assert(l <= r), assert(r <= this->n);
     return this->query(r) - this->query(l - 1);
   }
 
-  // point query
+  // point prefix query
   int query(const int i) {
-    assert(1 <= i); assert(i <= this->n); 
+    assert(i <= this->n);
     return (this->query(i, this->bit1) * i) - this->query(i, this->bit2);
   }
 };
