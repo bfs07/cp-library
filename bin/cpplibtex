@@ -12,13 +12,26 @@ def dfs(abspath, path, texfile, indent=0):
       continue
 
     filepath = os.path.join(path, filename)
+    filetype = filename.split('.')[-1]
     filename = filename.split(".")[0].title().replace("_", " ")
 
-    texfile.write(
-        f'{" " * indent}\\{"section" if indent == 0 else "subsection"}{{{filename}}}{{\n'
-    )
-    texfile.write(f'{" " * indent}  \\includecode{{\"{filepath}\"}}\n')
-    texfile.write(f'{" " * indent}}}\n\n')
+    if filetype in ['jpg', 'jpeg', 'png']:
+      texfile.write(
+          f'{" " * indent}\\{"section" if indent == 0 else "subsection"}{{{filename}}}{{\n'
+      )
+      texfile.write(f'{" " * indent}  \\begin{{figure}}[h!]\n')
+      texfile.write(f'{" " * indent}    \\centering\n')
+      texfile.write(
+          f'{" " * indent}    \\includegraphics[scale=0.7]{{\"{"codes/" + filepath}\"}}\n'
+      )
+      texfile.write(f'{" " * indent}  \\end{{figure}}\n')
+      texfile.write(f'{" " * indent}}}\n\n')
+    else:
+      texfile.write(
+          f'{" " * indent}\\{"section" if indent == 0 else "subsection"}{{{filename}}}{{\n'
+      )
+      texfile.write(f'{" " * indent}  \\includecode{{\"{filepath}\"}}\n')
+      texfile.write(f'{" " * indent}}}\n\n')
 
   for dirname in sorted(os.listdir(abspath)):
     absdirpath = os.path.join(abspath, dirname)
