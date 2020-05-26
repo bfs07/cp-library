@@ -1,18 +1,16 @@
-int gcd,x,y;
+int gcd, x, y;
 
-//Ax + By = gcd(A,B)
+// Ax + By = gcd(A,B)
 
-void extendedEuclidian(int a,int b){
-	
-	if(b==0){
-		gcd=a;
-		x=1;
-		y=0;
-	} else{
-		extendedEuclidian(b, a%b);
-		
-		int temp = x;
-		x=y;
-		y = temp - (a/b)*y;
-	}
+void extended_euclidian(const int a, const int b) {
+  if (b == 0) {
+    gcd = a;
+    x = 1;
+    y = 0;
+  } else {
+    extended_euclidian(b, a % b);
+    const int temp = x;
+    x = y;
+    y = temp - (a / b) * y;
+  }
 }

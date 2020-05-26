@@ -1,11 +1,15 @@
-int power(const int x, const int p, const int MOD = ((int)1e9 + 7)) {
-	if(p == 0)
-		return 1%MOD;
-	if(p == 1) 
-		return x%MOD;
-	int res = power(x, p/2, MOD);
-	res = (long long)res*res%MOD;
-	if(p&1) 
-		res = (long long)res*x%MOD;
-	return res;
+int bin_pow(const int n, int p) {
+  assert(p >= 0);
+  int ans = 1;
+  int cur_pow = n;
+
+  while (p) {
+    if (p & 1)
+      ans = (ans * cur_pow) % MOD;
+
+    cur_pow = (cur_pow * cur_pow) % MOD;
+    p >>= 1;
+  }
+
+  return ans;
 }

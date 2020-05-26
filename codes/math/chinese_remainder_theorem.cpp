@@ -4,25 +4,24 @@ int inv(int a, int m) {
 
   if (m == 1)
     return 0;
- 
-// Apply extended Euclid Algorithm
-  while (a > 1) {     
-// q is quotient
-    if(m == 0)
+
+  // Apply extended Euclid Algorithm
+  while (a > 1) {
+    // q is quotient
+    if (m == 0)
       return INF;
     q = a / m;
     t = m;
     // m is remainder now, process same as euclid's algo
-    m = a % m, a = t; 
-    t = x0; 
-    x0 = x1 - q * x0; 
+    m = a % m, a = t;
+    t = x0;
+    x0 = x1 - q * x0;
     x1 = t;
   }
 
   // Make x1 positive
   if (x1 < 0)
     x1 += m0;
-  // debug(x1);
 
   return x1;
 }
@@ -34,25 +33,23 @@ int inv(int a, int m) {
 //  x % num[k-2] = rem[k-1]
 // Assumption: Numbers in num[] are pairwise coprimes
 // (gcd for every pair is 1)
-int findMinX(int num[], int rem[], int k){
+int findMinX(const vector<int> &num, const vector<int> &rem, const int k) {
   // Compute product of all numbers
   int prod = 1;
   for (int i = 0; i < k; i++)
     prod *= num[i];
- 
-  // Initialize result
+
   int result = 0;
- 
+
   // Apply above formula
-  for (int i = 0; i < k; i++){
+  for (int i = 0; i < k; i++) {
     int pp = prod / num[i];
-    // debug(pp);
     int iv = inv(pp, num[i]);
-    if(iv == INF)
+    if (iv == INF)
       return INF;
-    result+=rem[i]*inv(pp,num[i])*pp;
+    result += rem[i] * inv(pp, num[i]) * pp;
   }
- 
+
   // IF IS NOT VALID RETURN INF
-  return (result % prod == 0 ? INF: result % prod);
+  return (result % prod == 0 ? INF : result % prod);
 }
