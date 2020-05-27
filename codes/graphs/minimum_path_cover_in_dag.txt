@@ -1,0 +1,2 @@
+Given the paths we can split the vertices into two different vertices: IN and OUT. Then, we can build a bipartite graph in which the OUT vertices are present on the left side of the graph and the IN vertices on the right side. After that, we create an edge between a vertex on the left side to the right side if there's a connection between them in the original graph.
+The answer at the end will be equal to |V| - MAXIMUM_MATCHING, because the OUT vertices in which don't have a match represent the end of a path. 

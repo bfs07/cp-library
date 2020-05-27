@@ -1,0 +1,1 @@
+|IS maximal| = |V| - MAXIMUM_MATCHING
