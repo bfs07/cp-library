@@ -1,6 +1,6 @@
 /// Time Complexity: O(n)
 int largest_area_in_histogram(vector<int> &arr) {
-  arr.eb(0);
+  arr.emplace_back(0);
 
   stack<int> s;
   int ans = 0;
