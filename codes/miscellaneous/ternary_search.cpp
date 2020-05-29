@@ -1,5 +1,6 @@
 /// Returns the index in the array which contains the minimum element. In case
-/// of draw, it returns the first occurrence.
+/// of draw, it returns the first occurrence. The array should, first, decrease,
+/// then increase.
 ///
 /// Time Complexity: O(log3(n))
 int ternary_search(const vector<int> &arr) {
