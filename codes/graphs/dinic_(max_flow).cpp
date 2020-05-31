@@ -233,4 +233,48 @@ struct Dinic {
 
     return ans;
   }
+
+  void dfs_vc(int u, vector<bool> &vis, bool left, vector<vector<int>> &paths) {
+    vis[u] = true;
+    for (const FlowEdge &v : adj[u]) {
+      if (vis[v.v])
+        continue;
+      // saturated edges goes from right to left
+      if (left && paths[u][v.v] == 0)
+        dfs_vc(v.v, vis, left ^ 1, paths);
+      // non-saturated edges goes from left to right
+      else if (!left && paths[v.v][u] == 1)
+        dfs_vc(v.v, vis, left ^ 1, paths);
+    }
+  }
+
+  vector<int> vertex_cover(const int max_left) {
+    assert(calculated);
+    vector<bool> vis(V);
+    vector<bool> saturated(V, false);
+    auto paths = this->allFlow();
+
+    for (int i = 1; i <= max_left; ++i) {
+      for (int j = max_left + 1; j < this->snk; ++j) {
+        if (paths[i][j] > 0) {
+          saturated[i] = true;
+          saturated[j] = true;
+          break;
+        }
+      }
+      if (!saturated[i] && !vis[i])
+        dfs_vc(i, vis, 1, paths);
+    }
+
+    vector<int> ans;
+    for (int i = 1; i <= max_left; ++i)
+      if (saturated[i] && !vis[i])
+        ans.emplace_back(i);
+
+    for (int i = max_left + 1; i < this->snk; ++i)
+      if (saturated[i] && vis[i])
+        ans.emplace_back(i);
+
+    return ans;
+  }
 };
