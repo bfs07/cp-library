@@ -105,7 +105,7 @@ private:
                        st_query(mid + 1, r, i, j, 2 * pos + 2));
   }
 
-  // it adds a number delta to the range from i to j
+  // It adds a number delta to the range from i to j
   Node st_update(const int l, const int r, const int i, const int j,
                  const int delta, const int pos) {
     st_propagate(l, r, pos);
@@ -135,7 +135,7 @@ public:
   /// N equals to -1 means the Segment Tree hasn't been created yet.
   Seg_Tree() : n(-1) {}
 
-  /// Constructor responsible initialize a tree with 0.
+  /// Constructor responsible for initializing a tree with 0.
   ///
   /// Time Complexity O(n)
   Seg_Tree(const int n) : n(n) { this->tree.resize(4 * this->n, Node(0, 0)); }
