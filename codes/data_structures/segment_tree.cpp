@@ -71,9 +71,12 @@ private:
                                    st_build(mid + 1, r, arr, 2 * pos + 2));
   }
 
-  int st_get_first(const int l, const int r, const int v, const int pos) {
+  int st_get_first(const int l, const int r, const int i, const int j,
+                   const int v, const int pos) {
     st_propagate(l, r, pos);
 
+    if (l > r || l > j || r < i)
+      return -1;
     // Needs RMQ MAX
     // Replace to <= for greater or equal or (with RMQ MIN) > for smaller or
     // equal or >= for smaller
@@ -84,10 +87,10 @@ private:
       return l;
 
     int mid = (l + r) / 2;
-    int aux = st_get_first(l, mid, v, 2 * pos + 1);
+    int aux = st_get_first(l, mid, i, j, v, 2 * pos + 1);
     if (aux != -1)
       return aux;
-    return st_get_first(mid + 1, r, v, 2 * pos + 2);
+    return st_get_first(mid + 1, r, i, j, v, 2 * pos + 2);
   }
 
   Node st_query(const int l, const int r, const int i, const int j,
@@ -145,14 +148,14 @@ public:
   /// Time Complexity O(n)
   Seg_Tree(const vector<int> &arr) { this->build(arr); }
 
-  /// Returns the first index from left to right.
-  /// Uncomment the line in the original funtion to get the proper element that
+  /// Returns the first index from i to j compared to v.
+  /// Uncomment the line in the original function to get the proper element that
   /// may be: GREATER OR EQUAL, GREATER, SMALLER OR EQUAL, SMALLER.
   ///
   /// Time Complexity O(log n)
-  int get_first(const int v) {
+  int get_first(const int i, const int j, const int v) {
     assert(this->n >= 0);
-    return this->st_get_first(0, this->n - 1, v, 0);
+    return this->st_get_first(0, this->n - 1, i, j, v, 0);
   }
 
   /// Update at a single index.
