@@ -1,3 +1,7 @@
+/// Infix Expression | Prefix Expression | Postfix Expression
+///      A + B       |     + A B         |       A B +
+///    A + B * C     |    + A * B C      |     A B C * +
+/// Time Complexity: O(n)
 int infix_to_postfix(const string &infix) {
   map<char, int> prec;
   stack<char> op;
@@ -6,17 +10,17 @@ int infix_to_postfix(const string &infix) {
   prec['+'] = prec['-'] = 1;
   prec['*'] = prec['/'] = 2;
   prec['^'] = 3;
-  for (int i = 0; i < infix.length(); ++i) {
+  for (int i = 0; i < infix.size(); ++i) {
     char c = infix[i];
     if (is_digit(c)) {
-      while (i < infix.length() && is_digit(infix[i])) {
+      while (i < infix.size() && isdigit(infix[i])) {
         postfix += infix[i];
         ++i;
       }
       --i;
-    } else if (is_alpha(c)) {
+    } else if (isalpha(c))
       postfix += c;
-    } else if (c == '(')
+    else if (c == '(')
       op.push('(');
     else if (c == ')') {
       while (!op.empty() && op.top() != '(') {
