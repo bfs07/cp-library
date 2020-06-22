@@ -38,8 +38,7 @@ Matrix expo(Matrix &mat, int p) {
   assert(p >= 0);
 
   Matrix ans = identity(mat.size());
-  Matrix cur_power;
-  cur_power.swap(mat);
+  Matrix cur_power = mat;
 
   while (p) {
     if (p & 1)
