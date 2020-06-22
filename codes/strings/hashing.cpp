@@ -1,19 +1,12 @@
-// OBS: CHOOSE THE OFFSET AND THE PRIMES BELOW!!
+// Global vector used in the class.
+vector<int> hash_base;
+
+// OBS: CHOOSE THE OFFSET BELOW!!
 class Hash {
   /// Prime numbers to be used in mod operations
-  /// OBS: if you change m's size, please change the return type of both query
-  /// and _query methods.
-  vector<int> m = {1000000007, 1000000009};
+  const vector<int> m = {1000000007, 1000000009};
 
-  // Case the alphabet goes from 'a' to 'z'.
-  static constexpr int OFFSET = 'a';
-  // Choose primes greater than the size of the alphabet.
-  vector<int> prime = {31, 37};
-
-  // Case the alphabet goes from 'A' to 'z'.
-  // constexpr int OFFSET = 'A';
-  // // Choose primes greater than the size of the alphabet.
-  // vector<int> prime = {61, 67};
+  static constexpr int OFFSET = 'A';
 
   vector<vector<int>> hash_table;
   vector<vector<int>> pot;
@@ -21,7 +14,7 @@ class Hash {
   int n;
 
 private:
-  int mod(int n, int m) {
+  static int mod(int n, int m) {
     n %= m;
     if (n < 0)
       n += m;
@@ -29,7 +22,7 @@ private:
   }
 
   /// Time Complexity: O(1)
-  pair<int, int> _query(const int l, const int r) {
+  pair<int, int> hash_query(const int l, const int r) {
     vector<int> ans(m.size());
 
     if (l == 0) {
@@ -45,35 +38,45 @@ private:
     return {ans.front(), ans.back()};
   }
 
-  /// Builds the hash table and the pot table.
-  ///
+  /// Time Complexity: O(m.size())
+  void build_base() {
+    if (!hash_base.empty())
+      return;
+
+    constexpr int INT16_T_MAX = 65536;
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<int> distribution(OFFSET, INT16_T_MAX);
+    hash_base.resize(m.size());
+    for (int i = 0; i < hash_base.size(); ++i)
+      hash_base[i] = distribution(gen);
+  }
+
   /// Time Complexity: O(n)
-  void build(string &s) {
+  void build_table(const string &s) {
     pot.resize(m.size(), vector<int>(this->n));
     hash_table.resize(m.size(), vector<int>(this->n));
-    // Remapping the string
-    for (char &c : s)
-      c -= OFFSET;
 
     for (int i = 0; i < m.size(); i++) {
-      hash_table[i][0] = s[0];
       pot[i][0] = 1;
+      hash_table[i][0] = (s[0] - OFFSET);
       for (int j = 1; j < this->n; j++) {
-        hash_table[i][j] = (s[j] + hash_table[i][j - 1] * prime[i]) % m[i];
-        pot[i][j] = (pot[i][j - 1] * prime[i]) % m[i];
+        hash_table[i][j] =
+            ((s[j] - OFFSET) + hash_table[i][j - 1] * hash_base[i]) % m[i];
+        pot[i][j] = (pot[i][j - 1] * hash_base[i]) % m[i];
       }
     }
   }
 
 public:
-  /// Constructor that is responsible for building the hash table and pot table.
+  /// Constructor thats builds the hash and pot tables and the hash_base vector.
   ///
   /// Time Complexity: O(n)
-  Hash(string s) {
-    assert(m.size() == prime.size());
+  Hash(const string &s) {
     this->n = s.size();
 
-    build(s);
+    build_base();
+    build_table(s);
   }
 
   /// Returns the hash from l to r.
@@ -81,6 +84,6 @@ public:
   /// Time Complexity: O(1) -> Actually O(number_of_primes)
   pair<int, int> query(const int l, const int r) {
     assert(0 <= l), assert(l <= r), assert(r < this->n);
-    return _query(l, r);
+    return hash_query(l, r);
   }
 };
