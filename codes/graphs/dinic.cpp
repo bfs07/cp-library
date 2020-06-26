@@ -1,12 +1,12 @@
 class Dinic {
   struct Edge {
-    int v;
+    const int v;
     // capacity (maximum flow) of the edge
     // if it is a reverse edge then its capacity should be equal to 0
-    int cap;
+    const int cap;
     // current flow of the graph
     int flow = 0;
-    Edge(int v, int cap) : v(v), cap(cap) {}
+    Edge(const int v, const int cap) : v(v), cap(cap) {}
   };
 
 private:
@@ -32,9 +32,9 @@ private:
   }
 
   vector<int> _max_ind_set(const int max_left) {
-    vector<int> mvc = _min_vertex_cover(max_left);
+    const vector<int> mvc = _min_vertex_cover(max_left);
     vector<bool> contains(n);
-    for (int v : mvc)
+    for (const int v : mvc)
       contains[v] = true;
     vector<int> ans;
     // takes the complement of the vertex cover
@@ -62,7 +62,7 @@ private:
 
   vector<int> _min_vertex_cover(const int max_left) {
     vector<bool> vis(n, false), saturated(n, false);
-    auto paths = flow_table();
+    const auto paths = flow_table();
 
     for (int i = 1; i <= max_left; ++i) {
       for (int j = max_left + 1; j < sink; ++j)
