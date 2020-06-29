@@ -31,13 +31,47 @@ private:
     return table;
   }
 
+  /// Algorithm: Greedily all vertices from the matching will be added and,
+  /// after that, edges in which one of the vertices is not covered will also be
+  /// added to the answer.
+  vector<pair<int, int>> _min_edge_cover() {
+    vector<bool> covered(n, false);
+    vector<pair<int, int>> ans;
+    for (int u = 1; u < sink; ++u) {
+      for (const int idx : adj[u]) {
+        const Edge &e = edges[idx];
+        // ignore if it is a reverse edge or an edge linked to the sink
+        if (e.cap == 0 || e.v == sink)
+          continue;
+        if (e.flow == e.cap) {
+          ans.emplace_back(u, e.v);
+          covered[u] = covered[e.v] = true;
+          break;
+        }
+      }
+    }
+
+    for (int u = 1; u < sink; ++u) {
+      for (const int idx : adj[u]) {
+        const Edge &e = edges[idx];
+        if (e.cap == 0 || e.v == sink)
+          continue;
+        if (e.flow < e.cap && (!covered[u] || !covered[e.v])) {
+          ans.emplace_back(u, e.v);
+          covered[u] = covered[e.v] = true;
+        }
+      }
+    }
+    return ans;
+  }
+
+  /// Algorithm: Takes the complement of the vertex cover.
   vector<int> _max_ind_set(const int max_left) {
     const vector<int> mvc = _min_vertex_cover(max_left);
     vector<bool> contains(n);
     for (const int v : mvc)
       contains[v] = true;
     vector<int> ans;
-    // takes the complement of the vertex cover
     for (int i = 1; i < sink; ++i)
       if (!contains[i])
         ans.emplace_back(i);
@@ -60,6 +94,13 @@ private:
     }
   }
 
+  /// Algorithm: The edges that belong to the Matching M will go from right to
+  /// left, all other edges will go from left to right. A DFS will be run
+  /// starting at all left vertices that are not incident to edges in M. Some
+  /// vertices of the graph will become visited during this DFS and some
+  /// not-visited. To get minimum vertex cover all visited right
+  /// vertices of M will be taken, and all not-visited left vertices of M.
+  /// Source: codeforces.com/blog/entry/17534?#comment-223759
   vector<int> _min_vertex_cover(const int max_left) {
     vector<bool> vis(n, false), saturated(n, false);
     const auto paths = flow_table();
@@ -106,6 +147,7 @@ private:
     }
   }
 
+  /// Algorithm: Run DFS's from the source and gets the paths when possible.
   vector<vector<int>> _compute_all_paths(const vector<vector<int>> &adj) {
     vector<vector<int>> table = flow_table();
     vector<vector<int>> ans;
@@ -120,44 +162,52 @@ private:
     return ans;
   }
 
-  vector<pair<int, int>> _min_cut() {
+  /// Algorithm: Find the set of vertices that are reachable from the source in
+  /// the residual graph. All edges which are from a reachable vertex to
+  /// non-reachable vertex are minimum cut edges.
+  /// Source: geeksforgeeks.org/minimum-cut-in-a-directed-graph
+  pair<int, vector<pair<int, int>>> _min_cut() {
     // checks if there's an edge from i to j.
-    vector<vector<bool>> mat_adj(n, vector<bool>(n));
-    vector<vector<int>> table(n, vector<int>(n));
+    vector<vector<int>> mat_adj(n, vector<int>(n, 0));
+    // checks if if the residual capacity is greater than 0
+    vector<vector<bool>> residual(n, vector<bool>(n, 0));
     for (int u = 0; u <= sink; ++u)
       for (const int idx : adj[u])
         // checks if it's not a reverse edge
         if (edges[idx].cap != 0) {
-          mat_adj[u][edges[idx].v] = true;
+          mat_adj[u][edges[idx].v] = edges[idx].cap;
           // checks if its residual capacity is greater than zero.
           if (edges[idx].flow < edges[idx].cap)
-            table[u][edges[idx].v] = 1;
+            residual[u][edges[idx].v] = true;
         }
 
     vector<bool> vis(n);
     queue<int> q;
 
-    q.push(src);
+    q.emplace(src);
     vis[src] = true;
     while (!q.empty()) {
       int u = q.front();
       q.pop();
       for (int v = 0; v < n; ++v)
-        if (table[u][v] > 0 && !vis[v]) {
-          q.push(v);
+        if (residual[u][v] && !vis[v]) {
+          q.emplace(v);
           vis[v] = true;
         }
     }
 
+    int weight = 0;
     vector<pair<int, int>> cut;
     for (int i = 0; i < n; ++i)
       for (int j = 0; j < n; ++j)
         if (vis[i] && !vis[j])
           // if there's an edge from i to j.
-          if (mat_adj[i][j])
+          if (mat_adj[i][j] > 0) {
+            weight += mat_adj[i][j];
             cut.emplace_back(i, j);
+          }
 
-    return cut;
+    return make_pair(weight, cut);
   }
 
   void _add_edge(const int u, const int v, const int cap) {
@@ -168,7 +218,7 @@ private:
     edges.emplace_back(u, 0);
   }
 
-  bool bfs() {
+  bool bfs_flow() {
     queue<int> q;
     memset(level.data(), -1, sizeof(*level.data()) * level.size());
     q.emplace(src);
@@ -187,7 +237,7 @@ private:
     return (level[sink] != -1);
   }
 
-  int dfs(const int u, const int cur_flow) {
+  int dfs_flow(const int u, const int cur_flow) {
     if (u == sink)
       return cur_flow;
 
@@ -195,7 +245,7 @@ private:
       Edge &e = edges[adj[u][idx]];
       if (level[u] + 1 != level[e.v] || e.cap == e.flow)
         continue;
-      const int flow = dfs(e.v, min(e.cap - e.flow, cur_flow));
+      const int flow = dfs_flow(e.v, min(e.cap - e.flow, cur_flow));
       if (flow == 0)
         continue;
       e.flow += flow;
@@ -207,9 +257,9 @@ private:
 
   int compute() {
     int ans = 0;
-    while (bfs()) {
+    while (bfs_flow()) {
       memset(ptr.data(), 0, sizeof(*ptr.data()) * ptr.size());
-      while (const int cur = dfs(src, INF))
+      while (const int cur = dfs_flow(src, INF))
         ans += cur;
     }
     return ans;
@@ -234,12 +284,22 @@ public:
     ptr.resize(this->n);
   }
 
+  /// Returns the edges from the minimum edge cover of the graph.
+  /// A minimum edge cover represents a set of edges such that each vertex
+  /// present in the graph is linked to at least one edge from this set.
+  ///
+  /// Time Complexity: O(V + E)
+  vector<pair<int, int>> min_edge_cover() {
+    this->check_computed();
+    return this->_min_edge_cover();
+  }
+
   /// Returns the maximum independent set for the graph.
-  /// An independent set represent a set of vertices such that they're not
+  /// An independent set represents a set of vertices such that they're not
   /// adjacent to each other.
   /// It is equal to the complement of the minimum vertex cover.
   ///
-  /// Time Complexity: O(V)
+  /// Time Complexity: O(V + E)
   vector<int> max_ind_set(const int max_left) {
     this->check_computed();
     return this->_max_ind_set(max_left);
@@ -249,9 +309,8 @@ public:
   /// A minimum vertex cover represents a set of vertices such that each edge of
   /// the graph is incident to at least one vertex of the graph.
   /// Pass the maximum index of a vertex on the left side as an argument.
-  /// Algorithm used: codeforces.com/blog/entry/17534?#comment-223759
   ///
-  /// Time Complexity: O(V)
+  /// Time Complexity: O(V + E)
   vector<int> min_vertex_cover(const int max_left) {
     this->check_computed();
     return this->_min_vertex_cover(max_left);
@@ -262,23 +321,27 @@ public:
   /// number of edges between the vertices. Pass the adjacency list with
   /// repeated vertices if there are multiple edges.
   ///
-  /// Time Complexity: O(max_flow*V)
+  /// Time Complexity: O(max_flow*V + E)
   vector<vector<int>> compute_all_paths(const vector<vector<int>> &adj) {
     this->check_computed();
     return this->_compute_all_paths(adj);
   }
 
-  /// Returns the edges present in the minimum cut of the graph.
+  /// Returns the weight and the edges present in the minimum cut of the graph.
+  /// A minimum cut represents a set of edges with minimum weight such that
+  /// after removing these edges, it disconnects the graph. If the graph is
+  /// undirected you can safely add edges in both directions. It doesn't work
+  /// with parallel edges, it's required to merge them.
   ///
-  /// Time Complexity: O(V^2)
-  vector<pair<int, int>> min_cut() {
+  /// Time Complexity: O(V^2 + E)
+  pair<int, vector<pair<int, int>>> min_cut() {
     this->check_computed();
     return this->_min_cut();
   }
 
   /// Returns a table with the flow values for each pair of vertices.
   ///
-  /// Time Complexity: O(V^2)
+  /// Time Complexity: O(V^2 + E)
   vector<vector<int>> flow_table() {
     this->check_computed();
     return this->_flow_table();
@@ -290,7 +353,7 @@ public:
   void add_to_sink(const int u, const int cap) {
     assert(!COMPUTED);
     assert(src <= u), assert(u < sink);
-    assert(cap >= 0);
+    assert(cap > 0);
     this->_add_edge(u, sink, cap);
   }
 
@@ -300,7 +363,7 @@ public:
   void add_to_src(const int v, const int cap) {
     assert(!COMPUTED);
     assert(src < v), assert(v <= sink);
-    assert(cap >= 0);
+    assert(cap > 0);
     this->_add_edge(src, v, cap);
   }
 
@@ -310,7 +373,7 @@ public:
   void add_edge(const int u, const int v, const int cap) {
     assert(!COMPUTED);
     assert(src <= u), assert(u <= sink);
-    assert(cap >= 0);
+    assert(cap > 0);
     this->_add_edge(u, v, cap);
   }
 
