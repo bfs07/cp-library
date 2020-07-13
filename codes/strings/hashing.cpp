@@ -6,12 +6,13 @@ class Hash {
   /// Prime numbers to be used in mod operations
   const vector<int> m = {1000000007, 1000000009};
 
-  static constexpr int OFFSET = 'A';
+  /// Minimum character of the alphabet
+  // static constexpr int OFFSET = '0';
 
   vector<vector<int>> hash_table;
   vector<vector<int>> pot;
   // size of the string
-  int n;
+  const int n;
 
 private:
   static int mod(int n, int m) {
@@ -42,7 +43,6 @@ private:
   void build_base() {
     if (!hash_base.empty())
       return;
-
     constexpr int INT16_T_MAX = 65536;
     random_device rd;
     mt19937 gen(rd());
@@ -62,8 +62,8 @@ private:
       hash_table[i][0] = (s[0] - OFFSET);
       for (int j = 1; j < this->n; j++) {
         hash_table[i][j] =
-            ((s[j] - OFFSET) + hash_table[i][j - 1] * hash_base[i]) % m[i];
-        pot[i][j] = (pot[i][j - 1] * hash_base[i]) % m[i];
+            mod((s[j] - OFFSET) + hash_table[i][j - 1] * hash_base[i], m[i]);
+        pot[i][j] = mod(pot[i][j - 1] * hash_base[i], m[i]);
       }
     }
   }
@@ -72,9 +72,7 @@ public:
   /// Constructor thats builds the hash and pot tables and the hash_base vector.
   ///
   /// Time Complexity: O(n)
-  Hash(const string &s) {
-    this->n = s.size();
-
+  Hash(const string &s) : n(s.size()) {
     build_base();
     build_table(s);
   }
