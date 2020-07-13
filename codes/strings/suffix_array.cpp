@@ -215,7 +215,7 @@ public:
   ///
   /// Time Complexity: O(n)
   int lcs(const int separator) {
-    assert(!isalpha(this->s[separator] && !isdigit(this->s[separator])));
+    assert(!isalpha(this->s[separator]) && !isdigit(this->s[separator]));
     return _lcs(separator);
   }
 
