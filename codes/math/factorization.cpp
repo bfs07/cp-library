@@ -1,23 +1,24 @@
-map<int, int> primeFactors(int n) {
-  set<int> ret;
+/// Factorizes a number.
+///
+/// Time Complexity: O(sqrt(n))
+map<int, int> factorize(int n) {
+  map<int, int> fat;
   while (n % 2 == 0) {
-    ++m[2];
+    ++fat[2];
     n /= 2;
   }
 
   for (int i = 3; i * i <= n; i += 2) {
     while (n % i == 0) {
-      m[i]++;
-      n = n / i;
+      ++fat[i];
+      n /= i;
     }
     /* OBS1
         IF(N < 1E7)
           you can optimize by factoring with SPF
     */
   }
-
   if (n > 2)
-    ++m[n];
-
-  return ret;
+    ++fat[n];
+  return fat;
 }
