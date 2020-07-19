@@ -1,4 +1,4 @@
-/// Works with 1-indexed graphs.
+/// Works also with 1-indexed graphs.
 class Dijkstra {
 private:
   static constexpr int INF = 2e18;
@@ -34,8 +34,7 @@ private:
       vis[u] = true;
 
       for (const pair<int, int> &x : adj[u]) {
-        int v = x.first;
-        int w = x.second;
+        int v = x.first, w = x.second;
 
         if (_dist[u] + w < _dist[v]) {
           _dist[v] = _dist[u] + w;
@@ -75,9 +74,7 @@ private:
   }
 
   vector<int> gen_min_path(const int dest) {
-    vector<int> path;
-    vector<int> prev(this->n, -1);
-    vector<int> d(this->n, INF);
+    vector<int> path, prev(this->n, -1), d(this->n, INF);
     queue<int> q;
 
     q.emplace(dest);
