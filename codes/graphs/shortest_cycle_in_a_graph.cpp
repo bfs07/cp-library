@@ -1,18 +1,17 @@
-int bfs(int vt) {
-
+int bfs(const int src) {
   vector<int> dist(MAXN, INF);
   queue<pair<int, int>> q;
 
-  q.emplace(vt, -1);
-  dist[vt] = 0;
+  q.emplace(src, -1);
+  dist[src] = 0;
 
   int ans = INF;
   while (!q.empty()) {
     pair<int, int> aux = q.front();
-    int u = aux.first, p = aux.second;
+    const int u = aux.first, p = aux.second;
     q.pop();
 
-    for (int v : adj[u]) {
+    for (const int v : adj[u]) {
       if (v == p)
         continue;
       if (dist[v] < INF)
@@ -30,7 +29,7 @@ int bfs(int vt) {
 /// Returns the shortest cycle in the graph
 ///
 /// Time Complexity: O(V^2)
-int get_girth(int n) {
+int get_girth(const int n) {
   int ans = INF;
   for (int u = 1; u <= n; u++)
     ans = min(ans, bfs(u));
