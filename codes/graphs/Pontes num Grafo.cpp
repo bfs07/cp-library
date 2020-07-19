@@ -1,60 +1,50 @@
-//SE TIRA-LAS O GRAFO FICA DESCONEXO
-// OBS: PRESTAR ATENCAO EM SELF-LOOPS, é MELHOR NãO ADICIONA-LOS
-// SO FUNCIONA EM GRAFO NãO DIRECIONADO
-int t=1;
-vector<int> T((int)2e6,0); //Tempo necessário para chegar naquele vértice na dfs 
-vector<int> adj[(int)2e6]; 
-vector<int> Low((int)2e6); // Tempo "mínimo" para chegar naquele vértice na dfs
-vector<int> ciclo((int)2e6, false);
-vector<ii> bridges;
-void dfs(int u, int p){
-  Low[u] = T[u] = t;
-  t++;
-  for(auto v : adj[u]){
-    if(v==p){
-      //checa arestas paralelas
-      p=-1;
+namespace graph {
+int cur_time = 1;
+vector<pair<int, int>> bg;
+vector<int> disc;
+vector<int> low;
+vector<int> cycle;
+
+void dfs_bg(const int u, int p, const vector<vector<int>> &adj) {
+  low[u] = disc[u] = cur_time++;
+  for (const int v : adj[u]) {
+    if (v == p) {
+      // checks parallel edges
+      // IT'S BETTER TO REMOVE THEM!
+      p = -1;
       continue;
-    }
-    //se ele ainda não foi visited
-    else if(T[v]==0){
-      dfs(v,u);
-      Low[u]=min(Low[u], Low[v]);
-      if(Low[v]>T[u]) {
-        bridges.pb(ii(min(u,v), (max(u,v))));
-      // ponte de u para v
-     }
-    }
-    else
-      Low[u]=min(Low[u], T[v]);
-    ciclo[u] |= (T[u]>=Low[v]);
-    //checa se o vértice u faz parte de um ciclo
+    } else if (disc[v] == 0) {
+      dfs_bg(v, u, adj);
+      low[u] = min(low[u], low[v]);
+      if (low[v] > disc[u])
+        bg.emplace_back(u, v);
+    } else
+      low[u] = min(low[u], disc[v]);
+    // checks if the vertex u belongs to a cycle
+    cycle[u] |= (disc[u] >= low[v]);
   }
 }
 
-void clear() {
-
-  for(int i = 0; i <= n; i++) {
-    T[i] = 0, Low[i] = 0, adj[i].clear(), ciclo[i] = false;
-  }
-  bridges.clear();
-
+void init_bg(const int n) {
+  cur_time = 1;
+  bg = vector<pair<int, int>>();
+  disc = vector<int>(n, 0);
+  low = vector<int>(n, 0);
+  cycle = vector<int>(n, 0);
 }
 
-signed main () {
-  
-  for(int i = 0; i < n; i++) 
-    if(T[i] == 0)
-      dfs(i, -1);
+/// THE GRAPH MUST BE UNDIRECTED!
+///
+/// Returns the edges in which their removal disconnects the graph.
+///
+/// Time Complexity: O(V + E)
+vector<pair<int, int>> bridges(const int indexed_from,
+                               const vector<vector<int>> &adj) {
+  init_bg(adj.size());
+  for (int u = indexed_from; u < adj.size(); ++u)
+    if (disc[u] == 0)
+      dfs_bg(u, -1, adj);
 
-  sort(bridges.begin(), bridges.end());
-
-  cout << (int)bridges.size() << endl;
-  for(int i = 0; i < bridges.size(); i++) {
-    cout << bridges[i].ff << " - " << bridges[i].ss << endl;
-  }
-  cout << endl;
-
-  clear();
-
+  return bg;
 }
+} // namespace graph
