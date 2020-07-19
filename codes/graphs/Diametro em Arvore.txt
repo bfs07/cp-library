@@ -1,1 +1,0 @@
-Calcula qual o vértice a mais distante de um qualquer vértice X e do vértice A calcula-se o vértice B mais distante dele.

@@ -1,0 +1,1 @@
+From any vertex, X find the furthermost vertex A from X. After that, return the distance from vertex A from the furthermost vertex B from A. 
