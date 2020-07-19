@@ -23,9 +23,11 @@ void dfs_ap(const int u, const int p, const vector<vector<int>> &adj) {
   }
 }
 
-void allocate(const int n) {
-  low.resize(n, 0);
-  disc.resize(n, 0);
+void init(const int n) {
+  cur_time = 1;
+  ap = unordered_set<int>();
+  low = vector<int>(n, 0);
+  disc = vector<int>(n, 0);
 }
 
 /// THE GRAPH MUST BE UNDIRECTED!
@@ -35,7 +37,7 @@ void allocate(const int n) {
 /// Time Complexity: O(V + E)
 vector<int> articulation_points(const int indexed_from,
                                 const vector<vector<int>> &adj) {
-  allocate(adj.size());
+  init(adj.size());
   vector<int> ans;
   for (int u = indexed_from; u < adj.size(); ++u) {
     if (disc[u] == 0)
