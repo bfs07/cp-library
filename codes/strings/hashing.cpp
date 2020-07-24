@@ -1,13 +1,9 @@
 // Global vector used in the class.
 vector<int> hash_base;
 
-// OBS: CHOOSE THE OFFSET BELOW!!
 class Hash {
   /// Prime numbers to be used in mod operations
   const vector<int> m = {1000000007, 1000000009};
-
-  /// Minimum character of the alphabet
-  // static constexpr int OFFSET = '0';
 
   vector<vector<int>> hash_table;
   vector<vector<int>> pot;
@@ -43,10 +39,9 @@ private:
   void build_base() {
     if (!hash_base.empty())
       return;
-    constexpr int INT16_T_MAX = 65536;
     random_device rd;
     mt19937 gen(rd());
-    uniform_int_distribution<int> distribution(OFFSET, INT16_T_MAX);
+    uniform_int_distribution<int> distribution(CHAR_MAX, INT_MAX);
     hash_base.resize(m.size());
     for (int i = 0; i < hash_base.size(); ++i)
       hash_base[i] = distribution(gen);
@@ -59,10 +54,10 @@ private:
 
     for (int i = 0; i < m.size(); i++) {
       pot[i][0] = 1;
-      hash_table[i][0] = (s[0] - OFFSET);
+      hash_table[i][0] = s[0];
       for (int j = 1; j < this->n; j++) {
         hash_table[i][j] =
-            mod((s[j] - OFFSET) + hash_table[i][j - 1] * hash_base[i], m[i]);
+            mod(s[j] + hash_table[i][j - 1] * hash_base[i], m[i]);
         pot[i][j] = mod(pot[i][j - 1] * hash_base[i], m[i]);
       }
     }
