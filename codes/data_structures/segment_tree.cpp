@@ -9,11 +9,12 @@ public:
 
 private:
   // // range sum
-  // Node NEUTRAL_NODE = Node(0, 0);
+  // Node NEUTRAL_NODE = Node(0, INF + 1);
   // Node merge_nodes(const Node &x, const Node &y) {
-  //   return Node(x.val + y.val, 0);
+  //   return Node(x.val + y.val, INF + 1);
   // }
   // void apply_lazy(const int l, const int r, const int pos) {
+  //   // for set change this to =
   //   tree[pos].val += (r - l + 1) * tree[pos].lazy;
   // }
 
@@ -51,20 +52,21 @@ public:
 
 private:
   void st_propagate(const int l, const int r, const int pos) {
-    if (tree[pos].lazy != 0) {
+    if (tree[pos].lazy != INF + 1) {
       apply_lazy(l, r, pos);
       if (l != r) {
+        // for set change this to =
         tree[2 * pos + 1].lazy += tree[pos].lazy;
         tree[2 * pos + 2].lazy += tree[pos].lazy;
       }
-      tree[pos].lazy = 0;
+      tree[pos].lazy = INF + 1;
     }
   }
 
   Node st_build(const int l, const int r, const vector<int> &arr,
                 const int pos) {
     if (l == r)
-      return tree[pos] = Node(arr[l], 0);
+      return tree[pos] = Node(arr[l], INF + 1);
 
     int mid = (l + r) / 2;
     return tree[pos] = merge_nodes(st_build(l, mid, arr, 2 * pos + 1),
@@ -141,7 +143,7 @@ public:
   /// Constructor responsible for initializing a tree with 0.
   ///
   /// Time Complexity O(n)
-  Seg_Tree(const int n) : n(n) { this->tree.resize(4 * this->n, Node(0, 0)); }
+  Seg_Tree(const int n) : n(n) { this->tree.resize(4 * this->n, NEUTRAL_NODE); }
 
   /// Constructor responsible for building the initial tree based on a vector.
   ///
