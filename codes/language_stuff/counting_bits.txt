@@ -1,0 +1,7 @@
+#pragma GCC target ("sse4.2")
+// Use the pragma above to optimize the time complexity to O(1)
+__builtin_popcount(int) -> Number of active bits
+__builtin_popcountll(ll) -> Number of active bits
+__builtin_ctz(int) -> Number of trailing zeros in binary representation
+__builtin_clz(int) -> Number of leading zeros in binary representation
+__builtin_parity(int) -> Parity of the number of bits
