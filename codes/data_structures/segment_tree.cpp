@@ -9,9 +9,10 @@ public:
 
 private:
   // // range sum
-  // Node NEUTRAL_NODE = Node(0, INF + 1);
+  // Node NEUTRAL_NODE = Node(0);
   // Node merge_nodes(const Node &x, const Node &y) {
-  //   return Node(x.val + y.val, INF + 1);
+  //   return Node(x.val + y.val);
+  //   ;
   // }
   // void apply_lazy(const int l, const int r, const int pos) {
   //   // for set change this to =
@@ -19,28 +20,29 @@ private:
   // }
 
   // // RMQ max
-  // Node NEUTRAL_NODE = Node(-INF, 0);
+  // Node NEUTRAL_NODE = Node(-INF);
   // Node merge_nodes(const Node &x, const Node &y) {
-  //   return Node(max(x.val, y.val), 0);
+  //   return Node(max(x.val, y.val));
   // }
   // void apply_lazy(const int l, const int r, const int pos) {
   //   tree[pos].val += tree[pos].lazy;
   // }
 
   // // RMQ min
-  // Node NEUTRAL_NODE = Node(INF, 0);
+  // Node NEUTRAL_NODE = Node(INF);
   // Node merge_nodes(const Node &x, const Node &y) {
-  //   return Node(min(x.val, y.val), 0);
+  //   return Node(min(x.val, y.val));
   // }
   // void apply_lazy(const int l, const int r, const int pos) {
   //   tree[pos].val += tree[pos].lazy;
   // }
 
-  // XOR
-  // Only works with point updates
-  // Node NEUTRAL_NODE = Node(0, 0);
+  // // XOR
+  // // Only works with point updates
+  // Node NEUTRAL_NODE = Node(0);
   // Node merge_nodes(const Node &x, const Node &y) {
-  //   return Node(x.val ^ y.val, 0);
+  //   return Node(x.val ^ y.val);
+  //   ;
   // }
   // void apply_lazy(const int l, const int r, const int pos) {}
 
@@ -52,21 +54,21 @@ public:
 
 private:
   void st_propagate(const int l, const int r, const int pos) {
-    if (tree[pos].lazy != INF + 1) {
+    if (tree[pos].lazy != 0) {
       apply_lazy(l, r, pos);
       if (l != r) {
         // for set change this to =
         tree[2 * pos + 1].lazy += tree[pos].lazy;
         tree[2 * pos + 2].lazy += tree[pos].lazy;
       }
-      tree[pos].lazy = INF + 1;
+      tree[pos].lazy = 0;
     }
   }
 
   Node st_build(const int l, const int r, const vector<int> &arr,
                 const int pos) {
     if (l == r)
-      return tree[pos] = Node(arr[l], INF + 1);
+      return tree[pos] = Node(arr[l]);
 
     int mid = (l + r) / 2;
     return tree[pos] = merge_nodes(st_build(l, mid, arr, 2 * pos + 1),
@@ -80,7 +82,7 @@ private:
     if (l > r || l > j || r < i)
       return -1;
     // Needs RMQ MAX
-    // Replace to <= for greater or equal or (with RMQ MIN) > for smaller or
+    // Replace to <= for greater or (with RMQ MIN) > for smaller or
     // equal or >= for smaller
     if (tree[pos].val < v)
       return -1;
@@ -131,7 +133,6 @@ private:
   }
 
   void build(const vector<int> &arr) {
-    this->n = arr.size();
     this->tree.resize(4 * this->n);
     this->st_build(0, this->n - 1, arr, 0);
   }
@@ -143,12 +144,12 @@ public:
   /// Constructor responsible for initializing a tree with 0.
   ///
   /// Time Complexity O(n)
-  Seg_Tree(const int n) : n(n) { this->tree.resize(4 * this->n, NEUTRAL_NODE); }
+  Seg_Tree(const int n) : n(n) { this->tree.resize(4 * this->n, Node(0)); }
 
   /// Constructor responsible for building the initial tree based on a vector.
   ///
   /// Time Complexity O(n)
-  Seg_Tree(const vector<int> &arr) { this->build(arr); }
+  Seg_Tree(const vector<int> &arr) : n(arr.size()) { this->build(arr); }
 
   /// Returns the first index from i to j compared to v.
   /// Uncomment the line in the original function to get the proper element that
