@@ -1,1 +1,0 @@
-$ g++ -std=c++11 gen.cpp && ./a.out > gen.out && g++ -std=c++11 brute.cpp && (./a.out < gen.in) > brute.out && g++ -std=c++11 sol.cpp && (./a.out < gen.in) > sol.out && diff brute.out sol.out

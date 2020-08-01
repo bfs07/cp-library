@@ -1,0 +1,3 @@
+int y = bitset<number_of_bits>(string_var).to_ulong();
+Ex : x = 1010, number_of_bits = 32;
+y = bitset<32>(x).to_ulong(); // y = 10
