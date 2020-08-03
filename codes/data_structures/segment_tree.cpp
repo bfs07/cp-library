@@ -4,11 +4,11 @@ public:
     int val, lazy;
 
     Node() {}
-    Node(const int val, const int lazy) : val(val), lazy(lazy) {}
+    Node(const int val) : val(val), lazy(0) {}
   };
 
 private:
-  // // range sum
+  // // Range Sum
   // Node NEUTRAL_NODE = Node(0);
   // Node merge_nodes(const Node &x, const Node &y) {
   //   return Node(x.val + y.val);
@@ -19,7 +19,7 @@ private:
   //   tree[pos].val += (r - l + 1) * tree[pos].lazy;
   // }
 
-  // // RMQ max
+  // // RMQ Max
   // Node NEUTRAL_NODE = Node(-INF);
   // Node merge_nodes(const Node &x, const Node &y) {
   //   return Node(max(x.val, y.val));
@@ -28,7 +28,7 @@ private:
   //   tree[pos].val += tree[pos].lazy;
   // }
 
-  // // RMQ min
+  // // RMQ Min
   // Node NEUTRAL_NODE = Node(INF);
   // Node merge_nodes(const Node &x, const Node &y) {
   //   return Node(min(x.val, y.val));
@@ -53,7 +53,7 @@ public:
   vector<Node> tree;
 
 private:
-  void st_propagate(const int l, const int r, const int pos) {
+  void propagate(const int l, const int r, const int pos) {
     if (tree[pos].lazy != 0) {
       apply_lazy(l, r, pos);
       if (l != r) {
@@ -65,19 +65,18 @@ private:
     }
   }
 
-  Node st_build(const int l, const int r, const vector<int> &arr,
-                const int pos) {
+  Node _build(const int l, const int r, const vector<int> &arr, const int pos) {
     if (l == r)
       return tree[pos] = Node(arr[l]);
 
     int mid = (l + r) / 2;
-    return tree[pos] = merge_nodes(st_build(l, mid, arr, 2 * pos + 1),
-                                   st_build(mid + 1, r, arr, 2 * pos + 2));
+    return tree[pos] = merge_nodes(_build(l, mid, arr, 2 * pos + 1),
+                                   _build(mid + 1, r, arr, 2 * pos + 2));
   }
 
-  int st_get_first(const int l, const int r, const int i, const int j,
-                   const int v, const int pos) {
-    st_propagate(l, r, pos);
+  int _get_first(const int l, const int r, const int i, const int j,
+                 const int v, const int pos) {
+    propagate(l, r, pos);
 
     if (l > r || l > j || r < i)
       return -1;
@@ -91,15 +90,15 @@ private:
       return l;
 
     int mid = (l + r) / 2;
-    int aux = st_get_first(l, mid, i, j, v, 2 * pos + 1);
+    int aux = _get_first(l, mid, i, j, v, 2 * pos + 1);
     if (aux != -1)
       return aux;
-    return st_get_first(mid + 1, r, i, j, v, 2 * pos + 2);
+    return _get_first(mid + 1, r, i, j, v, 2 * pos + 2);
   }
 
-  Node st_query(const int l, const int r, const int i, const int j,
-                const int pos) {
-    st_propagate(l, r, pos);
+  Node _query(const int l, const int r, const int i, const int j,
+              const int pos) {
+    propagate(l, r, pos);
 
     if (l > r || l > j || r < i)
       return NEUTRAL_NODE;
@@ -108,33 +107,33 @@ private:
       return tree[pos];
 
     int mid = (l + r) / 2;
-    return merge_nodes(st_query(l, mid, i, j, 2 * pos + 1),
-                       st_query(mid + 1, r, i, j, 2 * pos + 2));
+    return merge_nodes(_query(l, mid, i, j, 2 * pos + 1),
+                       _query(mid + 1, r, i, j, 2 * pos + 2));
   }
 
   // It adds a number delta to the range from i to j
-  Node st_update(const int l, const int r, const int i, const int j,
-                 const int delta, const int pos) {
-    st_propagate(l, r, pos);
+  Node _update(const int l, const int r, const int i, const int j,
+               const int delta, const int pos) {
+    propagate(l, r, pos);
 
     if (l > r || l > j || r < i)
       return tree[pos];
 
     if (i <= l && r <= j) {
       tree[pos].lazy = delta;
-      st_propagate(l, r, pos);
+      propagate(l, r, pos);
       return tree[pos];
     }
 
     int mid = (l + r) / 2;
     return tree[pos] =
-               merge_nodes(st_update(l, mid, i, j, delta, 2 * pos + 1),
-                           st_update(mid + 1, r, i, j, delta, 2 * pos + 2));
+               merge_nodes(_update(l, mid, i, j, delta, 2 * pos + 1),
+                           _update(mid + 1, r, i, j, delta, 2 * pos + 2));
   }
 
   void build(const vector<int> &arr) {
     this->tree.resize(4 * this->n);
-    this->st_build(0, this->n - 1, arr, 0);
+    this->_build(0, this->n - 1, arr, 0);
   }
 
 public:
@@ -158,7 +157,7 @@ public:
   /// Time Complexity O(log n)
   int get_first(const int i, const int j, const int v) {
     assert(this->n >= 0);
-    return this->st_get_first(0, this->n - 1, i, j, v, 0);
+    return this->_get_first(0, this->n - 1, i, j, v, 0);
   }
 
   /// Update at a single index.
@@ -167,7 +166,7 @@ public:
   void update(const int idx, const int delta) {
     assert(this->n >= 0);
     assert(0 <= idx), assert(idx < this->n);
-    this->st_update(0, this->n - 1, idx, idx, delta, 0);
+    this->_update(0, this->n - 1, idx, idx, delta, 0);
   }
 
   /// Range update from l to r.
@@ -176,7 +175,7 @@ public:
   void update(const int l, const int r, const int delta) {
     assert(this->n >= 0);
     assert(0 <= l), assert(l <= r), assert(r < this->n);
-    this->st_update(0, this->n - 1, l, r, delta, 0);
+    this->_update(0, this->n - 1, l, r, delta, 0);
   }
 
   /// Query at a single index.
@@ -185,7 +184,7 @@ public:
   int query(const int idx) {
     assert(this->n >= 0);
     assert(0 <= idx), assert(idx < this->n);
-    return this->st_query(0, this->n - 1, idx, idx, 0).val;
+    return this->_query(0, this->n - 1, idx, idx, 0).val;
   }
 
   /// Range query from l to r.
@@ -194,6 +193,6 @@ public:
   int query(const int l, const int r) {
     assert(this->n >= 0);
     assert(0 <= l), assert(l <= r), assert(r < this->n);
-    return this->st_query(0, this->n - 1, l, r, 0).val;
+    return this->_query(0, this->n - 1, l, r, 0).val;
   }
 };
