@@ -20,7 +20,7 @@ public:
   Node *build(Node *node, const int l, const int r, const vector<int> &arr) {
     node = new Node(NEUTRAL_NODE);
     if (l == r) {
-      node->val = arr[l];
+      node->val = arr.empty() ? 0 : arr[l];
       return node;
     }
 
@@ -77,7 +77,7 @@ public:
   /// Time Complexity: O(n)
   Persistent_Seg_Tree(const int n) : n(n) {
     this->version[0] =
-        this->build(this->version[0], 0, this->n - 1, vector<int>(n, 0));
+        this->build(this->version[0], 0, this->n - 1, vector<int>());
   }
 
   /// Constructor that allows to pass initial values to the leafs.
