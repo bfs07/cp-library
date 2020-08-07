@@ -26,7 +26,8 @@ private:
     vector<vector<int>> table(n, vector<int>(n, 0));
     for (int u = 0; u <= sink; ++u)
       for (const int idx : adj[u])
-        if (edges[idx].cap != 0)
+        // checks if it's not a reverse edge
+        if (!(idx & 1))
           table[u][edges[idx].v] += edges[idx].flow;
     return table;
   }
@@ -41,7 +42,7 @@ private:
       for (const int idx : adj[u]) {
         const Edge &e = edges[idx];
         // ignore if it is a reverse edge or an edge linked to the sink
-        if (e.cap == 0 || e.v == sink)
+        if (idx & 1 || e.v == sink)
           continue;
         if (e.flow == e.cap) {
           ans.emplace_back(u, e.v);
@@ -54,7 +55,7 @@ private:
     for (int u = 1; u < sink; ++u) {
       for (const int idx : adj[u]) {
         const Edge &e = edges[idx];
-        if (e.cap == 0 || e.v == sink)
+        if (idx & 1 || e.v == sink)
           continue;
         if (e.flow < e.cap && (!covered[u] || !covered[e.v])) {
           ans.emplace_back(u, e.v);
@@ -108,8 +109,7 @@ private:
     for (int i = 1; i <= max_left; ++i) {
       for (int j = max_left + 1; j < sink; ++j)
         if (paths[i][j] > 0) {
-          saturated[i] = true;
-          saturated[j] = true;
+          saturated[i] = saturated[j] = true;
           break;
         }
       if (!saturated[i] && !vis[i])
@@ -174,7 +174,7 @@ private:
     for (int u = 0; u <= sink; ++u)
       for (const int idx : adj[u])
         // checks if it's not a reverse edge
-        if (edges[idx].cap != 0) {
+        if (!(idx & 1)) {
           mat_adj[u][edges[idx].v] = edges[idx].cap;
           // checks if its residual capacity is greater than zero.
           if (edges[idx].flow < edges[idx].cap)
@@ -353,7 +353,6 @@ public:
   void add_to_sink(const int u, const int cap) {
     assert(!COMPUTED);
     assert(src <= u), assert(u < sink);
-    assert(cap > 0);
     this->_add_edge(u, sink, cap);
   }
 
@@ -363,7 +362,6 @@ public:
   void add_to_src(const int v, const int cap) {
     assert(!COMPUTED);
     assert(src < v), assert(v <= sink);
-    assert(cap > 0);
     this->_add_edge(src, v, cap);
   }
 
@@ -373,7 +371,6 @@ public:
   void add_edge(const int u, const int v, const int cap) {
     assert(!COMPUTED);
     assert(src <= u), assert(u <= sink);
-    assert(cap > 0);
     this->_add_edge(u, v, cap);
   }
 
