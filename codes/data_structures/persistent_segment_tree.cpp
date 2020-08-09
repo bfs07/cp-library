@@ -20,7 +20,7 @@ public:
   Node *build(Node *node, const int l, const int r, const vector<int> &arr) {
     node = new Node(NEUTRAL_NODE);
     if (l == r) {
-      node->val = arr.empty() ? 0 : arr[l];
+      node->val = arr[l];
       return node;
     }
 
@@ -36,7 +36,10 @@ public:
     if (l > idx || r < idx)
       return cur_tree != nullptr ? cur_tree : prev_tree;
 
-    cur_tree = new Node(cur_tree == nullptr ? *prev_tree : *cur_tree);
+    if (cur_tree == nullptr && prev_tree == nullptr)
+      cur_tree = new Node(NEUTRAL_NODE);
+    else
+      cur_tree = new Node(cur_tree == nullptr ? *prev_tree : *cur_tree);
 
     if (l == r) {
       cur_tree->val += delta;
@@ -45,15 +48,19 @@ public:
 
     const int mid = (l + r) / 2;
     cur_tree->left =
-        _update(cur_tree->left, prev_tree->left, l, mid, idx, delta);
+        _update(cur_tree->left, prev_tree ? prev_tree->left : nullptr, l, mid,
+                idx, delta);
     cur_tree->right =
-        _update(cur_tree->right, prev_tree->right, mid + 1, r, idx, delta);
-    cur_tree->val = merge_nodes(cur_tree->left->val, cur_tree->right->val);
+        _update(cur_tree->right, prev_tree ? prev_tree->right : nullptr,
+                mid + 1, r, idx, delta);
+    cur_tree->val =
+        merge_nodes(cur_tree->left ? cur_tree->left->val : NEUTRAL_NODE.val,
+                    cur_tree->right ? cur_tree->right->val : NEUTRAL_NODE.val);
     return cur_tree;
   }
 
   int _query(Node *node, const int l, const int r, const int i, const int j) {
-    if (l > j || r < i)
+    if (node == nullptr || l > j || r < i)
       return NEUTRAL_NODE.val;
 
     if (i <= l && r <= j)
@@ -72,15 +79,14 @@ public:
 public:
   Persistent_Seg_Tree() : n(-1) {}
 
-  /// Constructor that initializes the segment tree empty.
+  /// Constructor that initializes the segment tree empty. It's allowed to query
+  /// from 0 to MAXN - 1.
   ///
-  /// Time Complexity: O(n)
-  Persistent_Seg_Tree(const int n) : n(n) {
-    this->version[0] =
-        this->build(this->version[0], 0, this->n - 1, vector<int>());
-  }
+  /// Time Complexity: O(1)
+  Persistent_Seg_Tree(const int MAXN) : n(MAXN) {}
 
-  /// Constructor that allows to pass initial values to the leafs.
+  /// Constructor that allows to pass initial values to the leafs. It's allowed
+  /// to query from 0 to n - 1.
   ///
   /// Time Complexity: O(n)
   Persistent_Seg_Tree(const vector<int> &arr) : n(arr.size()) {
@@ -92,8 +98,8 @@ public:
   /// Time Complexity: O(1)
   void link(const int version, const int prev_version) {
     assert(this->n > -1);
-    assert(0 <= prev_version), assert(prev_version <= version),
-        assert(version < this->version.size());
+    assert(0 <= prev_version), assert(prev_version <= version);
+    this->create_version(version);
     this->version[version] = this->version[prev_version];
   }
 
@@ -115,7 +121,6 @@ public:
   /// Time Complexity: O(log(n))
   int query(const int version, const int l, const int r) {
     assert(this->n > -1);
-    assert(this->version[version] != nullptr);
     assert(0 <= l), assert(l <= r), assert(r < this->n);
     return this->_query(this->version[version], 0, this->n - 1, l, r);
   }
