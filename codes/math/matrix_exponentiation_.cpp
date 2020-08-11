@@ -3,7 +3,7 @@ struct Matrix {
 
   // // static matrix, if it's created multiple times, it's recommended
   // // to avoid TLE.
-  // static constexpr int MAXN = 20, MAXM = 20;
+  // static constexpr int MAXN = 4, MAXM = 4;
   // array<array<int, MAXM>, MAXN> mat = {};
   // int n, m;
   // Matrix(const int n, const int m) : n(n), m(m) {}
@@ -14,6 +14,13 @@ struct Matrix {
   // Matrix(const int n, const int m) : n(n), m(m) {
   //   mat.resize(n, vector<int>(m));
   // }
+
+  static int mod(int n) {
+    n %= MOD;
+    if (n < 0)
+      n += MOD;
+    return n;
+  }
 
   /// Creates a n x n identity matrix.
   ///
@@ -30,12 +37,12 @@ struct Matrix {
   ///
   /// Time Complexity: O(mat.size() ^ 3)
   Matrix operator*(const Matrix &other) const {
-    assert(mat.front().size() == other.mat.size());
+    assert(m == other.n);
     Matrix ans(n, m);
     for (int i = 0; i < n; ++i)
       for (int j = 0; j < m; ++j)
         for (int k = 0; k < m; ++k)
-          ans.mat[i][j] = (ans.mat[i][j] + mat[i][k] * other.mat[k][j]) % MOD;
+          ans.mat[i][j] = mod(ans.mat[i][j] + mat[i][k] * other.mat[k][j]);
     return ans;
   }
 
