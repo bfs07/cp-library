@@ -3,14 +3,15 @@ struct Matrix {
 
   // // static matrix, if it's created multiple times, it's recommended
   // // to avoid TLE.
-  // static constexpr int N = 2, M = 2;
-  // array<array<int, M>, N> mat = {};
-  // Matrix(const int n, const int m) {}
+  // static constexpr int MAXN = 20, MAXM = 20;
+  // array<array<int, MAXM>, MAXN> mat = {};
+  // int n, m;
+  // Matrix(const int n, const int m) : n(n), m(m) {}
 
   // // dynamic matrix
-  // int N, M;
+  // int n, m;
   // vector<vector<int>> mat;
-  // Matrix(const int n, const int m) : N(n), M(m) {
+  // Matrix(const int n, const int m) : n(n), m(m) {
   //   mat.resize(n, vector<int>(m));
   // }
 
@@ -18,9 +19,9 @@ struct Matrix {
   ///
   /// Time Complexity: O(n*n)
   Matrix identity() {
-    assert(N == M);
-    Matrix mat_identity(N, M);
-    for (int i = 0; i < N; ++i)
+    assert(n == m);
+    Matrix mat_identity(n, m);
+    for (int i = 0; i < n; ++i)
       mat_identity.mat[i][i] = 1;
     return mat_identity;
   }
@@ -30,10 +31,10 @@ struct Matrix {
   /// Time Complexity: O(mat.size() ^ 3)
   Matrix operator*(const Matrix &other) const {
     assert(mat.front().size() == other.mat.size());
-    Matrix ans(N, M);
-    for (int i = 0; i < N; ++i)
-      for (int j = 0; j < M; ++j)
-        for (int k = 0; k < M; ++k)
+    Matrix ans(n, m);
+    for (int i = 0; i < n; ++i)
+      for (int j = 0; j < m; ++j)
+        for (int k = 0; k < m; ++k)
           ans.mat[i][j] = (ans.mat[i][j] + mat[i][k] * other.mat[k][j]) % MOD;
     return ans;
   }
@@ -43,7 +44,7 @@ struct Matrix {
   /// Time Complexity: O((mat.size() ^ 3) * log2(p))
   Matrix expo(int p) {
     assert(p >= 0);
-    Matrix ans = identity(), cur_power(N, M);
+    Matrix ans = identity(), cur_power(n, m);
     cur_power.mat = mat;
     while (p) {
       if (p & 1)
