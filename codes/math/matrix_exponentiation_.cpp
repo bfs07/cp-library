@@ -8,13 +8,6 @@ struct Matrix {
   // int n, m;
   // Matrix(const int n, const int m) : n(n), m(m) {}
 
-  // // dynamic matrix
-  // int n, m;
-  // vector<vector<int>> mat;
-  // Matrix(const int n, const int m) : n(n), m(m) {
-  //   mat.resize(n, vector<int>(m));
-  // }
-
   static int mod(int n) {
     n %= MOD;
     if (n < 0)
@@ -38,7 +31,7 @@ struct Matrix {
   /// Time Complexity: O(mat.size() ^ 3)
   Matrix operator*(const Matrix &other) const {
     assert(m == other.n);
-    Matrix ans(n, m);
+    Matrix ans(n, other.m);
     for (int i = 0; i < n; ++i)
       for (int j = 0; j < m; ++j)
         for (int k = 0; k < m; ++k)
