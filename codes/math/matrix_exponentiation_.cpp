@@ -1,12 +1,12 @@
 struct Matrix {
   static constexpr int MOD = 1e9 + 7;
 
-  // // static matrix, if it's created multiple times, it's recommended
-  // // to avoid TLE.
-  // static constexpr int MAXN = 4, MAXM = 4;
-  // array<array<int, MAXM>, MAXN> mat = {};
-  // int n, m;
-  // Matrix(const int n, const int m) : n(n), m(m) {}
+  // static matrix, if it's created multiple times, it's recommended
+  // to avoid TLE.
+  static constexpr int MAXN = 4, MAXM = 4;
+  array<array<int, MAXM>, MAXN> mat = {};
+  int n, m;
+  Matrix(const int n, const int m) : n(n), m(m) {}
 
   static int mod(int n) {
     n %= MOD;
