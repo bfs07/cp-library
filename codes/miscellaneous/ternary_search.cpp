@@ -17,8 +17,8 @@ int ternary_search(const vector<int> &arr) {
   }
   // the range [l, r] contains the minimum element.
 
-  int minn = INF, idx = -1;
-  for (int i = l; i <= r; ++i)
+  int minn = f(l), idx = l;
+  for (int i = l + 1; i <= r; ++i)
     if (f(i) < minn) {
       idx = i;
       minn = f(i);
