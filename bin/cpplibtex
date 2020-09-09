@@ -19,7 +19,7 @@ def dfs(abspath, path, texfile, indent=0):
       texfile.write(
           f'{" " * indent}\\{"section" if indent == 0 else "subsection"}{{{filename}}}{{\n'
       )
-      texfile.write(f'{" " * indent}  \\begin{{figure}}[h!]\n')
+      texfile.write(f'{" " * indent}  \\begin{{figure}}[H]\n')
       texfile.write(f'{" " * indent}    \\centering\n')
       texfile.write(
           f'{" " * indent}    \\includegraphics[scale=0.7]{{\"{"codes/" + filepath}\"}}\n'
