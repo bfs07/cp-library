@@ -1,6 +1,6 @@
 namespace tree {
 /// Returns a pair which contains the most distant vertex from src and the
-/// distance.
+/// value of this distance.
 pair<int, int> bfs(const int src, const vector<vector<int>> &adj) {
   queue<tuple<int, int, int>> q;
   q.emplace(0, src, -1);
@@ -13,7 +13,7 @@ pair<int, int> bfs(const int src, const vector<vector<int>> &adj) {
       furthest = u;
       dist = d;
     }
-    for (int v : adj[u]) {
+    for (const int v : adj[u]) {
       if (v == p)
         continue;
       q.emplace(d + 1, v, u);
