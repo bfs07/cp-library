@@ -5,26 +5,22 @@ vector<int> segPrimes;
 bitset<MAXN + 5> primesInSeg;
 
 /// smallest prime factor
-int spf[MAXN + 5];
+vector<int> spf(MAXN + 5);
 
 vector<int> primes;
 bitset<MAXN + 5> isPrime;
 
 void sieve(int n = MAXN + 2) {
-
-  for (int i = 0; i <= n; i++)
-    spf[i] = i;
-
+  iota(spf.begin(), spf.end(), 0ll);
   isPrime.set();
   for (int i = 2; i <= n; i++) {
-    if (!isPrime[i])
-      continue;
-
-    for (int j = i * i; j <= n; j += i) {
-      isPrime[j] = false;
-      spf[j] = min(i, spf[j]);
+    if (isPrime[i]) {
+      for (int j = i * i; j <= n; j += i) {
+        isPrime[j] = false;
+        spf[j] = min(i, spf[j]);
+      }
+      primes.emplace_back(i);
     }
-    primes.emplace_back(i);
   }
 }
 
