@@ -140,12 +140,12 @@ public:
   /// N equals to -1 means the Segment Tree hasn't been created yet.
   Seg_Tree() : n(-1) {}
 
-  /// Constructor responsible for initializing a tree with 0.
+  /// Constructor responsible for initializing the tree with 0's.
   ///
   /// Time Complexity O(n)
   Seg_Tree(const int n) : n(n) { this->tree.resize(4 * this->n, Node(0)); }
 
-  /// Constructor responsible for building the initial tree based on a vector.
+  /// Constructor responsible for building the tree based on a vector.
   ///
   /// Time Complexity O(n)
   Seg_Tree(const vector<int> &arr) : n(arr.size()) { this->build(arr); }
