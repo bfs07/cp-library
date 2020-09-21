@@ -1,99 +1,92 @@
 /// INDEX THE ARRAY BY 1!!!
 class BIT {
 private:
-  vector<int> bit1;
-  vector<int> bit2;
+  vector<int> bit1, bit2;
   int n;
 
 private:
-  int low(int i) { return (i & (-i)); }
+  int low(int i) { return i & (-i); }
 
-  // point update
+  // Point update
   void update(int i, const int delta, vector<int> &bit) {
-    while (i <= this->n) {
+    while (i <= n) {
       bit[i] += delta;
-      i += this->low(i);
+      i += low(i);
     }
   }
 
-  // point query
+  // Prefix query
   int query(int i, const vector<int> &bit) {
     int sum = 0;
     while (i > 0) {
       sum += bit[i];
-      i -= this->low(i);
+      i -= low(i);
     }
     return sum;
   }
 
-  // build the bit
+  // Builds the bit
   void build(const vector<int> &arr) {
     // OBS: BIT IS INDEXED FROM 1
-    // THE USE OF 1-BASED ARRAY IS MANDATORY
+    // THE USAGE OF 1-BASED ARRAY IS MANDATORY
     assert(arr.front() == 0);
     this->n = (int)arr.size() - 1;
-    this->bit1.resize(arr.size(), 0);
-    this->bit2.resize(arr.size(), 0);
+    bit1.resize(arr.size(), 0);
+    bit2.resize(arr.size(), 0);
 
-    for (int i = 1; i <= this->n; i++)
-      this->update(i, arr[i]);
+    for (int i = 1; i <= n; i++)
+      update(i, arr[i]);
   }
 
 public:
-  BIT(const vector<int> &arr) { this->build(arr); }
+  /// Constructor responsible for initializing the tree with 0's.
+  ///
+  /// Time Complexity: O(n log n)
+  BIT(const vector<int> &arr) { build(arr); }
 
+  /// Constructor responsible for building the tree based on a vector.
+  ///
+  /// Time Complexity O(n)
   BIT(const int n) {
     // OBS: BIT IS INDEXED FROM 1
     // THE USAGE OF 1-INDEXED ARRAY IS MANDATORY
     this->n = n;
-    this->bit1.resize(n + 1, 0);
-    this->bit2.resize(n + 1, 0);
+    bit1.resize(n + 1, 0);
+    bit2.resize(n + 1, 0);
   }
 
-  // range update
+  /// Range update from l to r.
+  ///
+  /// Time Complexity O(log n)
   void update(const int l, const int r, const int delta) {
-    assert(1 <= l), assert(l <= r), assert(r <= this->n);
-    this->update(l, delta, this->bit1);
-    this->update(r + 1, -delta, this->bit1);
-    this->update(l, delta * (l - 1), this->bit2);
-    this->update(r + 1, -delta * r, this->bit2);
+    assert(1 <= l), assert(l <= r), assert(r <= n);
+    update(l, delta, bit1);
+    update(r + 1, -delta, bit1);
+    update(l, delta * (l - 1), bit2);
+    update(r + 1, -delta * r, bit2);
   }
 
-  // point update
+  /// Update at a single index.
+  ///
+  /// Time Complexity O(log n)
   void update(const int i, const int delta) {
-    assert(1 <= i), assert(i <= this->n);
-    this->update(i, i, delta);
+    assert(1 <= i), assert(i <= n);
+    update(i, i, delta);
   }
 
-  // range query
+  /// Range query from l to r.
+  ///
+  /// Time Complexity O(log n)
   int query(const int l, const int r) {
-    assert(1 <= l), assert(l <= r), assert(r <= this->n);
-    return this->query(r) - this->query(l - 1);
+    assert(1 <= l), assert(l <= r), assert(r <= n);
+    return query(r) - query(l - 1);
   }
 
-  // point prefix query
+  /// Prefix query from 1 to i.
+  ///
+  /// Time Complexity O(log n)
   int query(const int i) {
-    assert(i <= this->n);
-    return (this->query(i, this->bit1) * i) - this->query(i, this->bit2);
+    assert(i <= n);
+    return (query(i, bit1) * i) - query(i, bit2);
   }
 };
-
-// TESTS
-// signed main()
-// {
-
-// 	vector<int> input = {0,1,2,3,4,5,6,7};
-
-// 	BIT ft(input);
-
-// 	assert (1 == ft.query(1));
-// 	assert (3 == ft.query(2));
-// 	assert (6 == ft.query(3));
-// 	assert (10 == ft.query(4));
-// 	assert (15 == ft.query(5));
-// 	assert (21 == ft.query(6));
-// 	assert (28 == ft.query(7));
-// 	assert (12 == ft.query(3,5));
-// 	assert (21 == ft.query(1,6));
-// 	assert (28 == ft.query(1,7));
-// }
