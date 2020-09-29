@@ -10,7 +10,7 @@ class Dinic {
   };
 
 private:
-  static constexpr int INF = 2e18;
+  static constexpr int INF = (sizeof(int) == 4 ? 1e9 : 2e18) + 1e5;
   bool COMPUTED = false;
   int _max_flow;
   vector<Edge> edges;
@@ -282,6 +282,15 @@ public:
     adj.resize(this->n);
     level.resize(this->n);
     ptr.resize(this->n);
+  }
+
+  /// Prints all the added edges. Use it to test in [CSA Graph
+  /// Editor](https://csacademy.com/app/graph_editor/).
+  void print() {
+    for (int u = 0; u < n; ++u)
+      for (const int idx : adj[u])
+        if (!(idx & 1))
+          cerr << u << ' ' << edges[idx].v << ' ' << edges[idx].cap << endl;
   }
 
   /// Returns the edges from the minimum edge cover of the graph.
