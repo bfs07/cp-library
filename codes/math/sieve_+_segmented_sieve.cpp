@@ -13,11 +13,11 @@ bitset<MAXN + 5> isPrime;
 void sieve(int n = MAXN + 2) {
   iota(spf.begin(), spf.end(), 0ll);
   isPrime.set();
-  for (int i = 2; i <= n; i++) {
+  for (int64_t i = 2; i <= n; i++) {
     if (isPrime[i]) {
-      for (int j = i * i; j <= n; j += i) {
+      for (int64_t j = i * i; j <= n; j += i) {
         isPrime[j] = false;
-        spf[j] = min(i, spf[j]);
+        spf[j] = min(i, int64_t(spf[j]));
       }
       primes.emplace_back(i);
     }
