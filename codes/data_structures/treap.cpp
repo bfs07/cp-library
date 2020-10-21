@@ -1,5 +1,5 @@
+// clang-format off
 mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
-
 // #define REVERSE
 // #define LAZY
 class Treap {
@@ -11,12 +11,12 @@ public:
     int size = 1, val;
     // Contains the result of the range query between the node and its children.
     int ans;
-#ifdef LAZY
+    #ifdef LAZY
     int lazy = 0;
-#endif
-#ifdef REVERSE
+    #endif
+    #ifdef REVERSE
     bool rev = false;
-#endif
+    #endif
 
     Node(const int val) : val(val), ans(val), rank(rng()) {}
     Node(const int val, const int rank) : val(val), ans(val), rank(rank) {}
@@ -38,10 +38,10 @@ private:
   // }
 
   // #ifdef LAZY
-  //   void apply_lazy(Node *node) {
-  //     node->val += node->lazy;
-  //     node->ans += node->lazy * get_size(node);
-  //   }
+  // void apply_lazy(Node *node) {
+  //   node->val += node->lazy;
+  //   node->ans += node->lazy * get_size(node);
+  // }
   // #endif
 
   // // RMQ Min
@@ -54,10 +54,10 @@ private:
   // }
 
   // #ifdef LAZY
-  //   void apply_lazy(Node *node) {
-  //     node->val += node->lazy;
-  //     node->ans += node->lazy;
-  //   }
+  // void apply_lazy(Node *node) {
+  //   node->val += node->lazy;
+  //   node->ans += node->lazy;
+  // }
   // #endif
 
   // // RMQ Max
@@ -70,10 +70,10 @@ private:
   // }
 
   // #ifdef LAZY
-  //   void apply_lazy(Node *node) {
-  //     node->val += node->lazy;
-  //     node->ans += node->lazy;
-  //   }
+  // void apply_lazy(Node *node) {
+  //   node->val += node->lazy;
+  //   node->ans += node->lazy;
+  // }
   // #endif
 
   int get_size(const Node *node) { return node ? node->size : 0; }
@@ -83,7 +83,7 @@ private:
       node->size = 1 + get_size(node->left) + get_size(node->right);
   }
 
-#ifdef REVERSE
+  #ifdef REVERSE
   void propagate_reverse(Node *node) {
     if (node && node->rev) {
       swap(node->left, node->right);
@@ -94,9 +94,9 @@ private:
       node->rev = 0;
     }
   }
-#endif
+  #endif
 
-#ifdef LAZY
+  #ifdef LAZY
   void propagate_lazy(Node *node) {
     if (node && node->lazy != 0) {
       apply_lazy(node);
@@ -107,18 +107,18 @@ private:
       node->lazy = 0;
     }
   }
-#endif
+  #endif
 
   void update_node(Node *node) {
     if (node) {
       update_size(node);
-#ifdef LAZY
+      #ifdef LAZY
       propagate_lazy(node->left);
       propagate_lazy(node->right);
-#endif
-#ifdef REVERSE
+      #endif
+      #ifdef REVERSE
       propagate_reverse(node);
-#endif
+      #endif
       merge_nodes(node);
     }
   }
@@ -131,12 +131,12 @@ private:
     if (!node)
       l = r = nullptr;
     else {
-#ifdef LAZY
+      #ifdef LAZY
       propagate_lazy(node);
-#endif
-#ifdef REVERSE
+      #endif
+      #ifdef REVERSE
       propagate_reverse(node);
-#endif
+      #endif
       if (get_size(node->left) <= pos) {
         node->par = pr;
         split(node->right, node->right, r, pos - get_size(node->left) - 1, pl,
@@ -154,12 +154,12 @@ private:
   /// Merges to treaps (l and r) into a single one based on the rank of each
   /// node.
   void merge(Node *&node, Node *l, Node *r, Node *par = nullptr) {
-#ifdef LAZY
+    #ifdef LAZY
     propagate_lazy(l), propagate_lazy(r);
-#endif
-#ifdef REVERSE
+    #endif
+    #ifdef REVERSE
     propagate_reverse(l), propagate_reverse(r);
-#endif
+    #endif
     if (l == nullptr || r == nullptr)
       node = (l == nullptr ? r : l);
     else if (l->rank > r->rank) {
@@ -225,12 +225,12 @@ private:
     split(M, M, R, r - l);
 
     Node *node = M;
-#ifdef LAZY
+    #ifdef LAZY
     node->lazy = delta;
     propagate_lazy(node);
-#else
+    #else
     node->val += delta;
-#endif
+    #endif
 
     merge(L, L, M);
     merge(root, L, R);
@@ -258,7 +258,7 @@ private:
     _insert(new_pos, node);
   }
 
-#ifdef REVERSE
+  #ifdef REVERSE
   void _reverse(const int l, const int r) {
     Node *L, *M, *R;
     split(this->root, L, M, l - 1);
@@ -271,7 +271,7 @@ private:
     merge(L, L, M);
     merge(root, L, R);
   }
-#endif
+  #endif
 
 public:
   Treap() {}
@@ -310,7 +310,7 @@ public:
     _move(l, r, 0);
   }
 
-#ifdef REVERSE
+  #ifdef REVERSE
   /// Reverses the subarray [l, r].
   ///
   /// Time Complexity: O(log n)
@@ -318,7 +318,7 @@ public:
     assert(0 <= l), assert(l <= r), assert(r < _size);
     _reverse(l, r);
   }
-#endif
+  #endif
 
   /// Erases the subarray [l, r].
   ///
@@ -353,7 +353,7 @@ public:
     _update(pos, pos, delta);
   }
 
-#ifdef LAZY
+  #ifdef LAZY
   /// Sums the delta value to the subarray [l, r].
   ///
   /// Time Complexity: O(log n)
@@ -361,7 +361,7 @@ public:
     assert(0 <= l), assert(l <= r), assert(r < _size);
     _update(l, r, delta);
   }
-#endif
+  #endif
 
   /// Query at a single index.
   ///
@@ -379,3 +379,4 @@ public:
     return _query(l, r)->ans;
   }
 };
+// clang-format on
