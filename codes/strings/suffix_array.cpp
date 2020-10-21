@@ -1,5 +1,5 @@
 // To use the compare method use the macro below.
-#define BUILD_TABLE
+// #define BUILD_TABLE
 
 namespace RadixSort {
 /// Sorts the array arr stably in ascending order.
@@ -39,6 +39,7 @@ template <typename T> void sort_pairs(vector<T> &arr, const int rank_size) {
 }
 } // namespace RadixSort
 
+// clang-format off
 /// It is indexed by 0.
 /// Let the given string be "banana".
 ///
@@ -64,11 +65,11 @@ private:
   const int n;
 
   typedef pair<int, int> Rank;
-#ifdef BUILD_TABLE
+
+  #ifdef BUILD_TABLE
   vector<vector<int>> rank_table;
   const vector<int> log_array = build_log_array();
-#endif
-
+  #endif
 public:
   Suffix_Array(const string &s) : n(s.size()), s(s) {}
 
@@ -102,10 +103,10 @@ private:
     for (int i = 0; i < n; ++i)
       ranks[i] = pair<Rank, int>(Rank(s[i], 0), i);
 
-#ifdef BUILD_TABLE
+    #ifdef BUILD_TABLE
     int rank_table_size = 0;
     this->rank_table.resize(log_array[this->n] + 2);
-#endif
+    #endif
     RadixSort::sort_pairs(ranks, 256);
     build_ranks(ranks, arr);
 
@@ -115,23 +116,23 @@ private:
 
       // it will be compared intervals a pair of intervals (i, jump-1), (i +
       // jump, i + 2*jump - 1). The variable jump is always a power of 2
-#ifdef BUILD_TABLE
+      #ifdef BUILD_TABLE
       while (jump / 2 < this->n) {
-#else
+      #else
       while (max_rank != this->n) {
-#endif
+      #endif
         for (int i = 0; i < this->n; ++i) {
           ranks[i].first.first = arr[i];
           ranks[i].first.second = (i + jump < this->n ? arr[i + jump] : 0);
           ranks[i].second = i;
         }
 
-#ifdef BUILD_TABLE
+        #ifdef BUILD_TABLE
         // inserting only the ranks in the table
         transform(ranks.begin(), ranks.end(),
                   back_inserter(rank_table[rank_table_size++]),
                   [](pair<Rank, int> &pair) { return pair.first.first; });
-#endif
+        #endif
         RadixSort::sort_pairs(ranks, n);
         build_ranks(ranks, arr);
 
@@ -188,7 +189,7 @@ private:
     return ans;
   }
 
-#ifdef BUILD_TABLE
+  #ifdef BUILD_TABLE
   int _compare(const int i, const int j, const int length) {
     const int k = this->log_array[length]; // floor log2(length)
     const int jump = length - (1ll << k);
@@ -201,7 +202,7 @@ private:
         (j + jump < this->n ? this->rank_table[k][j + jump] : -1)};
     return iRank == jRank ? 0 : iRank < jRank ? -1 : 1;
   }
-#endif
+  #endif
 
 public:
   const vector<int> sa = build_suffix_array();
@@ -219,7 +220,7 @@ public:
     return _lcs(separator);
   }
 
-#ifdef BUILD_TABLE
+  #ifdef BUILD_TABLE
   /// Compares two substrings beginning at indexes i and j of a fixed length.
   ///
   /// Time Complexity: O(1)
@@ -228,5 +229,6 @@ public:
     assert(i + length - 1 < this->n && j + length - 1 < this->n);
     return _compare(i, j, length);
   }
-#endif
+  #endif
 };
+// clang-format on
