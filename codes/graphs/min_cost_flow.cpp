@@ -1,83 +1,92 @@
-/// Code copied from: https://cp-algorithms.com/graph/min_cost_flow.html
-struct Edge {
-  const int from, to, cap, cost;
-  Edge(const int from, const int to, const int cap, const int cost)
-      : from(from), to(to), cap(cap), cost(cost) {}
+/// Code copied from:
+/// github.com/kth-competitive-programming/kactl/blob/master/content/graph/MinCostMaxFlow.h
+#include <bits/extc++.h> /// include-line, keep-include
+
+// #define all(x) begin(x), end(x)
+// typedef pair<int, int> ii;
+// typedef vector<int> vi;
+typedef vector<ll> VL;
+typedef long long ll;
+#define sz(x) (int)(x).size()
+#define rep(i, a, b) for (int i = a; i < (b); ++i)
+
+const ll INF = numeric_limits<ll>::max() / 4;
+
+// clang-format off
+struct MCMF {
+	int N;
+	vector<vi> ed, red;
+	vector<VL> cap, flow, cost;
+	vi seen;
+	VL dist, pi;
+	vector<ii> par;
+
+	MCMF(int N) :
+		N(N), ed(N), red(N), cap(N, VL(N)), flow(cap), cost(cap),
+		seen(N), dist(N), pi(N), par(N) {}
+
+	void addEdge(int from, int to, ll cap, ll cost) {
+		this->cap[from][to] = cap;
+		this->cost[from][to] = cost;
+		ed[from].push_back(to);
+		red[to].push_back(from);
+	}
+
+	void path(int s) {
+		fill(all(seen), 0);
+		fill(all(dist), INF);
+		dist[s] = 0; ll di;
+
+		__gnu_pbds::priority_queue<pair<ll, int>> q;
+		vector<decltype(q)::point_iterator> its(N);
+		q.push({0, s});
+
+		auto relax = [&](int i, ll cap, ll cost, int dir) {
+			ll val = di - pi[i] + cost;
+			if (cap && val < dist[i]) {
+				dist[i] = val;
+				par[i] = {s, dir};
+				if (its[i] == q.end()) its[i] = q.push({-dist[i], i});
+				else q.modify(its[i], {-dist[i], i});
+			}
+		};
+
+		while (!q.empty()) {
+			s = q.top().second; q.pop();
+			seen[s] = 1; di = dist[s] + pi[s];
+			for (int i : ed[s]) if (!seen[i])
+				relax(i, cap[s][i] - flow[s][i], cost[s][i], 1);
+			for (int i : red[s]) if (!seen[i])
+				relax(i, flow[i][s], -cost[i][s], 0);
+		}
+		rep(i,0,N) pi[i] = min(pi[i] + dist[i], INF);
+	}
+
+	pair<ll, ll> maxflow(int s, int t) {
+		ll totflow = 0, totcost = 0;
+		while (path(s), seen[t]) {
+			ll fl = INF;
+			for (int p,r,x = t; tie(p,r) = par[x], x != s; x = p)
+				fl = min(fl, r ? cap[p][x] - flow[p][x] : flow[x][p]);
+			totflow += fl;
+			for (int p,r,x = t; tie(p,r) = par[x], x != s; x = p)
+				if (r) flow[p][x] += fl;
+				else flow[x][p] -= fl;
+		}
+		rep(i,0,N) rep(j,0,N) totcost += cost[i][j] * flow[i][j];
+		return {totflow, totcost};
+	}
+
+	// If some costs can be negative, call this before maxflow:
+	void setpi(int s) { // (otherwise, leave this out)
+		fill(all(pi), INF); pi[s] = 0;
+		int it = N, ch = 1; ll v;
+		while (ch-- && it--)
+			rep(i,0,N) if (pi[i] != INF)
+				for (int to : ed[i]) if (cap[i][to])
+					if ((v = pi[i] + cost[i][to]) < pi[to])
+						pi[to] = v, ch = 1;
+		assert(it >= 0); // negative cost cycle
+	}
 };
-
-const int INF = 1e9;
-vector<vector<int>> adj, cost, cap;
-
-/// Implementation of the SPFA algorithm.
-void shortest_paths(const int n, const int src, vector<int> &d,
-                    vector<int> &p) {
-  d.assign(n, INF);
-  d[src] = 0;
-  vector<bool> inq(n, false);
-  queue<int> q;
-  q.emplace(src);
-  p.assign(n, -1);
-
-  while (!q.empty()) {
-    int u = q.front();
-    q.pop();
-    inq[u] = false;
-    for (int v : adj[u]) {
-      if (cap[u][v] > 0 && d[v] > d[u] + cost[u][v]) {
-        d[v] = d[u] + cost[u][v];
-        p[v] = u;
-        if (!inq[v]) {
-          inq[v] = true;
-          q.emplace(v);
-        }
-      }
-    }
-  }
-}
-
-/// Implementation of the min_cost_flow algorithm.
-/// Returns a pair containing the maximum flow (less than or equal to k) and its
-/// cost. Set K to INF in the parameter to find the minimum-cost maximum-flow.
-///
-/// Time Complexity: O(n²m²)
-pair<int, int> min_cost_flow(const int N, const vector<Edge> &edges,
-                             const int K, const int s, const int t) {
-  adj.assign(N, vector<int>());
-  cost.assign(N, vector<int>(N, 0));
-  cap.assign(N, vector<int>(N, 0));
-  for (const Edge &e : edges) {
-    adj[e.from].emplace_back(e.to);
-    adj[e.to].emplace_back(e.from);
-    cost[e.from][e.to] = e.cost;
-    cost[e.to][e.from] = -e.cost;
-    cap[e.from][e.to] = e.cap;
-  }
-
-  int flow = 0, cost = 0;
-  vector<int> d, p;
-  while (flow < K) {
-    shortest_paths(N, s, d, p);
-    if (d[t] == INF)
-      break;
-
-    // find max flow on that path
-    int f = K - flow;
-    int cur = t;
-    while (cur != s) {
-      f = min(f, cap[p[cur]][cur]);
-      cur = p[cur];
-    }
-
-    // apply flow
-    flow += f;
-    cost += f * d[t];
-    cur = t;
-    while (cur != s) {
-      cap[p[cur]][cur] -= f;
-      cap[cur][p[cur]] += f;
-      cur = p[cur];
-    }
-  }
-
-  return make_pair(flow, cost);
-}
+// clang-format on
