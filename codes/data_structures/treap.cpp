@@ -76,6 +76,12 @@ private:
   // }
   // #endif
 
+  #ifdef REVERSE 
+  void apply_reverse(Node *node) {
+    swap(node->left, node->right);
+  }
+  #endif
+
   int get_size(const Node *node) { return node ? node->size : 0; }
 
   void update_size(Node *node) {
@@ -86,7 +92,7 @@ private:
   #ifdef REVERSE
   void propagate_reverse(Node *node) {
     if (node && node->rev) {
-      swap(node->left, node->right);
+      apply_reverse(node);
       if (node->left)
         node->left->rev ^= 1;
       if (node->right)
@@ -117,7 +123,8 @@ private:
       propagate_lazy(node->right);
       #endif
       #ifdef REVERSE
-      propagate_reverse(node);
+      propagate_reverse(node->left);
+      propagate_reverse(node->right);
       #endif
       merge_nodes(node);
     }
@@ -265,8 +272,7 @@ private:
     split(M, M, R, r - l);
 
     Node *node = M;
-    node->rev = true;
-    propagate_reverse(node);
+    node->rev ^= true;
 
     merge(L, L, M);
     merge(root, L, R);
