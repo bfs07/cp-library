@@ -79,6 +79,7 @@ private:
   #ifdef REVERSE 
   void apply_reverse(Node *node) {
     swap(node->left, node->right);
+    // write other operations here
   }
   #endif
 
@@ -293,10 +294,14 @@ public:
   int size() { return _size; }
 
   /// Moves the subarray [l, r] to the position starting at new_pos.
-  ///
+  /// new_pos represents the position BEFORE the subarray is deleted!!!
+  /// 
   /// Time Complexity: O(log n)
-  void move(const int l, const int r, const int new_pos) {
+  void move(const int l, const int r, int new_pos) {
     assert(0 <= new_pos), assert(new_pos <= _size - (r - l + 1));
+    if(new_pos > l)
+      // after erase the index will be different if new_pos > l  
+      new_pos -= r - l + 1;
     _move(l, r, new_pos);
   }
 
