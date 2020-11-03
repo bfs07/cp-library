@@ -298,7 +298,7 @@ public:
   /// 
   /// Time Complexity: O(log n)
   void move(const int l, const int r, int new_pos) {
-    assert(0 <= new_pos), assert(new_pos <= _size - (r - l + 1));
+    assert(0 <= new_pos), assert(new_pos <= _size);
     if(new_pos > l)
       // after erase the index will be different if new_pos > l  
       new_pos -= r - l + 1;
@@ -310,7 +310,7 @@ public:
   /// Time Complexity: O(log n)
   void move_back(const int l, const int r) {
     assert(0 <= l), assert(l <= r), assert(r < _size);
-    _move(l, r, _size - (r - l + 1));
+    _move(l, r, _size);
   }
 
   /// Moves the subarray [l, r] to the front of the array.
