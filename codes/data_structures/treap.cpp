@@ -90,6 +90,21 @@ private:
       node->size = 1 + get_size(node->left) + get_size(node->right);
   }
 
+  void print(Node *node) {
+    if(!node)
+      return;
+    if(node->left) {
+      cerr << "left" << endl;
+      print(node->left);
+    }
+    cerr << node->val << endl;
+    cerr << endl;
+    if(node->right) {
+      cerr << "right" << endl;
+      print(node->right);
+    }
+  }
+
   #ifdef REVERSE
   void propagate_reverse(Node *node) {
     if (node && node->rev) {
@@ -310,7 +325,7 @@ public:
   /// Time Complexity: O(log n)
   void move_back(const int l, const int r) {
     assert(0 <= l), assert(l <= r), assert(r < _size);
-    _move(l, r, _size);
+    move(l, r, _size);
   }
 
   /// Moves the subarray [l, r] to the front of the array.
@@ -318,7 +333,7 @@ public:
   /// Time Complexity: O(log n)
   void move_front(const int l, const int r) {
     assert(0 <= l), assert(l <= r), assert(r < _size);
-    _move(l, r, 0);
+    move(l, r, 0);
   }
 
   #ifdef REVERSE
