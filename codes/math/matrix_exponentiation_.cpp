@@ -1,3 +1,4 @@
+// USE #define int long long!!!!
 struct Matrix {
   static constexpr int MOD = 1e9 + 7;
 
@@ -39,7 +40,7 @@ struct Matrix {
     return ans;
   }
 
-  /// Exponentiates the matrix mat to the power of p.
+  /// Exponents the matrix mat to the power of p.
   ///
   /// Time Complexity: O((mat.size() ^ 3) * log2(p))
   Matrix expo(int p) {
