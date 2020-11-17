@@ -64,9 +64,17 @@ public:
   /// Prefix query from 1 to i.
   ///
   /// Time Complexity O(log n)
-  int query(const int i) {
+  int prefix_query(const int i) {
     assert(1 <= i), assert(i <= n);
     return bit_query(i);
+  }
+
+  /// Query at a single index.
+  ///
+  /// Time Complexity O(log n)
+  int query(const int idx) {
+    assert(1 <= idx), assert(idx <= this->n);
+    return bit_query(idx) - bit_query(idx - 1);
   }
 
   /// Range query from l to r.
