@@ -1,3 +1,5 @@
+// Created by tysm.
+
 /// Returns a tuple containing the gcd(a, b) and the roots for
 /// a*x + b*y = gcd(a, b).
 ///
