@@ -51,18 +51,18 @@ void dfs(int u, int p, int l, bool keep) {
   }
 
   if (idx != -1) {
-    // precalculate the answer for the biggest subtrees
+    // precalculate the answer for the biggest subtree and keep the results
     dfs(idx, u, l + 1, 1);
   }
 
   // bruteforce all subtrees other than idx
   add(u, p, l, idx, 1);
   // the answer of u is the level ans. As it is relative to the input tree we
-  // need to subtract it to the current level of u.
+  // need to subtract it to the current level of u
   q[u] = ans - l;
   if (keep == 0) {
     // removing the calculated answer for the subtree, if it doesn't belong to
-    // the biggest subtree of it's parent (keep = 0).
+    // the biggest subtree of it's parent (keep = 0)
     add(u, p, l, -1, -1);
     // clearing the answer
     maxx = 0, ans = 0;
