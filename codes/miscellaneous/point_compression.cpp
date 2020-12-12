@@ -6,7 +6,7 @@
 vector<int> compress(vector<int> &arr) {
   vector<int> aux = arr;
   sort(aux.begin(), aux.end());
-  aux.erase(unique(aux.begin(), aux.end()), aux.end());
+  aux.resize(unique(aux.begin(), aux.end()) - aux.begin());
 
   for (size_t i = 0; i < arr.size(); i++) {
     int id = lower_bound(aux.begin(), aux.end(), arr[i]) - aux.begin();
