@@ -1,55 +1,43 @@
-int inv(int a, int m) {
-  int m0 = m, t, q;
-  int x0 = 0, x1 = 1;
-
-  if (m == 1)
-    return 0;
-
-  // Apply extended Euclid Algorithm
-  while (a > 1) {
-    // q is quotient
-    if (m == 0)
-      return INF;
-    q = a / m;
-    t = m;
-    // m is remainder now, process same as euclid's algo
-    m = a % m, a = t;
-    t = x0;
-    x0 = x1 - q * x0;
-    x1 = t;
-  }
-
-  // Make x1 positive
-  if (x1 < 0)
-    x1 += m0;
-
-  return x1;
+inline int mod(int x, const int MOD) {
+  x %= MOD;
+  if (x < 0)
+    x += MOD;
+  return x;
 }
-// k is size of num[] and rem[].  Returns the smallest
-// number x such that:
-//  x % num[0] = rem[0],
-//  x % num[1] = rem[1],
-//  ..................
-//  x % num[k-2] = rem[k-1]
-// Assumption: Numbers in num[] are pairwise coprimes
-// (gcd for every pair is 1)
-int findMinX(const vector<int> &num, const vector<int> &rem, const int k) {
-  // Compute product of all numbers
-  int prod = 1;
-  for (int i = 0; i < k; i++)
-    prod *= num[i];
 
-  int result = 0;
-
-  // Apply above formula
-  for (int i = 0; i < k; i++) {
-    int pp = prod / num[i];
-    int iv = inv(pp, num[i]);
-    if (iv == INF)
-      return INF;
-    result += rem[i] * inv(pp, num[i]) * pp;
+tuple<int, int, int> extended_gcd(int a, int b) {
+  int x = 0, y = 1, x1 = 1, y1 = 0;
+  while (a != 0) {
+    const int q = b / a;
+    tie(x, x1) = make_pair(x1, x - q * x1);
+    tie(y, y1) = make_pair(y1, y - q * y1);
+    tie(a, b) = make_pair(b % a, a);
   }
+  return make_tuple(b, x, y);
+}
 
-  // IF IS NOT VALID RETURN INF
-  return (result % prod == 0 ? INF : result % prod);
+/// Returns the smallest number x such that:
+/// x % num[0] = rem[0],
+/// x % num[1] = rem[1],
+/// ..................
+/// x % num[n - 1] = rem[n - 1]
+/// It also works when gcd(rem[i], rem[j]) != 1
+///
+/// Time Complexity: O(n*log(n))
+int crt(vector<int> &rem, const vector<int> &md) {
+  const int n = rem.size();
+  for (int i = 0; i < n; i++)
+    rem[i] = mod(rem[i], md[i]);
+  int ans = rem.front(), LCM = md.front();
+  for (int i = 1; i < n; i++) {
+    int x, g;
+    tie(g, x, ignore) = extended_gcd(LCM, md[i]);
+    if ((rem[i] - ans) % g != 0)
+      return -1;
+    ans =
+        mod(ans + x * (rem[i] - ans) / g % (md[i] / g) * LCM, LCM * md[i] / g);
+    // lcm of LCM, md[i]
+    LCM = LCM / g * md[i];
+  }
+  return ans;
 }
