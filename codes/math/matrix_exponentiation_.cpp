@@ -1,4 +1,5 @@
 // USE #define int long long!!!!
+// Remember to MOD the numbers beforing putting them into the matrix !!!
 struct Matrix {
   static constexpr int MOD = 1e9 + 7;
 
@@ -43,7 +44,7 @@ struct Matrix {
   /// Exponents the matrix mat to the power of p.
   ///
   /// Time Complexity: O((mat.size() ^ 3) * log2(p))
-  Matrix expo(int p) {
+  Matrix pow(int p) {
     assert(p >= 0);
     Matrix ans = identity(), cur_power(n, m);
     cur_power.mat = mat;
