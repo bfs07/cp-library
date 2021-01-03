@@ -4,7 +4,7 @@ class Dinic {
     // capacity (maximum flow) of the edge
     // if it is a reverse edge then its capacity should be equal to 0
     const int cap;
-    // current flow of the graph
+    // current flow of the edge
     int flow = 0;
     Edge(const int v, const int cap) : v(v), cap(cap) {}
   };
