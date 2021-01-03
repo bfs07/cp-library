@@ -1,2 +1,2 @@
-for (int j = mask; j; j = (j - 1) & mask) {
+for (int j = mask; j > 0; j = (j - 1) & mask) {
 }
