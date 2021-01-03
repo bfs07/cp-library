@@ -6,7 +6,7 @@ int lis(vector<int> &arr) {
     int ansj = -1;
     while (l <= r) {
       int mid = (l + r) / 2;
-      // OBS: - To >= LIS change to the operation below to <=
+      // OBS: - To >= LIS change to the operation below to >
       //      - Put <= or >= for strictly!!
       if (arr[i] < lis[mid]) {
         r = mid - 1;
