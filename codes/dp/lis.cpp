@@ -6,17 +6,17 @@ int lis(vector<int> &arr) {
     int ansj = -1;
     while (l <= r) {
       int mid = (l + r) / 2;
-      // OBS: PARA >= TROCAR SINAL EMBAIXO POR <=
+      // OBS: - To >= LIS change to the operation below to <=
+      //      - Put <= or >= for strictly!!
       if (arr[i] < lis[mid]) {
         r = mid - 1;
         ansj = mid;
       } else
         l = mid + 1;
     }
-    if (ansj == -1) {
-      // se arr[i] e maior que todos
-      lis.push_back(arr[i]);
-    } else
+    if (ansj == -1)
+      lis.emplace_back(arr[i]);
+    else
       lis[ansj] = arr[i];
   }
 
