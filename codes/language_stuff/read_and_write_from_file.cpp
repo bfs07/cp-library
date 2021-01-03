@@ -1,1 +1,2 @@
-ifstream cin("input.txt");
+freopen("filename.in", "r", stdin);
+freopen("filename.out", "w", stdout);

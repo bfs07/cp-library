@@ -1,2 +1,2 @@
-int a; string b;
-b = to_string(a);
+int a;
+string b = to_string(a);

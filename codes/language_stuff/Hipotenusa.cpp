@@ -1,1 +1,0 @@
-cout << hypot(3,4); // output: 5

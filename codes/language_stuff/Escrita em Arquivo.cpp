@@ -1,1 +1,0 @@
-ofstream cout("output.txt");
