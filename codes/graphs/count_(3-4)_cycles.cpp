@@ -1,4 +1,9 @@
 /// INDEXED FROM 0!!!!!
+/// Counts the number of cycles of length 3 and 4 in the graph.
+/// The vector cycles contains some cycles of length for and I think (not sure)
+/// all cycles of length 3.
+///
+/// Time complexity: O(n * sqrt(n))
 int count_cycles(vector<vector<int>> &adj) {
   const int n = adj.size();
   vector<int> rep(n);
@@ -16,8 +21,7 @@ int count_cycles(vector<vector<int>> &adj) {
         g[u].emplace_back(v);
 
   vector<int> cnt(n), vis(n);
-  // Contains some cycles of length 4 and 3 (idk if contains all)
-  // from the graph
+  // Contains some cycles of length 4 and 3 from the graph
   vector<vector<int>> cycles;
 
   int ans = 0;
