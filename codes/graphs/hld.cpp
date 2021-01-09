@@ -61,12 +61,15 @@ private:
     this->dfs(root_idx, 0, -1, adj, nidx);
   }
 
-  // int _compute(const int u, Seg_Tree &st) {
-  //   int ans = 0;
-  //   for (int v = u; v != -1; v = parent[chain_head[chain_id[v]]]) {
-  //     // change here
-  //     ans += st.query(id_in_tree[chain_head[chain_id[v]]], id_in_tree[v]);
+  // int _compute(const int u, const int limit, Seg_Tree &st) {
+  //   int ans = 0, v;
+  //   for (v = u; chain_id[v] != chain_id[limit];
+  //        v = parent[chain_head[chain_id[v]]]) {
+  //     // change below
+  //     ans = max(ans, st.query(id_in_tree[chain_head[chain_id[v]]],
+  //                    id_in_tree[v]));
   //   }
+  //   ans = max(ans, st.query(id_in_tree[limit], id_in_tree[v]));
   //   return ans;
   // }
 
@@ -79,11 +82,13 @@ public:
     build(root_idx, adj);
   }
 
-  /// Computes the paths using segment tree.
+  /// Computes the paths until a limit using segment tree.
   /// Uncomment id_in_tree!!!
   ///
   /// Time Complexity: O(log^2(n))
-  // int compute(const int u, Seg_Tree &st) { return _compute(u, st); }
+  // int compute(const int u, const int limit, Seg_Tree &st) {
+  //   return _compute(u, limit, st);
+  // }
 
   // TAKE CARE, YOU MAY GET MLE!!!
   // the chains are indexed from 0
