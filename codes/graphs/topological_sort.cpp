@@ -27,7 +27,7 @@ vector<int> topological_sort(const int indexed_from,
         q.emplace(v);
   }
 
-  if (cnt != n) {
+  if (cnt != n - indexed_from) {
     // There exists a cycle in the graph
     return vector<int>();
   }
