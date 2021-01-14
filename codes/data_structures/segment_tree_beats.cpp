@@ -320,4 +320,4 @@ public:
 };
 // clang-format on
 // OBS: Q updates of the type a[i] = (min/max)(a[i], x) have the amortized
-// complexity of O(n * (log(q) ^ 2)).
+// complexity of O(q * (log(n) ^ 2)).
