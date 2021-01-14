@@ -1,4 +1,4 @@
-// Move #define int long long below this line!!!!
+/// DOESN'T SUPPORT PARALLEL EDGES!!!!!!
 
 /// Code copied from:
 /// github.com/kth-competitive-programming/kactl/blob/master/content/graph/MinCostMaxFlow.h
@@ -7,12 +7,12 @@
 // #define all(x) begin(x), end(x)
 // typedef pair<int, int> ii;
 // typedef vector<int> vi;
-typedef vector<ll> VL;
 typedef long long ll;
+typedef vector<ll> VL;
 #define sz(x) (int)(x).size()
 #define rep(i, a, b) for (int i = a; i < (b); ++i)
 
-const ll INF = numeric_limits<ll>::max() / 4;
+const ll INFl = numeric_limits<ll>::max() / 4;
 
 // clang-format off
 struct MCMF {
@@ -36,7 +36,7 @@ struct MCMF {
 
 	void path(int s) {
 		fill(all(seen), 0);
-		fill(all(dist), INF);
+		fill(all(dist), INFl);
 		dist[s] = 0; ll di;
 
 		__gnu_pbds::priority_queue<pair<ll, int>> q;
@@ -61,13 +61,13 @@ struct MCMF {
 			for (int i : red[s]) if (!seen[i])
 				relax(i, flow[i][s], -cost[i][s], 0);
 		}
-		rep(i,0,N) pi[i] = min(pi[i] + dist[i], INF);
+		rep(i,0,N) pi[i] = min(pi[i] + dist[i], INFl);
 	}
 
 	pair<ll, ll> maxflow(int s, int t) {
 		ll totflow = 0, totcost = 0;
 		while (path(s), seen[t]) {
-			ll fl = INF;
+			ll fl = INFl;
 			for (int p,r,x = t; tie(p,r) = par[x], x != s; x = p)
 				fl = min(fl, r ? cap[p][x] - flow[p][x] : flow[x][p]);
 			totflow += fl;
@@ -81,10 +81,10 @@ struct MCMF {
 
 	// If some costs can be negative, call this before maxflow:
 	void setpi(int s) { // (otherwise, leave this out)
-		fill(all(pi), INF); pi[s] = 0;
+		fill(all(pi), INFl); pi[s] = 0;
 		int it = N, ch = 1; ll v;
 		while (ch-- && it--)
-			rep(i,0,N) if (pi[i] != INF)
+			rep(i,0,N) if (pi[i] != INFl)
 				for (int to : ed[i]) if (cap[i][to])
 					if ((v = pi[i] + cost[i][to]) < pi[to])
 						pi[to] = v, ch = 1;
