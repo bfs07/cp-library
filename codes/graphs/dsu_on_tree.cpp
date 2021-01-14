@@ -55,8 +55,11 @@ void dfs(int u, int p, int l, bool keep) {
     dfs(idx, u, l + 1, 1);
   }
 
+  // Change below to apply the bruteforce you need. GENERALLY YOU SHOULD ONLY
+  // MODIFY BELOW. 
   // bruteforce all subtrees other than idx
   add(u, p, l, idx, 1);
+
   // the answer of u is the level ans. As it is relative to the input tree we
   // need to subtract it to the current level of u
   q[u] = ans - l;
