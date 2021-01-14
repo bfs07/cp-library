@@ -16,7 +16,7 @@ tuple<int, int, int> extended_gcd(int a, int b) {
   return make_tuple(b, x, y);
 }
 
-/// USE __int128_t if LCM can overflow!!!
+/// USE __int128_t if LCM can get close to LLONG_MAX!!!
 /// Returns the smallest number x such that:
 /// x % num[0] = rem[0],
 /// x % num[1] = rem[1],
@@ -35,7 +35,7 @@ int crt(vector<int> &rem, const vector<int> &md) {
     tie(g, x, ignore) = extended_gcd(LCM, md[i]);
     if ((rem[i] - ans) % g != 0)
       return -1;
-    // the multiplication below may overflow if LCM can get closer to 1e18
+    // the multiplication below may overflow if LCM can get close to LLONG_MAX
     // use __int128_t in this case
     ans =
         mod(ans + x * (rem[i] - ans) / g % (md[i] / g) * LCM, LCM / g * md[i]);
