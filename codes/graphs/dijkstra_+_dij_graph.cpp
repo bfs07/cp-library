@@ -9,6 +9,7 @@ private:
   vector<vector<int>> parent;
 
 private:
+  /// Time Complexity: O(E log V)
   void _compute(const int src, const vector<vector<pair<int, int>>> &adj) {
     _dist.resize(this->n, INF);
     vector<bool> vis(this->n, false);
