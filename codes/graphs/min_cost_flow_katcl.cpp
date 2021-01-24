@@ -1,3 +1,4 @@
+/// MINIMIZES COST * FLOW!!!!
 /// DOESN'T SUPPORT PARALLEL EDGES!!!!!!
 
 /// Code copied from:

@@ -1,3 +1,4 @@
+/// MINIMIZES COST * FLOW!!!!
 /// Code copied from:
 /// https://github.com/gabrielpessoa1/Biblioteca-Maratona/blob/master/code/Graph/MinCostMaxFlow.cpp
 template <class T = int> class MCMF {
