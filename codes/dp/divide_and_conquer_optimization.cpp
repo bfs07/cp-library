@@ -1,15 +1,17 @@
 /// Problem: Split the array into k buckets such that the cost of each bucket is
 /// the square sum of each subarray.
 
+// resize below
+vi last, dp;
 // Cost for splitting the subarray (l, n - 1) into (l, r - 1), (r, n - 1).
 int C(int l, int r) {
   int val = 0;
   // remove the cost for the range(l, n - 1)
-  val -= sq(sum(l, n));
+  val -= sq(sum(l, n - 1));
   // adding the cost for the range(l, r - 1)
   val += sq(sum(l, r - 1));
   // adding the cost for the range(r, n - 1)
-  val += sq(sum(r, n));
+  val += sq(sum(r, n - 1));
   return val;
 }
 
