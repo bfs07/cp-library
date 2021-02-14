@@ -1,5 +1,7 @@
 /// Splits a string into a vector. A separator can be specified
 /// EX: str=A-B-C -> split -> x = {A,B,C}
+///
+/// Time Complexity: O(s.size())
 vector<string> split(const string &s, char separator = ' ') {
   stringstream ss(s);
   string item;
