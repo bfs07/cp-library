@@ -2,7 +2,9 @@ class Suffix_Automaton {
 private:
   struct state {
     map<char, int> next;
-    // Length of the current substring which is the longest in the ith class.
+    /// Length of the current substring which is the longest in the ith class.
+    /// The range of substring lengths of this class is the following:
+    /// [st[st[u].prev].len + 1, len].
     const int len;
     /// Contains a link to the previous substring from the ith class. Contains
     /// unique substrings from next(prev) this state.
@@ -92,9 +94,7 @@ public:
   /// Returns -1 if this state doesn't exists.
   int next(const int cur, const char c) {
     auto it = st[cur].next.find(c);
-    if (it == st[cur].next.end())
-      return -1;
-    return it->second;
+    return it == st[cur].next.end() ? -1 : it->second;
   }
 
   void print() {
