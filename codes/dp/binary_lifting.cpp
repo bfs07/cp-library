@@ -39,16 +39,16 @@ private:
 
 public:
   Binary_Lifting(const vector<int> &nxt
-  #ifdef COST
-               , const vector<int> &cost
-  #endif
+                #ifdef COST
+                , const vector<int> &cost
+                #endif
     ) : n(nxt.size()) {
     allocate();
     this->nxt[0] = nxt;
-#ifdef COST
+    #ifdef COST
     this->cost[0] = cost;
     assert(nxt.size() == cost.size());
-#endif
+    #endif
     build_nxt();
   }
 
