@@ -1,4 +1,6 @@
+// clang-format off
 /// Works also with 1-indexed graphs.
+// #define QUEUE
 class Dijkstra {
 private:
   static constexpr int INF = 2e18;
@@ -21,14 +23,22 @@ private:
         parent[i].emplace_back(i);
     }
 
+    #ifdef QUEUE
+    queue<pair<int, int>> pq;
+    #else
     priority_queue<pair<int, int>, vector<pair<int, int>>,
                    greater<pair<int, int>>>
         pq;
+    #endif
     pq.emplace(0, src);
     _dist[src] = 0;
 
     while (!pq.empty()) {
+      #ifdef QUEUE
+      int u = pq.front().second;
+      #else
       int u = pq.top().second;
+      #endif
       pq.pop();
       if (vis[u])
         continue;
@@ -144,3 +154,4 @@ public:
     return _dist[dest];
   }
 };
+// clang-format on
