@@ -4,23 +4,24 @@ private:
     map<char, int> next;
     /// Length of the current substring which is the longest in the ith class.
     /// The range of substring lengths of this class is the following:
-    /// [st[st[u].prev].len + 1, len].
+    /// [st[st[u].link].len + 1, len].
     const int len;
-    /// Contains a link to the previous substring from the ith class. Contains
-    /// unique substrings from next(prev) this state.
-    int prev;
+    /// Contains a link to the state containing the longest suffix of the
+    /// current class which isn't present in it.
+    int link;
     /// Contains the index of the last position of the first substring.
     const int first_pos;
     /// Whether the ith node is terminal or not.
     bool is_terminal = false;
 
-    state(const map<char, int> next, const int len, const int prev,
+    state(const map<char, int> next, const int len, const int link,
           const int first_pos)
-        : next(next), len(len), prev(prev), first_pos(first_pos) {}
+        : next(next), len(len), link(link), first_pos(first_pos) {}
   };
   vector<state> st;
   int last = 0;
 
+  /// Time Complexity: O(n*log(alphabet_size))
   void build(const string &s) {
     st.emplace_back(map<char, int>(), 0, -1, -1);
 
@@ -28,27 +29,27 @@ private:
       st.emplace_back(map<char, int>(), i + 1, 0, i);
       const int cur = (int)st.size() - 1;
 
-      int prev = last;
-      while (prev >= 0 && !st[prev].next.count(s[i])) {
-        st[prev].next[s[i]] = cur;
-        prev = st[prev].prev;
+      int link = last;
+      while (link >= 0 && !st[link].next.count(s[i])) {
+        st[link].next[s[i]] = cur;
+        link = st[link].link;
       }
 
-      if (prev != -1) {
-        const int q = st[prev].next[s[i]];
-        if (st[prev].len + 1 == st[q].len) {
-          st[cur].prev = q;
+      if (link != -1) {
+        const int q = st[link].next[s[i]];
+        if (st[link].len + 1 == st[q].len) {
+          st[cur].link = q;
         } else {
-          st.emplace_back(st[q].next, st[prev].len + 1, st[q].prev,
+          st.emplace_back(st[q].next, st[link].len + 1, st[q].link,
                           st[q].first_pos);
           const int qq = (int)st.size() - 1;
-          st[q].prev = st[cur].prev = qq;
-          while (prev >= 0) {
-            auto it = st[prev].next.find(s[i]);
-            if (it == st[prev].next.end() || it->second != q)
+          st[q].link = st[cur].link = qq;
+          while (link >= 0) {
+            auto it = st[link].next.find(s[i]);
+            if (it == st[link].next.end() || it->second != q)
               break;
             it->second = qq;
-            prev = st[prev].prev;
+            link = st[link].link;
           }
         }
       }
@@ -60,7 +61,7 @@ private:
     int p = last;
     while (p > 0) {
       st[p].is_terminal = true;
-      p = st[p].prev;
+      p = st[p].link;
     }
   }
 
@@ -84,7 +85,7 @@ public:
 
   int size() { return st.size(); }
 
-  int prev(const int idx) { return st[idx].prev; }
+  int link(const int idx) { return st[idx].link; }
 
   int len(const int idx) { return st[idx].len; }
 
@@ -133,16 +134,17 @@ public:
   }
 };
 
-/// To output all occurrences build the inverse_prev adjacency list
+/// OUTPUT ALL OCCURRENCES
+/// To output all occurrences build the inverse_link adjacency list
 ///
 /// for (int i = 1; i < st.size(); ++i)
-///   inverse_prev[st[i].prev].emplace_back(i);
+///   inverse_link[st[i].link].emplace_back(i);
 ///
 /// Then take all occurrences from state cur (where the substring ends)
 ///
 /// void output_all_occurrences(int cur, int pat_length) {
 ///   occ.emplace_back(st[cur].first_pos - pat_length + 1);
-///   for (const int u : inverse_prev[cur])
+///   for (const int u : inverse_link[cur])
 ///     output_all_occurrences(u, pat_length);
 /// }
 ///
@@ -150,3 +152,27 @@ public:
 ///
 /// sort(occ.begin(), occ.end())
 /// occ.resize(unique(occ.begin(), occ.end()) - occ.begin())
+
+/// LAST POSITION
+/// Since the link of the current state represents the longest suffix of the
+/// current class which is not present in it, we can calculate the last
+/// position of the current class using dp.
+//
+// vector<int> dp_last_pos;
+// vector<vector<int>> inverse_link;
+// void pre_compute() {
+//   dp_last_pos.resize(st.size(), -1);
+//   inverse_link.resize(st.size());
+//   for (int i = 1; i < st.size(); ++i)
+//     inverse_link[st[i].link].emplace_back(i);
+// }
+//
+// int last_pos(const int u) {
+//   int &ret = dp_last_pos[u];
+//   if (~ret)
+//     return ret;
+//   ret = st[u].first_pos;
+//   for (const int v : inverse_link[u])
+//     ret = max(ret, last_pos(v));
+//   return ret;
+// }
