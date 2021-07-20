@@ -1,1 +1,0 @@
-Fazer LCS da string com o reverso
