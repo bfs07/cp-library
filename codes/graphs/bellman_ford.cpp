@@ -3,17 +3,15 @@ struct edge {
   edge() {}
   edge(int src, int dest, int weight) : src(src), dest(dest), weight(weight) {}
 
-  bool operator<(const edge &a) const {
-    return weight < a.weight;
-  }
+  bool operator<(const edge &a) const { return weight < a.weight; }
 };
 
-/// Works to find the shortest path with negative edges. 
+/// Works to find the shortest path with negative edges.
 /// Also detects cycles.
-/// 
+///
 /// Time Complexity: O(n * e)
 /// Space Complexity: O(n)
-bool bellman_ford(vector<edge> &edges, int src, int n)  {
+bool bellman_ford(vector<edge> &edges, int src, int n) {
   // n = qtd of vertices, E = qtd de arestas
 
   // To calculate the shortest path uncomment the line below
@@ -26,8 +24,9 @@ bool bellman_ford(vector<edge> &edges, int src, int n)  {
   int E = edges.size();
 
   dist[src] = 0;
-  // Relax all edges n - 1 times. 
-  // A simple shortest path from src to any other vertex can have at-most n - 1 edges.
+  // Relax all edges n - 1 times.
+  // A simple shortest path from src to any other vertex can have at-most n - 1
+  // edges.
   for (int i = 1; i <= n - 1; i++) {
     for (int j = 0; j < E; j++) {
       int u = edges[j].src;
@@ -41,8 +40,8 @@ bool bellman_ford(vector<edge> &edges, int src, int n)  {
   }
 
   // Check for NEGATIVE-WEIGHT CYCLES.
-  // The above step guarantees shortest distances if graph doesn't contain negative weight cycle. 
-  // If we get a shorter path, then there is a cycle.
+  // The above step guarantees shortest distances if graph doesn't contain
+  // negative weight cycle. If we get a shorter path, then there is a cycle.
   bool is_cycle = false;
   int vert_in_cycle;
   for (int i = 0; i < E; i++) {
@@ -56,21 +55,22 @@ bool bellman_ford(vector<edge> &edges, int src, int n)  {
     }
   }
 
-  if(is_cycle) {
-    for(int i = 0; i < n; i++)
-      vert_in_cycle = pai[vert_in_cycle]; 
+  if (is_cycle) {
+    for (int i = 0; i < n; i++)
+      vert_in_cycle = pai[vert_in_cycle];
 
     vector<int> cycle;
-    for(int v = vert_in_cycle; (v != vert_in_cycle || cycle.size() <= 1) ; v = pai[v])
+    for (int v = vert_in_cycle; (v != vert_in_cycle || cycle.size() <= 1);
+         v = pai[v])
       cycle.pb(v);
 
     reverse(cycle.begin(), cycle.end());
 
-    for(int x: cycle) {
+    for (int x : cycle) {
       cout << x + 1 << ' ';
     }
     cout << cycle.front() + 1 << endl;
     return true;
-  } else 
+  } else
     return false;
 }

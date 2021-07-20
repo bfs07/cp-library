@@ -56,7 +56,7 @@ void dfs(int u, int p, int l, bool keep) {
   }
 
   // Change below to apply the bruteforce you need. GENERALLY YOU SHOULD ONLY
-  // MODIFY BELOW. 
+  // MODIFY BELOW.
   // bruteforce all subtrees other than idx
   add(u, p, l, idx, 1);
 
