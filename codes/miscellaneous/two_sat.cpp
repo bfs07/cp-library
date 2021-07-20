@@ -1,13 +1,13 @@
 // OBS: INDEXED FROM 0
 // USE POS_X = 1 FOR POSITIVE CLAUSES AND 0 FOR NEGATIVE. OTHERWISE THE FINAL
 // ANSWER ARRAY WILL BE FLIPPED.
-class SAT {
+class Two_Sat {
 private:
   vector<vector<int>> adj;
   int n;
 
 public:
-  SAT(const int n) : n(n) {
+  Two_Sat(const int n) : n(n) {
     adj.resize(2 * n);
     ans.resize(n);
   }

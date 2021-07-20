@@ -1,3 +1,5 @@
+/// Code copied from:
+/// https://www.geeksforgeeks.org/stack-set-2-infix-to-postfix/
 /// Infix Expression | Prefix Expression | Postfix Expression
 ///      A + B       |     + A B         |       A B +
 ///    A + B * C     |    + A * B C      |     A B C * +
