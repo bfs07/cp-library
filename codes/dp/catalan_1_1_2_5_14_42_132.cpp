@@ -1,6 +1,6 @@
 // The first few Catalan numbers for n = 0, 1, 2, 3, ...
 // are 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, ...
-// Formula Recursiva:
+// Recursive formula:
 // cat(0) = 0
 // cat(n+1) = sum(i from 0 to n)(cat(i)*cat(n-i))
 //

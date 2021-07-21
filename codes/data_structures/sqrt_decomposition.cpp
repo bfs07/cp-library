@@ -1,5 +1,5 @@
 // Problem: Sum from l to r
-// Ver MO'S ALGORITHM
+// See also MO'S ALGORITHM
 // --------------------------------------
 int getId(int indx, int blockSZ) { return indx / blockSZ; }
 
