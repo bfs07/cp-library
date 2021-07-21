@@ -1,3 +1,4 @@
+// clang-format off
 namespace RadixSort {
 /// Sorts the array arr stably in ascending order.
 ///
@@ -124,3 +125,4 @@ class Suffix_Array {
     return _compare(i, j, length);
   }
 };
+// clang-format on

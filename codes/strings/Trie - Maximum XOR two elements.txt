@@ -1,3 +1,0 @@
-1. Dada uma trie de números binários e um numero X, tente achar o número máximo que resultante da operação XOR  
-
-Ex: Para o número 10(=(1010)2), o número que resulta no xor máximo é (0101)2 , tente acha-lo na trie.
